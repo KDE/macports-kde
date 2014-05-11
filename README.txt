@@ -27,7 +27,8 @@ $ (cd /opt/local/etc/macports/; diff -u sources.conf.old sources.conf)
 See [2] for more details. Don't forget to execute portindex in the directory
 /Users/USER/WC/MacPorts/dports whenever you add or remove a Portfile to that tree.
 
-
+See also contrib/user-setup for suggestions on how to set up a MacPorts bash
+environment for users/maintainers.
 
 
 

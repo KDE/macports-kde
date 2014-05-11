@@ -1,0 +1,5 @@
+# these allow you to start typing a command and
+# use the up/down arrow to auto complete from
+# commands in your history
+"\e[B": history-search-forward
+"\e[A": history-search-backward

@@ -1,0 +1,41 @@
+# -----------------------------------------------------------------------------
+# This sets up the PATH and PS1 prompt environment variables according to the
+# currently chosen MacPorts installation specified by the PORTPREFIX variable
+#
+# Credit goes to Brad for this nice approach to switch quickly between several
+# MacPorts installations on a system.
+#
+# If there is e.g. a 2nd install on /opt/macports-test one could set up
+# the following aliases:
+#  alias AAA='PORTPREFIX=/opt/macports-test; source ~/.profile; echo $PATH'
+#  alias SSS='unset PORTPREFIX; source ~/.profile; echo $PATH'
+#
+# [This installation doesn't make use of this feature ATM!]
+# -----------------------------------------------------------------------------
+
+if [ -z "${OLDPATH}" ]; then
+   export OLDPATH=$PATH
+fi
+if [ -z "${OLDMANPATH}" ]; then
+   export OLDMANPATH=$MANPATH
+fi
+if [ -z "${PORTPREFIX}" ]; then
+   export PORTPREFIX=/opt/local
+   export PS1='\h:\W \u\$ '
+elif [ "x${PORTPREFIX}" == "x/opt/macports-test" ]; then
+   # Unfortunately colours don't work with history search functions :(
+   #export PS1='\033[41;42;1mMP-devel\033[0m:\W \u\$ '
+   export PS1='[ MP-devel ] :\W \u\$ '
+elif [ "x${PORTPREFIX}" == "x/opt/clean-slate" ]; then
+   export PS1='[ MP-clean-slate ] :\W \u\$ '
+elif [ "x${PORTPREFIX}" == "x/opt/mp-test" ]; then
+   export PS1='[ MP-test ] :\W \u\$ '
+elif [ "x${PORTPREFIX}" != "x/opt/local" ]; then
+   export PS1='[ MP-??? ] :\W \u\$ '
+fi
+export PATH=~/bin:$PORTPREFIX/bin:$PORTPREFIX/sbin:$PORTPREFIX/libexec/gnubin:$OLDPATH
+export MANPATH=$PORTPREFIX/share/man:$OLDMANPATH
+
+# this is needed for trac (see http://trac.edgewall.org/ticket/9444)
+#export LANGUAGE=C
+

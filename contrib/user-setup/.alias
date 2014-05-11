@@ -1,0 +1,13 @@
+alias dir='ls -l'
+alias ll='ls -l'
+alias la='ls -la'
+alias l='ls -alF'
+alias ls-l='ls -l'
+alias cd..='cd ..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias PI='(cd /Users/kdemac/WC/MacPorts/ports/; portindex; echo "Disabled local portfiles:"; find . -name Portfile.*; echo; echo "Enabled local portfiles:"; find . -name Portfile; echo)'
+alias PSLO="sudo port selfupdate; port outdated"
+alias PUOUI="sudo port upgrade outdated"
+alias PUO="sudo port upgrade outdated"
+
