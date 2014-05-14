@@ -5,9 +5,22 @@ installations.
 It assumes that the user has installed ports:
  ---
   bash
-  bash_completion
+  bash-completion
   autojump
  ---
+
+In order to let bash-completion work properly one needs to make sure that
+Terminal.app starts MacPorts' bash as the default shell. This can be configured
+by enabling in Terminal.app's preferences
+
+	Settings/Shell/Startup
+
+and setting the "Run command" to
+
+	/opt/local/bin/bash -l
+
+and you may disable the "Run inside shell" option.
+
 
 .bash_profile integrates functions trac-get and trac-patch are useful for port
 maintainers [1].
