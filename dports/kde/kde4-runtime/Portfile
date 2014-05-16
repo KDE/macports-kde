@@ -6,7 +6,7 @@ PortGroup           kde4   1.1
 
 name                kde4-runtime
 version             4.12.4
-revision            1
+revision            2
 categories          kde kde4
 maintainers         nicos
 license             GPL-2+ LGPL-2.1+
@@ -72,16 +72,6 @@ variant xine description "Enable xine support" {
 if {[variant_isset xine]} {
     # xine-lib is not universal
     universal_variant no
-}
-
-pre-build {
-    # Add missing object files manually.
-    #(Should be in libkdeinit4_kglobalaccel, but do not link)
-    reinplace "s|-o|CMakeFiles/kdeinit_kglobalaccel.dir/globalshortcutsregistry.o \
-        CMakeFiles/kdeinit_kglobalaccel.dir/globalshortcut.o \
-        CMakeFiles/kdeinit_kglobalaccel.dir/globalshortcutcontext.o \
-        CMakeFiles/kdeinit_kglobalaccel.dir/component.o -o|g" \
-        ${workpath}/build/kglobalaccel/CMakeFiles/kglobalaccel.dir/link.txt
 }
 
 post-destroot {
