@@ -1,0 +1,15 @@
+[user]
+	name = "Your name"
+	email = your@email
+[color]
+	ui = true
+[url "git://anongit.kde.org/"]
+	insteadOf = kde:
+[url "git@git.kde.org:"]
+	pushInsteadOf = kde:
+[push]
+	default = nothing
+[core]
+	excludesfile = ~/.gitignore_global
+[branch]
+	autosetuprebase = always

@@ -1,0 +1,45 @@
+#  Please enter the commit message for your changes. Lines starting
+#  with '#' will be ignored, and an empty message aborts the commit.
+#
+#  You MUST wrap all lines at 72 characters.
+#  Please see http://techbase.kde.org/Policies/Commit_Policy
+#
+#  For Git commit hook keywords see:
+#  http://community.kde.org/Sysadmin/GitKdeOrgManual#Commit_hook_keywords
+#
+# ==[ Subject: One line ONLY short meaningful description for logs ]===|
+
+# ==[ Blank: Follow the Subject with a blank line, do NOT remove ]=====|
+
+# ==[ Details: Describe what changed and explain why it changed]=======|
+
+
+# ==[ Fields: Uncomment and edit where applicable ]====================|
+#
+# --[ Close bug in bugs.kde.org as fixed ]-----------------------------|
+#BUG: <bug number>
+#FIXED-IN: <optional release version>
+#
+# --[ Add to release changelog optionally close wish in bugs.kde.org ]-|
+#FEATURE: <optional bug number>
+#FIXED-IN: <optional release version>
+#
+# --[ Copy commit message to a bug or wish in bugs.kde.org ]-----------|
+#CCBUG: <bug number>
+#
+# --[ Copy commit message to an email address ]------------------------|
+#CCMAIL: <email>
+#
+# --[ Close a review on git.reviewboard.kde.org as submitted ]---------|
+#REVIEW: <review number>
+#
+# --[ Notify documentation team of user visible changes ]--------------|
+#GUI:
+#
+# --[ Notify Commit Digest team of something interesting ]-------------|
+#DIGEST:
+#
+# --[ Mark commit as silent for commit filter filtering. ]-------------|
+#   [ Use sparingly and only for uninteresting and       ]
+#   [ uncontroversial commits.                           ]
+#GIT_SILENT
