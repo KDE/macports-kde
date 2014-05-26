@@ -1,0 +1,28 @@
+diff --git a/config/base/kf5-qt5 b/config/base/kf5-qt5
+index 16abdf6..fff9647 100644
+--- a/config/base/kf5-qt5
++++ b/config/base/kf5-qt5
+@@ -18,7 +18,7 @@ general/vc: -qt5
+ general/shared-desktop-ontologies: -qt5
+ 
+ # KDE Frameworks
+-frameworks/kauth: kdesupport/polkit-qt-1
++#frameworks/kauth: kdesupport/polkit-qt-1
+ kde/*: general/kdesupport-svn
+ kde/workspace/plasma-workspace: general/libdbusmenu-qt
+ 
+diff --git a/config/build/darwin-mavericks.cfg b/config/build/darwin-mavericks.cfg
+index cb62c49..0648464 100644
+--- a/config/build/darwin-mavericks.cfg
++++ b/config/build/darwin-mavericks.cfg
+@@ -1,7 +1,8 @@
+ [DEFAULT]
++scriptsLocation=/Users/marko/scripts
+ opSys=darwin
+ architecture=mavericks
+ compiler=clang
+ 
+ [General]
+-installPrefix=/opt/kde/install/%(opSys)s/%(architecture)s/%(compiler)s/
+\ No newline at end of file
++installPrefix=/opt/kde/install/%(opSys)s/%(architecture)s/%(compiler)s/
