@@ -10,6 +10,8 @@ if [ "x$1" != "x" ]; then
 	(cd ~/scripts; \
 		python2.7 tools/prepare-environment.py --project $1 --branchGroup kf5-qt5 \
 		--platform darwin-mavericks --sources ${BDIR} )
+	exit $?
 else
 	echo "Usage: $0 PROJECT_NAME"
+	exit false
 fi
