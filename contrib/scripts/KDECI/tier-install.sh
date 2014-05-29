@@ -1,13 +1,16 @@
 #!/bin/bash
 #
-# This builds all frameworks of a specific tier
+# This builds all frameworks of a specific tier as defined in
+# tier definition files ./tier[1-3].fw
+# 
+# (prepend a hash in front of framework name to disable it)
+# 
 #
 # TODO: interrupt handling to stop building abruptly
 #
 
 
-#if [ -z "$1"  -o  $1 -le 0  -o  $1 -ge 3 ]; then
-if [ -z "$1" ]; then
+if [ -z "$1" ] || [ $1 -le 0 ] || [ $1 -ge 3 ]; then
    echo "Usage: $0 [TIER LEVEL]"
    exit
 fi
