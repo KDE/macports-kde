@@ -31,7 +31,9 @@ if [ -f $FAILED_LOG ]; then
 fi
 
 echo "Installing ECM:"
-#./install.sh extra-cmake-modules
+# avoid called shell script to read standard input
+# ( http://stackoverflow.com/questions/9393038/ssh-breaks-out-of-while-loop-in-bash )
+./install.sh extra-cmake-modules < /dev/null
 if [ ! $? -eq 0 ]; then
     echo "extra-cmake-modules" > $FAILED_LOG
 fi
@@ -41,12 +43,13 @@ echo "Installing all tier $1 frameworks:"
 old_IFS=$IFS  # save the field separator  
 IFS=$'\n'     # new field separator, the end of line
 
-while read LINE
+while read -r LINE
 do
     FW=`echo "$LINE" | awk {'print $1'}`
     if [ "$FW" != "#" ]; then
 	echo "Installing '$FW' ..."
-        ./install.sh $FW
+        # avoid called shell script to read standard input
+        ./install.sh $FW < /dev/null
 	if [ ! $? -eq 0 ]; then
             echo "Installing '$FW' FAILED !!!"
             echo "$FW" > $FAILED_LOG
