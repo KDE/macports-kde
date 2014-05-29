@@ -1,7 +1,19 @@
 #!/bin/bash
+#
+# This builds all frameworks of a specific tier
+#
+# TODO: interrupt handling to stop building abruptly
+#
 
-FRAMEWORKS=~/scripts/tier1.fw
-FAILED_LOG=~/scripts/failed-tier1.txt
+
+#if [ -z "$1"  -o  $1 -le 0  -o  $1 -ge 3 ]; then
+if [ -z "$1" ]; then
+   echo "Usage: $0 [TIER LEVEL]"
+   exit
+fi
+
+FRAMEWORKS=~/scripts/tier$1.fw
+FAILED_LOG=~/scripts/failed-tier$1.txt
 
 if [ -f $FAILED_LOG ]; then
     rm $FAILED_LOG 
@@ -13,7 +25,7 @@ if [ ! $? -eq 0 ]; then
     echo "extra-cmake-modules" > $FAILED_LOG
 fi
 
-echo "Installing all tier 1 frameworks:"
+echo "Installing all tier $1 frameworks:"
 
 old_IFS=$IFS  # save the field separator  
 IFS=$'\n'     # new field separator, the end of line
@@ -36,7 +48,7 @@ done < $FRAMEWORKS
 
 IFS=$old_IFS  # restore default field separator 
 
-echo "Finished installing all tier 1 frameworks."
+echo "Finished installing all tier $1 frameworks."
 echo ; echo "======================================================"; echo
 
 if [ -f $FAILED_LOG ]; then
