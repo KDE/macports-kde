@@ -5,10 +5,18 @@
 # 
 # (prepend a hash in front of framework name to disable it)
 # 
-#
-# TODO: interrupt handling to stop building abruptly
-#
+###############################################################
 
+# http://hacktux.com/bash/control/c
+control_c()
+# run if user hits control-c
+{
+    echo -en "\n*** Ouch! Exiting ***\n"
+    exit $?
+}
+
+# trap keyboard interrupt (control-c)
+trap control_c SIGINT
 
 if [ -z "$1" ] || [ $1 -le 0 ] || [ $1 -ge 3 ]; then
    echo "Usage: $0 [TIER LEVEL]"
