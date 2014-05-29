@@ -21,7 +21,7 @@ $ (cd /opt/local/etc/macports/; diff -u sources.conf.old sources.conf)
  # For proper functionality of various resources (port groups, mirror
  # sites, etc.), the primary MacPorts source must always be tagged
  # "[default]", even if switched from the default "rsync://" URL.
-+file:///Users/USER/WC/MacPorts/dports
++file:///Users/USER/WC/MacPorts/dports [nosync]
  rsync://rsync.macports.org/release/tarballs/ports.tar [default]
 ---
 See [2] for more details. Don't forget to execute portindex in the directory
