@@ -6,7 +6,7 @@ kconfig
 kcoreaddons
 kdbusaddons
 kdnssd
-# kglobalaccel
+# {kglobalaccel}
 kguiaddons
 ki18n
 kidletime
@@ -15,7 +15,7 @@ kitemmodels
 kitemviews
 kplotting
 kwidgetsaddons
-# kwindowsystem
+# {kwindowsystem}
 solid
 sonnet
 threadweaver

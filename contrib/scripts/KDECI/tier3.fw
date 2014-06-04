@@ -1,0 +1,26 @@
+phonon
+kconfigwidgets
+kservice
+kiconthemes
+ktextwidgets
+kxmlgui
+kcmutils
+kbookmarks
+kdesu
+kemoticons
+knotifications
+kwallet
+kio
+kactivities
+kdeclarative
+kparts
+kdewebkit
+kinit
+kmediaplayer
+knewstuff
+knotifyconfig
+ktexteditor
+kdesignerplugin
+kded
+# {plasma-framework}
+# {plasma}

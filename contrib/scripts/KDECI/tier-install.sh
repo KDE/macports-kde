@@ -18,7 +18,7 @@ control_c()
 # trap keyboard interrupt (control-c)
 trap control_c SIGINT
 
-if [ -z "$1" ] || [ $1 -le 0 ] || [ $1 -ge 3 ]; then
+if [ -z "$1" ] || [ $1 -lt 1 ] || [ $1 -gt 4 ]; then
    echo "Usage: $0 [TIER LEVEL]"
    exit
 fi
@@ -30,12 +30,17 @@ if [ -f $FAILED_LOG ]; then
     rm $FAILED_LOG 
 fi
 
-echo "Installing ECM:"
-# avoid called shell script to read standard input
-# ( http://stackoverflow.com/questions/9393038/ssh-breaks-out-of-while-loop-in-bash )
-./install.sh extra-cmake-modules < /dev/null
-if [ ! $? -eq 0 ]; then
-    echo "extra-cmake-modules" > $FAILED_LOG
+INSTALL_ECM=false
+if [ INSTALL_ECM == "true" ]; then 
+    echo "Installing ECM:"
+    # avoid called shell script to read standard input
+    # ( http://stackoverflow.com/questions/9393038/ssh-breaks-out-of-while-loop-in-bash )
+    ./install.sh extra-cmake-modules < /dev/null
+    if [ ! $? -eq 0 ]; then
+        echo "extra-cmake-modules" > $FAILED_LOG
+    fi
+else
+    echo "Ignoring ECM installation."
 fi
 
 echo "Installing all tier $1 frameworks:"
