@@ -21,7 +21,7 @@ if [ "x$1" != "x" ]; then
 	)
 
 	if [ $? ]; then
-		grep "Receiving objects:" ${LOG} > /dev/null
+		grep "From git" ${LOG} > /dev/null
 		exit $?
 	else
 		exit 1
