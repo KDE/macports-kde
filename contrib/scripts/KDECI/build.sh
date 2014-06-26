@@ -4,7 +4,7 @@ BUILD_DIR=/Users/marko/WC/KDECI-builds
 
 if [ "x$1" != "x" ]; then
 	BDIR=${BUILD_DIR}/$1
-	LOG=${BUILD_DIR}/build/$1.log
+	LOG=${BUILD_DIR}/logs/build/$1.log
 
 	[ -f ${LOG} ] && (echo "Removing old log file"; rm ${LOG})
 
