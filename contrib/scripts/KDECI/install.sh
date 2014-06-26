@@ -7,7 +7,7 @@ if [ "x$1" != "x" ]; then
 
 	(
 		cd ~/scripts;
-		if ( ./prepare.sh $1 ); then
+		if ( ./prepare.sh $1 || [ "x$2" == "xrebuild" ] ); then
 			./build.sh $1
 			exit $?
 		else
@@ -15,6 +15,6 @@ if [ "x$1" != "x" ]; then
 		fi
 	)
 else
-        echo "Usage: $0 PROJECT_NAME"
+        echo "Usage: $0 PROJECT_NAME [rebuild]"
 	exit -1
 fi

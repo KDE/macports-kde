@@ -19,7 +19,7 @@ control_c()
 trap control_c SIGINT
 
 if [ -z "$1" ] || [ $1 -lt 1 ] || [ $1 -gt 4 ]; then
-   echo "Usage: $0 [TIER LEVEL]"
+   echo "Usage: $0 TIER_LEVEL [rebuild]"
    exit
 fi
 
@@ -54,7 +54,7 @@ do
     if [ "$FW" != "#" ]; then
 	echo "Installing '$FW' ..."
         # avoid called shell script to read standard input
-        ./install.sh $FW < /dev/null
+        ./install.sh $FW $2 < /dev/null
 	if [ ! $? -eq 0 ]; then
             echo "Installing '$FW' FAILED !!!"
             echo "$FW" > $FAILED_LOG
