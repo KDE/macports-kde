@@ -1,0 +1,39 @@
+diff --git qtbase/src/corelib/io/qstandardpaths_mac.cpp qtbase/src/corelib/io/qstandardpaths_mac.cpp
+index aff9112..2493e52 100644
+--- qtbase/src/corelib/io/qstandardpaths_mac.cpp
++++ qtbase/src/corelib/io/qstandardpaths_mac.cpp
+@@ -159,6 +159,8 @@ QString QStandardPaths::writableLocation(StandardLocation type)
+         }
+     }
+ 
++    const QString qttestDir = QLatin1String("/opt/kde/install/darwin/mavericks/system");
++    QString path;
+     switch (type) {
+     case HomeLocation:
+         return QDir::homePath();
+@@ -166,12 +168,23 @@ QString QStandardPaths::writableLocation(StandardLocation type)
+         return QDir::tempPath();
+     case GenericDataLocation:
+     case DataLocation:
++        path = qttestDir + QLatin1String("/Library/Application Support");
++        if (type == DataLocation)
++            appendOrganizationAndApp(path);
++        return path;
+     case GenericCacheLocation:
+     case CacheLocation:
+     case RuntimeLocation:
+-        return macLocation(type, kUserDomain);
++        path = qttestDir + QLatin1String("/Cache");
++        if (type == CacheLocation)
++            appendOrganizationAndApp(path);
++        return path;
++    case GenericConfigLocation:
++    case ConfigLocation:
++        return qttestDir + QLatin1String("/Library/Preferences");
+     default:
+-        return macLocation(type, kOnAppropriateDisk);
++        return qttestDir + QLatin1String("/Default");
++        break;
+     }
+ }
+ 
