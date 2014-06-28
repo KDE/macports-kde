@@ -17,7 +17,8 @@ if [ "x$1" != "x" ]; then
 		--platform darwin-mavericks --sources ${BDIR} ) &> ${LOG}
 
 	RETURN_VALUE=$?
-	if [ $RETURN_VALUE ]; then
+#	echo "Return value = $RETURN_VALUE"
+	if [ $RETURN_VALUE -eq 0 ]; then
 		if [ "$1" == "kdoctools" ]; then
 #			echo "Copying kdoctools' files to /Library/Application Support/ doesn't seem to be necessary anymore!"
 			echo "Copying kdoctools' files to /Library/Application Support/ ..."
