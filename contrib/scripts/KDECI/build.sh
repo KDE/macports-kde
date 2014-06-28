@@ -17,13 +17,15 @@ if [ "x$1" != "x" ]; then
 		--platform darwin-mavericks --sources ${BDIR} ) &> ${LOG}
 
 	RETURN_VALUE=$?
-	if [ ! $RETURN_VALUE ]; then
+	if [ $RETURN_VALUE ]; then
 		if [ "$1" == "kdoctools" ]; then
 #			echo "Copying kdoctools' files to /Library/Application Support/ doesn't seem to be necessary anymore!"
 			echo "Copying kdoctools' files to /Library/Application Support/ ..."
 			rm -rf /Library/Application\ Support/kf5/kdoctools/
 			cp -Rp /opt/kde/install/darwin/mavericks/clang/kf5-qt5/frameworks/kdoctools/inst/Library/Application\ Support/kf5 /Library/Application\ Support
 		fi
+	else
+		echo "BUILD FAILED"
 	fi
 	echo "=========================================="
 	exit $RETURN_VALUE
