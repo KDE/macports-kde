@@ -30,6 +30,8 @@ if [ -f $FAILED_LOG ]; then
     rm $FAILED_LOG 
 fi
 
+echo ; echo "------------------------------------------"; echo
+
 INSTALL_ECM=false
 if [ INSTALL_ECM == "true" ]; then 
     echo "Installing ECM:"
@@ -43,6 +45,8 @@ else
     echo "Ignoring ECM installation."
 fi
 
+echo ; echo "------------------------------------------"; echo
+
 echo "Installing all tier $1 frameworks:"
 
 old_IFS=$IFS  # save the field separator  
@@ -52,7 +56,7 @@ while read -r LINE
 do
     FW=`echo "$LINE" | awk {'print $1'}`
     if [ "$FW" != "#" ]; then
-	echo "Installing '$FW' ..."
+#	echo "Installing '$FW' ..."
         # avoid called shell script to read standard input
         ./install.sh $FW $2 < /dev/null
 	if [ ! $? -eq 0 ]; then
@@ -61,14 +65,16 @@ do
 	fi
     else
         FW=`echo "$LINE" | awk {'print $2'}`
+        echo "------------------------------------------"
         echo "Ignoring framework '$FW'."
     fi
 done < $FRAMEWORKS
 
 IFS=$old_IFS  # restore default field separator 
 
+echo ; echo "=========================================="; echo
 echo "Finished installing all tier $1 frameworks."
-echo ; echo "======================================================"; echo
+echo ; echo "=========================================="; echo
 
 if [ -f $FAILED_LOG ]; then
    echo "Failed frameworks:"
@@ -76,4 +82,6 @@ if [ -f $FAILED_LOG ]; then
 else
    echo "No framework failed." 
 fi
+
+echo ; echo "=========================================="; echo
 
