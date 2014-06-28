@@ -60,7 +60,7 @@ do
         # avoid called shell script to read standard input
         ./install.sh $FW $2 < /dev/null
 	if [ ! $? -eq 0 ]; then
-            echo "Installing '$FW' FAILED !!!"
+#            echo "Installing '$FW' FAILED !!!"
             echo "$FW" >> $FAILED_LOG
 	fi
     else
