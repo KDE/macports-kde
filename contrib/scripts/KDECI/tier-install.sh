@@ -61,7 +61,7 @@ do
         ./install.sh $FW $2 < /dev/null
 	if [ ! $? -eq 0 ]; then
             echo "Installing '$FW' FAILED !!!"
-            echo "$FW" > $FAILED_LOG
+            echo "$FW" >> $FAILED_LOG
 	fi
     else
         FW=`echo "$LINE" | awk {'print $2'}`
@@ -78,6 +78,7 @@ echo ; echo "=========================================="; echo
 
 if [ -f $FAILED_LOG ]; then
    echo "Failed frameworks:"
+   echo
    cat $FAILED_LOG
 else
    echo "No framework failed." 
