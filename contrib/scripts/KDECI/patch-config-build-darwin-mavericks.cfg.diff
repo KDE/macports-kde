@@ -1,8 +1,8 @@
 diff --git a/config/base/kf5-qt5 b/config/base/kf5-qt5
-index 16abdf6..fff9647 100644
+index 2260aa6..c82e3fc 100644
 --- a/config/base/kf5-qt5
 +++ b/config/base/kf5-qt5
-@@ -18,7 +18,7 @@ general/vc: -qt5
+@@ -20,7 +20,7 @@ general/vc: -qt5
  general/shared-desktop-ontologies: -qt5
  
  # KDE Frameworks
@@ -12,17 +12,31 @@ index 16abdf6..fff9647 100644
  kde/workspace/plasma-workspace: general/libdbusmenu-qt
  
 diff --git a/config/build/darwin-mavericks.cfg b/config/build/darwin-mavericks.cfg
-index cb62c49..0648464 100644
+index cb62c49..e4675a4 100644
 --- a/config/build/darwin-mavericks.cfg
 +++ b/config/build/darwin-mavericks.cfg
-@@ -1,7 +1,8 @@
+@@ -1,7 +1,9 @@
  [DEFAULT]
 +scriptsLocation=/Users/marko/scripts
  opSys=darwin
  architecture=mavericks
  compiler=clang
++configurePlatformArgs=-DCMAKE_INSTALL_BUNDLEDIR="Applications/KF5" -DDATA_INSTALL_DIR="Library/Application Support"
  
  [General]
 -installPrefix=/opt/kde/install/%(opSys)s/%(architecture)s/%(compiler)s/
 \ No newline at end of file
 +installPrefix=/opt/kde/install/%(opSys)s/%(architecture)s/%(compiler)s/
+diff --git a/config/build/global.cfg b/config/build/global.cfg
+index 4052215..9dbe1e1 100644
+--- a/config/build/global.cfg
++++ b/config/build/global.cfg
+@@ -55,7 +55,7 @@ updateMimeDatabaseCommand=%(updateMimeDatabaseExecutable)s share/mime
+ deployInstallation=True
+ 
+ [Test]
+-testsEnabled=True
++testsEnabled=False
+ ctestCountTestsCommand=%(ctestExecutable)s -N
+ xvfbDisplayName=:99
+ xvfbCommand=%(xvfbExecutable)s %(xvfbDisplayName)s -ac -screen 0 1600x1200x24+32
