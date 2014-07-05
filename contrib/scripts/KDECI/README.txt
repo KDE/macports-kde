@@ -33,4 +33,18 @@ specific build configuration:
 
 
 
+
+People
+======
+
+This is a little list of people to be contacted for specific frameworks:
+
+ phonon: apachelogger
+ plasma-framework: notmart
+
+
+
+
+
+
 [1] https://trac.macports.org/wiki/KDEProblems/KDEMacPortsCI/Status 
