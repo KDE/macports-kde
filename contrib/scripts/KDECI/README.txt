@@ -1,3 +1,6 @@
+Shell scripts
+=============
+
 Shell scripts for easier building of Qt5/KF5 projects/frameworks:
 
 These scripts are meant to call the KDE/CI scripts.
@@ -11,6 +14,22 @@ These scripts are meant to call the KDE/CI scripts.
  tier-install.sh  -  run install.sh for all frameworks specified in tier[1-4].fw
 
 The current status of Qt5/KF5 builds is documented in [1].
+
+
+
+
+
+Tools
+=====
+
+This is figuring out the which branch of a project has to be checked out for a
+specific build configuration:
+---
+ $ ~/scripts/dependencies/tools/list_preferred_repo_branch kf5-qt5 kde/phonon
+ frameworks
+ $
+---
+
 
 
 
