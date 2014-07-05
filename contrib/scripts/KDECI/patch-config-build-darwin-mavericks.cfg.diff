@@ -21,7 +21,7 @@ index cb62c49..e4675a4 100644
  opSys=darwin
  architecture=mavericks
  compiler=clang
-+configurePlatformArgs=-DCMAKE_INSTALL_BUNDLEDIR="Applications/KF5" -DDATA_INSTALL_DIR="Library/Application Support"
++configurePlatformArgs=-DCMAKE_INSTALL_BUNDLEDIR="Applications/KF5" -DDATA_INSTALL_DIR="Library/Application Support" -DCMAKE_DISABLE_FIND_PACKAGE_X11=ON
  
  [General]
 -installPrefix=/opt/kde/install/%(opSys)s/%(architecture)s/%(compiler)s/
