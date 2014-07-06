@@ -22,14 +22,20 @@ The current status of Qt5/KF5 builds is documented in [1].
 Tools
 =====
 
-This is figuring out the which branch of a project has to be checked out for a
-specific build configuration:
+Figuring out which branch of a project has to be checked out for a specific
+build configuration:
 ---
  $ ~/scripts/dependencies/tools/list_preferred_repo_branch kf5-qt5 kde/phonon
  frameworks
  $
 ---
 
+
+Determine environment for running an application of a specific project by the
+CI system:
+---
+ $ python2.7 tools/environment-generator.py --project kate --branchGroup kf5-qt5 --platform darwin-mavericks
+---
 
 
 
