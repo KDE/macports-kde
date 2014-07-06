@@ -34,7 +34,14 @@ build configuration:
 Determine environment for running an application of a specific project by the
 CI system:
 ---
- $ python2.7 tools/environment-generator.py --project kate --branchGroup kf5-qt5 --platform darwin-mavericks
+ $ python2.7 tools/environment-generator.py --project kate --branchGroup kf5-qt5 --platform darwin-mavericks >kate.env
+ $
+ $ # Determine which env vars are set for phonon:
+ $ grep phonon kate.env | sed 's/^\(.*\)=.*$/\1/'
+ export CMAKE_PREFIX_PATH
+ export KDEDIRS
+ export PKG_CONFIG_PATH
+ export XDG_DATA_DIRS
 ---
 
 
