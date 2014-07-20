@@ -5,13 +5,15 @@ Shell scripts for easier building of Qt5/KF5 projects/frameworks:
 
 These scripts are meant to call the KDE/CI scripts.
 
- prepare.sh       -  create build dir if not existing, clean it and check out code
+ prepare.sh        -  create build dir if not existing, clean it and check out code
 
- build.sh         -  start configure/build/deploy/test/cppcheck sequence
+ build.sh          -  start configure/build/deploy/test/cppcheck sequence
 
- install.sh       -  runs build.sh after prepare.sh signals that git pulled changes
+ install.sh        -  runs build.sh after prepare.sh signals that git pulled changes
 
- tier-install.sh  -  run install.sh for all frameworks specified in tier[1-4].fw
+ tier-install.sh   -  run install.sh for all frameworks/apps specified in tier[1-5].fw
+
+ mp-osx-ci_diff.sh -  puts diff of OSX/CI configuration into ~/WC/GIT/macports-kde/...
 
 The current status of Qt5/KF5 builds is documented in [1].
 
@@ -25,6 +27,7 @@ Tools
 Figuring out which branch of a project has to be checked out for a specific
 build configuration:
 ---
+ $ cd ~/scripts/dependencies/tools
  $ ~/scripts/dependencies/tools/list_preferred_repo_branch kf5-qt5 kde/phonon
  frameworks
  $
@@ -34,6 +37,7 @@ build configuration:
 Determine environment for running an application of a specific project by the
 CI system:
 ---
+ $ cd ~/scripts
  $ python2.7 tools/environment-generator.py --project kate --branchGroup kf5-qt5 --platform darwin-mavericks >kate.env
  $
  $ # Determine which env vars are set for phonon:
