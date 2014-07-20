@@ -17,8 +17,11 @@ if [ "x$1" != "x" ]; then
 	(
 		cd ~/scripts;
 #		echo "Writing log to '${LOG}' ..."
-		( [ ! -d ${BDIR} ] && git clone ${GITREPO} ${BDIR}
-			cd ${BDIR}; git pull ) &> ${LOG}
+		(
+			[ ! -d ${BDIR} ] && git clone ${GITREPO} ${BDIR}
+			cd ${BDIR}; git pull
+			(git branch --remote | grep frameworks) && git checkout frameworks
+		) &> ${LOG}
 	)
 	# We assume always successful (clon|pull)ing for now:
 	exit 0
