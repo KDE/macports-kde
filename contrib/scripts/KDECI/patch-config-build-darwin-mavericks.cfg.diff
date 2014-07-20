@@ -12,7 +12,7 @@ index 2260aa6..c82e3fc 100644
  kde/workspace/plasma-workspace: general/libdbusmenu-qt
  
 diff --git a/config/build/darwin-mavericks.cfg b/config/build/darwin-mavericks.cfg
-index cb62c49..e4675a4 100644
+index cb62c49..64f14f6 100644
 --- a/config/build/darwin-mavericks.cfg
 +++ b/config/build/darwin-mavericks.cfg
 @@ -1,7 +1,9 @@
@@ -40,3 +40,16 @@ index 4052215..9dbe1e1 100644
  ctestCountTestsCommand=%(ctestExecutable)s -N
  xvfbDisplayName=:99
  xvfbCommand=%(xvfbExecutable)s %(xvfbDisplayName)s -ac -screen 0 1600x1200x24+32
+diff --git a/tools/environment-generator.py b/tools/environment-generator.py
+index 37dcbae..e46a13c 100644
+--- a/tools/environment-generator.py
++++ b/tools/environment-generator.py
+@@ -31,7 +31,7 @@ environment = manager.generate_environment(True)
+ neededVariables = [
+ 	'CMAKE_PREFIX_PATH', 'KDEDIRS', 'PATH', 'LD_LIBRARY_PATH', 'PKG_CONFIG_PATH', 'PYTHONPATH',
+ 	'PERL5LIB', 'QT_PLUGIN_PATH', 'QML_IMPORT_PATH', 'QML2_IMPORT_PATH', 'XDG_DATA_DIRS',
+-	'XDG_CONFIG_DIRS', 'QMAKEFEATURES', 'XDG_CURRENT_DESKTOP'
++	'XDG_CONFIG_DIRS', 'QMAKEFEATURES', 'XDG_CURRENT_DESKTOP', 'DYLD_LIBRARY_PATH'
+ ]
+ 
+ # Generate the shell format environment file, suitable for sourcing
