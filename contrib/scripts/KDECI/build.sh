@@ -19,11 +19,13 @@ if [ "x$1" != "x" ]; then
 	RETURN_VALUE=$?
 #	echo "Return value = $RETURN_VALUE"
 	if [ $RETURN_VALUE -eq 0 ]; then
-		if [ "$1" == "kdoctools" ]; then
-#			echo "Copying kdoctools' files to /Library/Application Support/ doesn't seem to be necessary anymore!"
-			echo "Copying kdoctools' files to /Library/Application Support/ ..."
-			rm -rf /Library/Application\ Support/kf5/kdoctools/
-			cp -Rp /opt/kde/install/darwin/mavericks/clang/kf5-qt5/frameworks/kdoctools/inst/Library/Application\ Support/kf5 /Library/Application\ Support
+		if [ "$1" == "kdoctools" -o "$1" == "kdelibs4support" ]; then
+			echo "Copying $1's files to /Library/Application Support/ ..."
+
+# We can't remove this anymore, since files might come from two frameworks
+#			rm -rf /Library/Application\ Support/kf5/kdoctools/
+
+			cp -Rp /opt/kde/install/darwin/mavericks/clang/kf5-qt5/frameworks/$1/inst/Library/Application\ Support/kf5 /Library/Application\ Support
 		fi
 	else
 		echo "BUILD FAILED"
