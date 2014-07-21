@@ -1,12 +1,12 @@
 # -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
-# $Id: Portfile 121378 2014-06-24 16:23:44Z nicos@macports.org $
+# $Id: Portfile 122038 2014-07-13 11:29:03Z nicos@macports.org $
 
 PortSystem          1.0
 PortGroup           kde4   1.1
 
 name                kdelibs4
 version             4.12.5
-revision            3
+revision            4
 categories          kde kde4
 maintainers         nicos
 license             LGPL-2+ GPL-2+ BSD
@@ -53,16 +53,23 @@ depends_skip_archcheck aspell-dict-en
 
 conflicts           kdelibs3
 
-patchfiles          add-bundles-to-path.patch \
-                    default-kde4-xdg-menu-prefix.patch \
-                    workaround-kdeinit4-crash.patch \
-                    patch-cmake-modules-FindKDE4-Internal.cmake.diff \
-                    patch-cmake-modules-FindPhonon.cmake.diff \
-                    patch-cmake-modules-FindQt4.cmake.diff \
-                    patch-cmake-modules-KDE4Macros.cmake.diff \
-                    patch-removeFindFlex.diff \
-                    patch-kapplications-raster.diff \
-                    patch-avoid-kwindowinfo-destructor.diff \
+#workaround-kdeinit4-crash: Mac-specific patch developed by Macports to circumvent some crashes.
+#avoid-kwindowinfo-destructor: Prevent sending null pointer to CFRelease (see ticket #44258)
+#default-kde4-xdg-menu-prefix: solves a conflict with a file from gnome-menus (see ticket #18914)
+#add-bundles-to-path: improve support for KIO slaves by adding a search path
+#kapplications-raster: ensures that kde applications start in raster (faster) mode, but also provides a switch for non-working applications
+#removeFindFlex: remove FindFlex.cmake which may hide the working one of cmake (ticket #44119)
+#patch-cmake-modules-FindKDE4-Internal.cmake: Fixes zlib detection (see ticket #24128)
+#patch-cmake-modules-KDE4Macros.cmake: Ensures that compiled objects are properly detected during build (see ticket #43720)
+
+patchfiles           workaround-kdeinit4-crash.patch \
+                     avoid-kwindowinfo-destructor.patch \
+                     default-kde4-xdg-menu-prefix.patch \
+                     add-bundles-to-path.patch \
+                     patch-kapplications-raster.diff \
+                     patch-removeFindFlex.diff \
+                     patch-cmake-modules-FindKDE4-Internal.cmake.diff \
+                     patch-cmake-modules-KDE4Macros.cmake.diff
 
 patch.pre_args      -p1
 
@@ -161,6 +168,15 @@ variant unifiedtoolbar description {Add a unified title and tool bar} {}
 
 if { [variant_isset unifiedtoolbar] } {
     patchfiles-append  patch-unified-toolbar.diff
+}
+
+variant kcrashpatches description {Ian's patches to improve KCrash on OSX} {}
+
+if { [variant_isset kcrashpatches] } {
+    patchfiles-append \
+        fixCrashInKCrash.patch \
+        fixInvokeBrowser.patch \
+        fixReportBug.patch
 }
 
 livecheck.url       http://kde.mirrors.hoobly.com/stable/
