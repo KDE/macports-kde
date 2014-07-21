@@ -61,6 +61,8 @@ conflicts           kdelibs3
 #removeFindFlex: remove FindFlex.cmake which may hide the working one of cmake (ticket #44119)
 #patch-cmake-modules-FindKDE4-Internal.cmake: Fixes zlib detection (see ticket #24128)
 #patch-cmake-modules-KDE4Macros.cmake: Ensures that compiled objects are properly detected during build (see ticket #43720)
+#fixCrashInKCrash.patch: Ian's fix for Dr.Konqi
+#fixInvokeBrowser.patch: Ian's fix for bug reporting
 
 patchfiles           workaround-kdeinit4-crash.patch \
                      avoid-kwindowinfo-destructor.patch \
@@ -175,8 +177,7 @@ variant kcrashpatches description {Ian's patches to improve KCrash on OSX} {}
 if { [variant_isset kcrashpatches] } {
     patchfiles-append \
         fixCrashInKCrash.patch \
-        fixInvokeBrowser.patch \
-        fixReportBug.patch
+        fixInvokeBrowser.patch
 }
 
 livecheck.url       http://kde.mirrors.hoobly.com/stable/
