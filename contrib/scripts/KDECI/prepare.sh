@@ -17,8 +17,10 @@ if [ "x$1" != "x" ]; then
 	(
 		cd ~/scripts;
 #		echo "Writing log to '${LOG}' ..."
-		( python2.7 tools/prepare-environment.py --project $1 --branchGroup kf5-qt5 \
-			--platform darwin-mavericks --sources ${BDIR} && cd ${BDIR} && git checkout jenkins ) &> ${LOG}
+		(
+			python2.7 tools/prepare-environment.py --project $1 --branchGroup kf5-qt5 --platform darwin-mavericks --sources ${BDIR}
+			cd ${BDIR} && git checkout jenkins && git pull
+		) &> ${LOG}
 	)
 
 	if [ $? ]; then
