@@ -38,7 +38,7 @@ Determine environment for running an application of a specific project by the
 CI system:
 ---
  $ cd ~/scripts
- $ python2.7 tools/environment-generator.py --project kate --branchGroup kf5-qt5 --platform darwin-mavericks >kate.env
+ $ python2.7 tools/environment-generator.py --branchGroup kf5-qt5 --platform darwin-mavericks --project kate >kate.env
  $
  $ # Determine which env vars are set for phonon:
  $ grep phonon kate.env | sed 's/^\(.*\)=.*$/\1/'
