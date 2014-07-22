@@ -10,4 +10,4 @@
 INCLUDES="config tools"
 
 git checkout mp-osx-ci
-git diff production $INCLUDES >~/WC/GIT/macports-kde/contrib/scripts/KDECI/patch-config-build-darwin-mavericks.cfg.diff
+git diff production $INCLUDES >~/WC/GIT/macports-kde/contrib/scripts/KDECI/patch_mp-osx-ci.diff
