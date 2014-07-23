@@ -15,6 +15,8 @@ These scripts are meant to call the KDE/CI scripts.
 
  mp-osx-ci_diff.sh -  puts diff of OSX/CI configuration into ~/WC/GIT/macports-kde/...
 
+ create-env.sh     -  creates the correct environment for the specified application
+
 The current status of Qt5/KF5 builds is documented in [1].
 
 
@@ -47,7 +49,7 @@ CI system:
  export PKG_CONFIG_PATH
  export XDG_DATA_DIRS
 ---
-
+This is implemented in create-env.sh.
 
 
 
