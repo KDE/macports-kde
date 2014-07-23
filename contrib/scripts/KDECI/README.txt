@@ -5,17 +5,19 @@ Shell scripts for easier building of Qt5/KF5 projects/frameworks:
 
 These scripts are meant to call the KDE/CI scripts.
 
- prepare.sh        -  create build dir if not existing, clean it and check out code
+ prepare.sh           -  create build dir if not existing, clean it and check out code
 
- build.sh          -  start configure/build/deploy/test/cppcheck sequence
+ build.sh             -  start configure/build/deploy/test/cppcheck sequence
 
- install.sh        -  runs build.sh after prepare.sh signals that git pulled changes
+ install.sh           -  runs build.sh after prepare.sh signals that git pulled changes
 
- tier-install.sh   -  run install.sh for all frameworks/apps specified in tier[1-5].fw
+ tier-install.sh      -  run install.sh for all frameworks/apps specified in tier[1-5].fw
 
- mp-osx-ci_diff.sh -  puts diff of OSX/CI configuration into ~/WC/GIT/macports-kde/...
+ all-tiers-install.sh -  install all tiers in one go
 
- create-env.sh     -  creates the correct environment for the specified application
+ mp-osx-ci_diff.sh    -  puts diff of OSX/CI configuration into ~/WC/GIT/macports-kde/...
+
+ create-env.sh        -  creates the correct environment for the specified application
 
 The current status of Qt5/KF5 builds is documented in [1].
 
