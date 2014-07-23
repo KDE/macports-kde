@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # This builds all frameworks of a specific tier as defined in
-# tier definition files ./tier[1-3].fw
+# tier definition files ./tier[1-5].fw
 # 
 # (prepend a hash in front of framework name to disable it)
 # 
