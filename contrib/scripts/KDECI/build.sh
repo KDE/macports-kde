@@ -26,6 +26,10 @@ if [ "x$1" != "x" ]; then
 #			rm -rf /Library/Application\ Support/kf5/kdoctools/
 
 			cp -Rp /opt/kde/install/darwin/mavericks/clang/kf5-qt5/frameworks/$1/inst/Library/Application\ Support/kf5 /Library/Application\ Support
+			if [ "$1" == "kdoctools" ]; then
+				echo "Fixing paths in kdex.dtd..."
+				sed '1,$s/Application Support/Application%20Support/' /opt/kde/install/darwin/mavericks/clang/kf5-qt5/frameworks/$1/inst/Library/Application\ Support/kf5 /Library/Application\ Support/kf5/kdoctools/customization/dtd/kdex.dtd >/Library/Application\ Support/kf5/kdoctools/customization/dtd/kdex.dtd
+			fi
 		fi
 	else
 		echo "BUILD FAILED"
