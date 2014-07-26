@@ -5,6 +5,8 @@ Shell scripts for easier building of Qt5/KF5 projects/frameworks:
 
 These scripts are meant to call the KDE/CI scripts.
 
+(They will be moved to the [1] which is a clone of websites/build-kde-org.)
+
  prepare.sh           -  create build dir if not existing, clean it and check out code
 
  build.sh             -  start configure/build/deploy/test/cppcheck sequence
@@ -19,7 +21,7 @@ These scripts are meant to call the KDE/CI scripts.
 
  create-env.sh        -  creates the correct environment for the specified application
 
-The current status of Qt5/KF5 builds is documented in [1].
+The current status of Qt5/KF5 builds is documented in [2].
 
 
 
@@ -68,4 +70,5 @@ This is a little list of people to be contacted for specific frameworks:
 
 
 
-[1] https://trac.macports.org/wiki/KDEProblems/KDEMacPortsCI/Status 
+[1] http://quickgit.kde.org/?p=clones%2Fwebsites%2Fbuild-kde-org%2Fkaning%2Fmp-osx-ci.git
+[2] https://trac.macports.org/wiki/KDEProblems/KDEMacPortsCI/Status 
