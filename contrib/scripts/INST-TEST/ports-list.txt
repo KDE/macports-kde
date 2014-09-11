@@ -1,0 +1,56 @@
+# ---[ CI system ]---------------------------------------------------------------------
+gnutar py27-lxml wget automake autoconf cppcheck lcov jshon
+
+
+# ---[ Qt5 ]---------------------------------------------------------------------------
+zlib openssl dbus jpeg tiff libmng libpng mysql55 pkgconfig sqlite2 icu pcre libiconv
+
+
+# ---[ Tier 1 ]------------------------------------------------------------------------
+# kcoreaddons:
+shared-mime-info
+
+
+# ---[ Tier 2 ]------------------------------------------------------------------------
+# kdoctools:
+docbook-xml docbook-xsl
+
+
+# ---[ Tier 3 ]------------------------------------------------------------------------
+# kactivities:
+# (also needed for akonadi & kig)
+boost
+
+
+# ---[ Tier 4 ]------------------------------------------------------------------------
+# khtml:
+giflib
+
+
+# ---[ Tier 5 ]------------------------------------------------------------------------
+# alkimia:
+gmp
+
+
+# --- kdeedu ---
+
+# step:
+eigen
+
+# kstars:
+eigen3
+
+# prison:
+qrencode libdmtx -x11
+
+
+# --- kdegames ---
+
+# libkdegames:
+libsndfile
+
+
+# --- extragear ---
+
+# plasma-mediacenter
+taglib
