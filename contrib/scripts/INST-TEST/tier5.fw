@@ -1,0 +1,52 @@
+kdesupport-svn
+kio-extras
+kde-cli-tools
+khelpcenter
+kate
+libkomparediff2
+kfilemetadata
+kdevplatform
+kinfocenter
+kdevelop
+kdevelop-pg-qt
+kdev-php
+# kdev-clang
+# kdev-qmljs
+akonadi
+alkimia
+prison
+# kwin (needs Qt5X11Extras although globally switched off by -DCMAKE_DISABLE_FIND_PACKAGE_X11=ON)
+# oxygen (needs kwin)
+kmymoney
+qca
+konversation
+okteta
+konsole
+kig
+analitza
+kalgebra
+step
+kgeography
+kde-baseapps
+libkdeedu
+libkeduvocdocument
+kanagram
+parley
+kstars
+# libkdcraw (this is still being worked on)
+kqtquickcharts
+marble
+libstreams
+sflphone-kde
+libstreamanalyzer
+systemsettings
+# trojita (needs manual build using perform-build.py with additional option '--variation ZLibOnly')
+# artikulate (Qt5GStreamer needed)
+# kiten (branch frameworks still missing)
+# pairs
+# rocs
+# klettres
+# poppler (needs manual checkout from http://www.freedesktop.org/wiki/Software/ but still fails to link)
+libkdegames
+# bovo
+# plasma-mediacenter

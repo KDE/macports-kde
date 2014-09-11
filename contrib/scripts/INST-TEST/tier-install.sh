@@ -18,7 +18,7 @@ control_c()
 # trap keyboard interrupt (control-c)
 trap control_c SIGINT
 
-if [ -z "$1" ] || [ $1 -lt 1 ] || [ $1 -gt 4 ]; then
+if [ -z "$1" ] || [ $1 -lt 0 ] || [ $1 -gt 5 ]; then
    echo "Usage: $0 TIER_LEVEL [rebuild]"
    exit
 fi

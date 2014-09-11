@@ -1,4 +1,3 @@
-phonon
 kconfigwidgets
 kservice
 kiconthemes
@@ -11,8 +10,8 @@ kemoticons
 knotifications
 kwallet
 kio
-kactivities
 kdeclarative
+kactivities
 kparts
 kdewebkit
 kinit
@@ -22,4 +21,4 @@ knotifyconfig
 ktexteditor
 kdesignerplugin
 kded
-# {plasma}
+plasma-framework
