@@ -6,10 +6,10 @@ PortGroup           kde4 1.1
 
 fetch.type          git
 git.url             git://anongit.kde.org/konversation
-git.branch          f8205a08e1919e25fef2c6eff51584f7af614211
+git.branch          3afe9fe5b2df1452ff2eb62c67326f989486f878
 
 name                konversation-devel
-version             20140505
+version             20140922
 categories          kde kde4
 maintainers         nicos mk openmaintainer
 license             GPL-2+ GFDL-1.2
@@ -18,6 +18,8 @@ long_description    ${description}
 platforms           darwin
 homepage            http://konversation.kde.org/
 distname            konversation-${version}
+
+conflicts           konversation
 
 depends_lib         port:kdelibs4 \
                     port:kdepimlibs4
@@ -28,3 +30,5 @@ patch.pre_args      -p1
 if {![variant_isset docs]} {
     patchfiles-append   patch-CMakeLists.txt.diff
 }
+
+livecheck.type      none
