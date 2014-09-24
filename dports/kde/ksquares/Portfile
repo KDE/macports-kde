@@ -1,0 +1,36 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120216 2014-05-19 16:37:14Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                ksquares
+version             4.13.3
+categories          kde kde4 games
+license             GPL-2+
+maintainers         nicos openmaintainer
+description         KSquares is a fun and exciting game for desktop environment. 
+long_description    ${description} The game is modeled after the well known pen \
+                    and paper based game of Dots and Boxes.
+platforms           darwin
+homepage            http://games.kde.org/game.php?game=ksquares
+master_sites        kde:stable/${version}/src
+use_xz              yes
+distname            ${name}-${version}
+checksums           rmd160  b0760a5952142cc815beffdfe94bc0175c6cc6f4 \
+                    sha256  2b66016227e6d2a4b6c0554992f50dbb326ba9a659abdcfdc82a6c0102807317
+
+#Binaries do not link to openssl, nor use the ssl backend of kdelibs4
+license_noconflict  openssl
+
+depends_lib-append  port:kdelibs4 \
+                    port:libkdegames
+
+pre-configure {
+    if {![variant_isset docs]} {
+        reinplace "s|add_subdirectory(doc)|#add_subdirectory(doc)|g" ${worksrcpath}/CMakeLists.txt
+    }
+}
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)

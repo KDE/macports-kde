@@ -1,0 +1,36 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120233 2014-05-20 00:45:44Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                khangman
+version             4.13.3
+categories          kde kde4
+maintainers         nicos
+license             GPL-2+ LGPL-2.1+ GFDL-1.2
+description         hangman game
+long_description    KDE ${description}
+homepage            http://www.kde.org
+
+platforms           darwin
+depends_lib-append  port:libkdeedu
+
+master_sites        kde:stable/${version}/src/
+use_xz              yes
+
+checksums           rmd160  1480dba40f5c6bdc0a8debc5dfa29e80c0c6407f \
+                    sha256  3eb14bccc14029dea44db759cf01943db74d53d1461393ed4535ff1b29fdef7e
+
+#Binaries do not link to openssl, nor use the ssl backend of kdelibs4
+license_noconflict  openssl
+
+#Prevents the package to build a framework
+patchfiles          patch-CMakeLists-engine.diff
+
+if {![variant_isset docs]} {
+    patchfiles-append   patch-CMakeLists.txt.diff
+}
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)

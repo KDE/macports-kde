@@ -1,0 +1,33 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120216 2014-05-19 16:37:14Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                lskat
+version             4.13.3
+categories          kde kde4 games
+license             LGPL-2+
+maintainers         nicos openmaintainer
+description         Lskat stands for Lieutnant Skat (from German Offiziersskat).
+long_description    Lieutnant Skat (from German Offiziersskat) is a fun and \
+                    engaging card game for two players, where the second player is \
+                    either live opponent, or built in artificial intelligence. You \
+                    can also play and test an online demo version of this game.
+platforms           darwin
+homepage            http://games.kde.org/game.php?game=lskat
+master_sites        kde:stable/${version}/src
+use_xz              yes
+distname            ${name}-${version}
+checksums           rmd160  b7da4ff25ed72e5bfa3269a8412c63cbb6ecc8e7 \
+                    sha256  84a25401b61452f61f5eee823bb134ca00054be5c08d5477f9d79412e7057a33
+
+depends_lib-append  port:kdelibs4 \
+                    port:libkdegames
+
+if {![variant_isset docs]} {
+    patchfiles-append   patch-CMakeLists.diff
+}
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)

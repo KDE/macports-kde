@@ -1,0 +1,36 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120216 2014-05-19 16:37:14Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                katomic
+version             4.13.3
+categories          kde kde4 games
+license             GPL-2+
+maintainers         nicos openmaintainer
+description         Katomic is both fun and educational game built around \
+                    molecular geometry. 
+long_description    ${description} It employs simplistic two-dimensional looks at \
+                    different chemical elements. You can also play an online demo \
+                    version of this game.
+platforms           darwin
+homepage            http://games.kde.org/game.php?game=katomic
+master_sites        kde:stable/${version}/src
+use_xz              yes
+distname            ${name}-${version}
+checksums           rmd160  c81c4bf4969384bff3b3b20a60ceb6a3288f99c1 \
+                    sha256  b9fffd4c3a632b25c0523055127b0e66a97fe52fd82fc72ca620f3bac2c1760e
+
+#Binaries do not link to openssl, nor use the ssl backend of kdelibs4
+license_noconflict  openssl
+
+depends_lib-append  port:kdelibs4 \
+                    port:libkdegames
+
+if {![variant_isset docs]} {
+    patchfiles      patch-CMakeLists.diff
+}
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)

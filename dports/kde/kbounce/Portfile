@@ -1,0 +1,33 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120216 2014-05-19 16:37:14Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                kbounce
+version             4.13.3
+categories          kde kde4 games
+license             LGPL-2+
+maintainers         nicos openmaintainer
+description         KBounce is a single player arcade game with the elements of puzzle. 
+long_description    ${description} It is played on a field, surrounded by wall, with \
+                    two or more balls that move about in the field bouncing off of \
+                    walls. The player can build new walls, decreasing the size of \
+                    active field.
+platforms           darwin
+homepage            http://games.kde.org/game.php?game=kbounce
+master_sites        kde:stable/${version}/src
+use_xz              yes
+distname            ${name}-${version}
+checksums           rmd160  0e885a094d8ef99cf2d7d3fbd4aaf72ba17c2858 \
+                    sha256  363b4e515e6b860264e482cfb32b28c9a16bf0c770de1200f95d3d2ef9294912
+
+depends_lib-append  port:kdelibs4 \
+                    port:libkdegames
+
+if {![variant_isset docs]} {
+    patchfiles      patch-CMakeLists.diff
+}
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)

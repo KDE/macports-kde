@@ -1,0 +1,35 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120216 2014-05-19 16:37:14Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                ksudoku
+version             4.13.3
+categories          kde kde4 games
+license             GPL-2+
+maintainers         nicos openmaintainer
+description         KSudoku is a logic-based symbol placement puzzle. 
+long_description    ${description} The player has to fill a grid so that each \
+                    column, row as well as each square block on the game field \
+                    contains only one instance of each symbol.
+platforms           darwin
+homepage            http://games.kde.org/game.php?game=ksudoku
+master_sites        kde:stable/${version}/src
+use_xz              yes
+distname            ${name}-${version}
+checksums           rmd160  ccc687332870e19edffd607b97f45f6585c9ccd6 \
+                    sha256  43fdb9f107490ce8861af71b7bebea2bb0eda0cd4d61352f6ff726ebfe0d1944
+
+#Binaries do not link to openssl, nor use the ssl backend of kdelibs4
+license_noconflict  openssl
+
+depends_lib-append  port:kdelibs4 \
+                    port:libkdegames
+
+if {![variant_isset docs]} {
+    patchfiles      patch-CMakeLists.diff
+}
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)
