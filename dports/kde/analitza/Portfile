@@ -1,0 +1,29 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120206 2014-05-19 15:50:08Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                analitza
+version             4.13.3
+categories          kde kde4
+maintainers         nicos
+license             GPL-2 GFDL-1.2
+description         library for mathematical features
+long_description    KDE ${description}
+homepage            http://www.kde.org
+
+platforms           darwin
+depends_lib-append  port:kdelibs4 port:readline
+
+master_sites        kde:stable/${version}/src/
+use_xz              yes
+
+checksums           rmd160  78b1c3d4976518d805ca5e7d56648d2d81367737 \
+                    sha256  53a3758911efb276d336335e5539f2ef038a40400bcd8edc329cacb6bccfe7ee
+
+patchfiles-append   patch-plotter3d.diff \
+                    patch-plotter2d.diff
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)
