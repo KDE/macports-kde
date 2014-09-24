@@ -1,0 +1,33 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120233 2014-05-20 00:45:44Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                kalgebra
+version             4.13.3
+categories          kde kde4
+maintainers         nicos
+license             GPL-2+
+description         2D and 3D Graph Calculator
+long_description    KDE ${description}
+homepage            http://www.kde.org
+
+platforms           darwin
+depends_lib-append  port:libkdeedu port:analitza
+
+master_sites        kde:stable/${version}/src/
+use_xz              yes
+
+checksums           rmd160  9668b0939ae34a77927ebaceb60f87331c21c13a \
+                    sha256  54ad45750152f69891be1f2d000db90938224585394812595b53ba3ebc559af5
+
+#Binaries do not link to openssl, nor use the ssl backend of kdelibs4
+license_noconflict  openssl
+
+if {![variant_isset docs]} {
+    patchfiles      patch-CMakeLists.txt.diff
+}
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)
