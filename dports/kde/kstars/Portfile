@@ -31,7 +31,8 @@ license_noconflict  openssl
 depends_lib-append  port:kdelibs4 \
                     port:oxygen-icons \
                     port:qjson \
-                    port:cfitsio
+                    port:cfitsio \
+                    port:eigen3
 
 patchfiles-append   patch-CMakeLists.txt.diff \
                     patch-starobject.diff
