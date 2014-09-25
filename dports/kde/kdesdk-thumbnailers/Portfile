@@ -1,0 +1,38 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120245 2014-05-20 10:58:46Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                kdesdk-thumbnailers
+version             4.13.3
+categories          kde kde4
+license             GPL-2+
+maintainers         nicos openmaintainer
+description         KDE developer utilities
+long_description    ${description}
+platforms           darwin
+homepage            http://www.kde.org/
+master_sites        kde:stable/${version}/src/
+use_xz              yes
+
+checksums           rmd160  d54bad12ffcd5457d52aefd31cf33989e8ed9a8a \
+                    sha256  2bd70351e51d1703be7ee76fc6cc83aa426e045b4dc13b0f050c3be6f2c76078
+
+#Binaries do not link to openssl, nor use the ssl backend of kdelibs4
+license_noconflict  openssl
+
+depends_lib-append  port:kdelibs4 \
+                    port:gettext
+
+pre-activate {
+    #Deactivate hack for when kdesdk4 port has been fragmented into small ports
+    if {[file exists ${prefix}/bin/kdedoc]
+        && ![catch {set vers [lindex [registry_active kdesdk4] 0]}] 
+        && [vercmp [lindex $vers 1] 4.11.0] < 0} {
+            registry_deactivate_composite kdesdk4 "" [list ports_nodepcheck 1] 
+    } 
+}
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)

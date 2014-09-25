@@ -1,0 +1,31 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120206 2014-05-19 15:50:08Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                kdeartwork
+version             4.13.3
+categories          kde kde4
+maintainers         nicos
+license             GFDL-1.2 GPL-2 LGPL-2.1
+description         This package contains additional themes, screensaver, \
+                    sounds, wallpapers, widget styles and window styles for KDE.
+
+long_description    KDE ${description}
+homepage            http://www.kde.org
+
+platforms           darwin
+depends_lib-append  port:kdelibs4
+
+master_sites        kde:stable/${version}/src/
+use_xz              yes
+
+checksums           rmd160  d7a66e941a9fb94906876afe8ac539014b1776d7 \
+                    sha256  4d1d7680fb21c268b917d6c9490f941689a119507a6ce63c66a666d80cbfe1ac
+
+#Binaries do not link to openssl, nor use the ssl backend of kdelibs4
+license_noconflict  openssl
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)

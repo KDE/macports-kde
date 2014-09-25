@@ -1,0 +1,31 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120210 2014-05-19 16:22:23Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                libkexiv2
+version             4.13.3
+categories          kde kde4
+license             GPL-2+ LGPL-2+
+maintainers         nicos openmaintainer
+description         Wrapper around Exiv2 for KDE.
+long_description    LibKExiv2 is a wrapper around Exiv2 library to manipulate pictures metadata as \
+                    EXIF, IPTC, and XMP. This Metadata interface follow Metadata Working Group Specification. \
+                    This library is used by kipi-plugins, digiKam and others kipi host programs.
+platforms           darwin
+homepage            http://www.kde.org
+master_sites        kde:stable/${version}/src/
+use_xz              yes
+distname            libkexiv2-${version}
+checksums           rmd160  a0bae1c48c74ef0082c9c68fb906ab61e9699789 \
+                    sha256  0da42f8bd181b1513de7fa382647418004de53d52f6bda78dc592c8a4c479d35
+
+#Binaries do not link to openssl, nor use the ssl backend of kdelibs4
+license_noconflict  openssl
+
+depends_lib-append  port:kdelibs4 \
+                    port:exiv2
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)

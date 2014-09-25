@@ -1,0 +1,38 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120233 2014-05-20 00:45:44Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                rocs
+version             4.13.3
+categories          kde kde4
+maintainers         nicos
+license             GPL-2+ LGPL-2.1 GFDL-1.2
+description         Graph Theory IDE
+long_description    KDE ${description}
+homepage            http://www.kde.org
+
+platforms           darwin
+depends_lib-append  port:boost port:libkdeedu \
+                    port:grantlee
+
+master_sites        kde:stable/${version}/src/
+use_xz              yes
+
+checksums           rmd160  5a09c8b5003fe5ca3af2e4accc5b471159372839 \
+                    sha256  0e0f6fcd6d8a92fcc8ac9e8376830d57ef44d70105fe54c326875bd37701fe11
+
+#Binaries do not link to openssl, nor use the ssl backend of kdelibs4
+license_noconflict  openssl
+
+if {![variant_isset docs]} {
+    patchfiles-append   patch-CMakeLists.txt.diff
+}
+
+#Forcing depth to avoid error in Clang Xcode 5:
+#recursive template instantiation exceeded maximum depth of 128
+configure.cxxflags-append   -ftemplate-depth-1024
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)

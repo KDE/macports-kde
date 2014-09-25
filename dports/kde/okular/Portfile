@@ -1,0 +1,52 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120259 2014-05-20 21:26:15Z devans@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                okular
+version             4.13.3
+categories          kde kde4
+license             GPL-2+ LGPL-2+
+maintainers         nicos openmaintainer
+description         Universal document viewer for KDE4.
+long_description    Okular is a universal document viewer based on KPDF for KDE 4. \
+                    This means Okular works on multiple platforms, including but not \
+                    limited to Linux, Windows, Mac OS X, *BSD, etc.
+platforms           darwin
+homepage            http://okular.kde.org/
+master_sites        kde:stable/${version}/src/
+use_xz              yes
+distname            okular-${version}
+checksums           rmd160  bc93b1b5a608d324d45609f1c7ebeeff2b2e214b \
+                    sha256  3047ab703bc5447d22a7c6a308910a70afee82d603c7f5b37a6d5a0976511f5d
+
+#parttest cannot link to okularpart on Mac, as it is a bundle (.so) file
+patchfiles          patch-OkularPart.diff
+
+#Binaries do not link to openssl, nor use the ssl backend of kdelibs4
+license_noconflict  openssl
+
+# okular will use libkexiv2 if available
+# add dependency to ensure a consistent build
+
+depends_lib-append  port:kdelibs4 \
+                    port:kactivities \
+                    port:oxygen-icons \
+                    port:mobipocket \
+                    port:poppler-qt4-mac port:libspectre \
+                    port:djvulibre port:chmlib \
+                    port:ebook-tools port:tiff \
+                    port:qca port:qimageblitz \
+                    port:freetype port:zlib \
+                    port:libkexiv2 \
+                    port:jpeg
+
+post-destroot {
+    #Okular does not handle *.dylib plugins (ticket #42603)
+    ln -s ${prefix}/lib/kde4/okularpart.dylib \
+        ${destroot}${prefix}/lib/kde4/okularpart.so
+}
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)

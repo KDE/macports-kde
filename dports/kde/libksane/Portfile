@@ -1,0 +1,30 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120210 2014-05-19 16:22:23Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                libksane
+version             4.13.3
+categories          kde kde4
+license             GPL-2+ LGPL-2+
+maintainers         nicos openmaintainer
+description         A library for dealing with scannersLibKSane.
+long_description    A library for dealing with scannersLibKSane is a KDE interface for SANE library to control flat scanners. \
+                    This library provides a widget to control a scanner, KSaneWidget. Internally, it will use the SANE library.
+platforms           darwin
+homepage            http://www.kde.org
+master_sites        kde:stable/${version}/src/
+use_xz              yes
+distname            libksane-${version}
+checksums           rmd160  e59debddcf3d9f600081f59140ce137b7219dd06 \
+                    sha256  75d78f9d7ad6d86dd7f49f1f144220a84a6324c2770d81b581cae93f9db93858
+
+#Binaries do not link to openssl, nor use the ssl backend of kdelibs4
+license_noconflict  openssl
+
+depends_lib-append  port:sane-backends \
+                    port:kdelibs4
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)

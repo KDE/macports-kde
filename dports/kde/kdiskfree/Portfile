@@ -1,0 +1,36 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120209 2014-05-19 16:18:07Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                kdiskfree
+version             4.13.3
+categories          kde kde4
+license             GPL-2+
+maintainers         nicos openmaintainer
+description         View free disk space.
+long_description    KDiskFree displays the available file devices (hard drive \
+                    partitions, floppy and CD/DVD drives, etc.) along with information \
+                    on their capacity, free space, type and mount point. It also allows \
+                    you to mount and unmount drives and view them in a file manager.
+platforms           darwin
+homepage            http://utils.kde.org/projects/kdf/
+master_sites        kde:stable/${version}/src
+use_xz              yes
+distname            kdf-${version}
+checksums           rmd160  18f6fe9c1e463c39ca6bb269a590db6a03fae31d \
+                    sha256  7fa4522db295b3538aecea69ad9c32447bddec7bd4e97039cf196a9db5fe3e2c
+
+#Binaries do not link to openssl, nor use the ssl backend of kdelibs4
+license_noconflict  openssl
+
+depends_lib-append  port:kdelibs4 \
+                    port:oxygen-icons
+
+if {![variant_isset docs]} {
+    patchfiles      patch-CMakeLists.txt.diff
+}
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)

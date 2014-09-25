@@ -1,0 +1,26 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120235 2014-05-20 00:49:28Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                kscd
+version             4.13.3
+categories          kde kde4
+maintainers         nicos openmaintainer
+license             GPL-2+
+description         KsCD is a small, fast, CDDB enabled audio CD player \
+                    which supports multiple platforms.
+long_description    ${description}
+homepage            http://www.kde.org
+platforms           darwin
+master_sites        kde:stable/${version}/src/
+use_xz              yes
+checksums           rmd160  ed7e621cc1718e4be2ebc840cf0800842cc8b901 \
+                    sha256  bf2f9301014b518a5fb6156a2f749d4ffe8ffcf335795f5e1190888adf3e6615
+
+depends_lib-append  port:kdelibs4 \
+                    port:libmusicbrainz3
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)

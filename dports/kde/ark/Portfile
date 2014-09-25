@@ -1,0 +1,40 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120209 2014-05-19 16:18:07Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                ark
+version             4.13.3
+categories          kde kde4
+license             GPL-2+
+maintainers         nicos openmaintainer
+description         Handle file archives
+long_description    Ark is a program for managing various archive formats \
+                    within the KDE environment.
+platforms           darwin
+homepage            http://utils.kde.org/projects/ark/
+master_sites        kde:stable/${version}/src
+use_xz              yes
+distname            ${name}-${version}
+checksums           rmd160  427298ffb1e68bd25f36bf1d7adffaf97e84d82f \
+                    sha256  ff8bd670f607338dc2607427abe431e9e841040d6bd2bf4de2bb4c38709a61a7
+
+#Binaries do not link to openssl, nor use the ssl backend of kdelibs4
+license_noconflict  openssl
+
+depends_lib-append  port:kdelibs4 \
+                    port:kde4-baseapps \
+                    port:oxygen-icons \
+                    port:libarchive \
+                    port:zlib \
+                    port:bzip2 \
+                    port:xz \
+                    port:qjson
+
+if {![variant_isset docs]} {
+    patchfiles      patch-CMakeLists.txt.diff
+}
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)

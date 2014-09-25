@@ -1,0 +1,51 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120204 2014-05-19 15:26:03Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                nepomuk-core
+version             4.13.3
+categories          kde kde4
+maintainers         nicos openmaintainer
+license             GPL-2+ LGPL-2.1+
+description         Nepomuk-core contains the Semantik Desktop core libraries.
+long_description    ${description}  This includes central services like file \
+                    indexing, file system monitoring, query, and of course storage, \
+                    as well as the corresponding client libraries.
+platforms           darwin
+homepage            http://www.kde.org
+master_sites        kde:stable/${version}/src/
+use_xz              yes
+checksums           rmd160  8c9ab4d2e18509f39d2b549d476993c45f801922 \
+                    sha256  e33432725500d315df5498fb2364bc50bb1b5fb89d0e730347204400882511e0
+
+#Binaries do not link to openssl, nor use the ssl backend of kdelibs4
+license_noconflict  openssl
+
+depends_lib-append  port:exiv2 \
+                    port:taglib \
+                    port:kdelibs4 \
+                    port:ebook-tools \
+                    port:poppler-qt4-mac \
+                    port:mobipocket \
+                    port:kfilemetadata
+
+patchfiles-append   patch-cmake-baloo.diff
+
+pre-activate {
+    #Deactivate hack for when nepomuk-core was splitted from kde4-runtime
+    if {[file exists ${applications_dir}/KDE4/nepomukbackup.app/Contents/Info.plist] 
+        && ![catch {set vers [lindex [registry_active kde4-runtime] 0]}] 
+        && [vercmp [lindex $vers 1] 4.9.3] < 0} {
+            registry_deactivate_composite kde4-runtime "" [list ports_nodepcheck 1] 
+    } 
+}
+
+variant baloo description "Add support for baloo indexing" {
+    depends_lib-append  port:baloo
+    patchfiles-delete   patch-cmake-baloo.diff
+}
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)

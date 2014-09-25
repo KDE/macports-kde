@@ -1,0 +1,63 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120234 2014-05-20 00:47:42Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                kopete
+version             4.13.3
+categories          kde kde4
+license             GPL-2+ LGPL-2+
+maintainers         nicos openmaintainer
+description         KDE-based instant messenger
+long_description    Kopete is an instant messenger supporting AIM, ICQ, \
+                    Windows Live Messenger, Yahoo, Jabber, Gadu-Gadu, Novell \
+                    GroupWise Messenger, and more.
+platforms           darwin
+homepage            http://kopete.kde.org
+master_sites        kde:stable/${version}/src/
+use_xz              yes
+
+checksums           rmd160  51fcfe04d6c036dad762e42f61d5c6a99f943147 \
+                    sha256  aff79150baa2a123dffc0539c81cb82bbfd7f8eeed941ca3c5685f10b7af84f7
+
+depends_lib-append  port:kdelibs4 \
+                    port:kdepimlibs4 \
+                    port:libxslt \
+                    port:qca \
+                    port:gpgme \
+                    port:zlib \
+                    port:sqlite3 \
+                    port:qimageblitz \
+                    port:libidn \
+                    port:xmms \
+                    path:lib/pkgconfig/glib-2.0.pc:glib2 \
+                    port:libxml2 \
+                    port:libotr \
+                    port:libmsn \
+                    port:giflib \
+                    port:expat \
+                    port:jasper
+
+configure.args-append   -DWITH_Libgadu=OFF \
+                        -DWITH_msiLBC=OFF \
+                        -DWITH_LiboRTP=OFF \
+                        -DWITH_LibMeanwhile=OFF \
+                        -DWITH_meanwhile=OFF \
+                        -DWITH_Mediastreamer=OFF
+
+if {![variant_isset docs]} {
+    patchfiles      patch-CMakeLists.diff
+}
+
+pre-activate {
+    #Deactivate hack for when kdenetwork4 port has been fragmented into small ports
+    if {[file exists ${prefix}/lib/kde4/sambausershareplugin.so]
+        && ![catch {set vers [lindex [registry_active kdenetwork4] 0]}] 
+        && [vercmp [lindex $vers 1] 4.11.0] < 0} {
+            registry_deactivate_composite kdenetwork4 "" [list ports_nodepcheck 1] 
+    } 
+}
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)

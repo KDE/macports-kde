@@ -1,0 +1,43 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120244 2014-05-20 10:41:19Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                kuser
+version             4.13.3
+categories          kde kde4
+license             GPL-2+
+maintainers         nicos openmaintainer
+description         Tool for managing users and groups on your system.
+long_description    ${description} 
+platforms           darwin
+homepage            http://www.kde.org/applications/system/kuser/
+master_sites        kde:stable/${version}/src/
+use_xz              yes
+
+checksums           rmd160  717ca303e6d5ce99f6ed5688b00f069b43c09057 \
+                    sha256  8b2e3390db9faea5486b927d36a18ab670208cd9016433046eaa0eec7907260e
+
+#Binaries do not link directly to openssl, nor use the ssl backend of kdelibs4,
+#nor links to libkimap or libmailtransport from kdepimlibs4
+license_noconflict  openssl
+
+depends_lib-append  port:kdelibs4 \
+                    port:kdepimlibs4
+
+if {![variant_isset docs]} {
+    patchfiles      patch-CMakeLists.diff
+}
+
+pre-activate {
+    #Deactivate hack for when kdeadmin port has been fragmented into small ports
+    if {[file exists ${prefix}/lib/kde4/kcm_cron.so]
+        && ![catch {set vers [lindex [registry_active kdeadmin] 0]}] 
+        && [vercmp [lindex $vers 1] 4.11.0] < 0} {
+            registry_deactivate_composite kdeadmin "" [list ports_nodepcheck 1] 
+    } 
+}
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)

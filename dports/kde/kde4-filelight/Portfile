@@ -1,0 +1,38 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120209 2014-05-19 16:18:07Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                kde4-filelight
+version             4.13.3
+categories          kde kde4
+license             GPL-2+
+maintainers         nicos openmaintainer
+description         Understand usage of disk space.
+long_description    Filelight allows you to quickly understand exactly \
+                    where your diskspace is being used by graphically \
+                    representing your file system as a set of concentric \
+                    segmented-rings. 
+platforms           darwin
+homepage            http://utils.kde.org/projects/filelight/
+master_sites        kde:stable/${version}/src
+use_xz              yes
+distname            filelight-${version}
+checksums           rmd160  4db9e1499a80fe051413639c5010ce62e64e5b5a \
+                    sha256  9b11751756fef60d6652a15e9b8479dde84f7333d8888e6fdacb31749efee9f7
+
+#Binaries do not link to openssl, nor use the ssl backend of kdelibs4
+license_noconflict  openssl
+
+patchfiles-append   fix-filelight-mounts.diff
+
+depends_lib-append  port:kdelibs4 \
+                    port:oxygen-icons
+
+if {![variant_isset docs]} {
+    patchfiles-append       patch-CMakeLists.txt.diff
+}
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)

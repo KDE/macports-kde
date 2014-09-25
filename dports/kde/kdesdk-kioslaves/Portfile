@@ -1,0 +1,38 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120245 2014-05-20 10:58:46Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                kdesdk-kioslaves
+version             4.13.3
+categories          kde kde4
+license             GPL-2+ LGPL-2+
+maintainers         nicos openmaintainer
+description         KDE developer utilities
+long_description    ${description}
+platforms           darwin
+homepage            http://www.kde.org/
+master_sites        kde:stable/${version}/src/
+use_xz              yes
+
+checksums           rmd160  b9c51c193a9156c3a34207f41ae08bf060d1a4b2 \
+                    sha256  ea4d0f07c5c5fe0ec979600bacb121dcbbef7eb32de4d616d72c75a3bf70bb2e
+
+#Binaries do not link to openssl, nor use the ssl backend of kdelibs4
+license_noconflict  openssl
+
+depends_lib-append  port:kdelibs4 \
+                    port:subversion
+
+pre-activate {
+    #Deactivate hack for when kdesdk4 port has been fragmented into small ports
+    if {[file exists ${prefix}/bin/kdedoc]
+        && ![catch {set vers [lindex [registry_active kdesdk4] 0]}] 
+        && [vercmp [lindex $vers 1] 4.11.0] < 0} {
+            registry_deactivate_composite kdesdk4 "" [list ports_nodepcheck 1] 
+    } 
+}
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)

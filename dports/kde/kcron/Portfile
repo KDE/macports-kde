@@ -1,0 +1,41 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120244 2014-05-20 10:41:19Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                kcron
+version             4.13.3
+categories          kde kde4
+license             GPL-2+
+maintainers         nicos openmaintainer
+description         KDE task scheduler
+long_description    ${description} 
+platforms           darwin
+homepage            http://userbase.kde.org/KCron
+master_sites        kde:stable/${version}/src/
+use_xz              yes
+
+checksums           rmd160  5d867043b241d6258645969e6c31094a3e2cee50 \
+                    sha256  fec91ffbc923589d8ac07c03e011c4d172edf1b9bad5b08c4d665992ede53095
+
+#Binaries do not link to openssl, nor use the ssl backend of kdelibs4
+license_noconflict  openssl
+
+depends_lib-append  port:kdelibs4
+
+if {![variant_isset docs]} {
+    patchfiles      patch-CMakeLists.diff
+}
+
+pre-activate {
+    #Deactivate hack for when kdeadmin port has been fragmented into small ports
+    if {[file exists ${prefix}/lib/kde4/kcm_cron.so]
+        && ![catch {set vers [lindex [registry_active kdeadmin] 0]}] 
+        && [vercmp [lindex $vers 1] 4.11.0] < 0} {
+            registry_deactivate_composite kdeadmin "" [list ports_nodepcheck 1] 
+    } 
+}
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)

@@ -1,0 +1,39 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 120234 2014-05-20 00:47:42Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                kdenetwork-strigi-analyzers
+version             4.13.3
+categories          kde kde4
+license             GPL-2+
+maintainers         nicos openmaintainer
+description         KdeNetwork utility
+long_description    ${description}
+platforms           darwin
+homepage            http://www.kde.org
+master_sites        kde:stable/${version}/src/
+use_xz              yes
+
+checksums           rmd160  101e1e9798fbd022707b718bd2aee78635d652f5 \
+                    sha256  4edf89de96775b0e22a17ee29eb5aba2f86965bed5e02612bc34630026a09c4b
+
+#Binaries do not link to openssl, nor use the ssl backend of kdelibs4
+license_noconflict  openssl
+
+depends_lib-append  port:kdelibs4 \
+                    port:strigi \
+                    port:boost
+
+pre-activate {
+    #Deactivate hack for when kdenetwork4 port has been fragmented into small ports
+    if {[file exists ${prefix}/lib/kde4/sambausershareplugin.so]
+        && ![catch {set vers [lindex [registry_active kdenetwork4] 0]}] 
+        && [vercmp [lindex $vers 1] 4.11.0] < 0} {
+            registry_deactivate_composite kdenetwork4 "" [list ports_nodepcheck 1] 
+    } 
+}
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)
