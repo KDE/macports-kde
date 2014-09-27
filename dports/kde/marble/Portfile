@@ -35,13 +35,8 @@ configure.args-append   -DCMAKE_MODULES_INSTALL_PATH=${cmake_share_module_dir}
 
 post-destroot {
     #Moving executable to right place
-    xinstall -d ${destroot}${applications_dir}/KDE4/marble-qt.app/Contents/MacOS
-    xinstall -m 644 ${workpath}/build/src/apps/marble-qt/marble-qt.app/Contents/Info.plist \
-        ${destroot}${applications_dir}/KDE4/marble-qt.app/Contents
-    xinstall -m 644 ${workpath}/build/src/apps/marble-qt/marble-qt.app/Contents/MacOS/marble-qt \
-        ${destroot}${applications_dir}/KDE4/marble-qt.app/Contents/MacOS
-    delete ${destroot}${prefix}/marble-qt.app/Contents/Info.plist
-    delete ${destroot}${prefix}/marble-qt.app/Contents/MacOS/marble-qt
+    move ${destroot}${prefix}/Marble.app/Contents/MacOS/marble-qt \
+        ${destroot}${prefix}/bin/marble-qt
 }
 
 livecheck.url       http://kde.mirrors.hoobly.com/stable/
