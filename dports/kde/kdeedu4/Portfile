@@ -38,12 +38,11 @@ depends_lib-append  port:libkdeedu\
                     port:ktouch\
                     port:kturtle\
                     port:kwordquiz\
+                    port:marble\
                     port:parley\
                     port:pairs \
-                    port:rocs
-
-                    # Disable for now, as it currently fails in destroot phase:
-                    #port:marble\
+                    port:rocs \
+                    port:step
 
 destroot {
    # Create a dummy file so the port can be successfully activated
