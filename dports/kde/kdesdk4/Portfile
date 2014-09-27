@@ -34,10 +34,8 @@ depends_lib-append  port:cervisia \
                     port:kompare \
                     port:lokalize \
                     port:okteta \
+                    port:poxml \
                     port:umbrello
-
-                    # Disable as it currently fails to build:
-                    #port:poxml \
 
 destroot {
     # Create a dummy file so the port can be successfully activated
