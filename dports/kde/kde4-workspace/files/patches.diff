@@ -1,0 +1,261 @@
+diff --git kcontrol/krdb/krdb.cpp kcontrol/krdb/krdb.cpp
+index 36fc99c..6051a8b 100644
+--- kcontrol/krdb/krdb.cpp
++++ kcontrol/krdb/krdb.cpp
+@@ -415,6 +415,7 @@ void runRdb( uint flags )
+   createGtkrc( exportColors, newPal, exportGtkTheme, gtkTheme, 1 );
+   createGtkrc( exportColors, newPal, exportGtkTheme, gtkTheme, 2 );
+ 
++#ifdef Q_WS_X11
+   // Export colors to non-(KDE/Qt) apps (e.g. Motif, GTK+ apps)
+   if (exportColors)
+   {
+@@ -544,6 +545,7 @@ void runRdb( uint flags )
+   proc << "xrdb" << "-quiet" << "-merge" << tmpFile.fileName();
+ #endif
+   proc.execute();
++#endif // Q_WS_X11
+ 
+   applyGtkStyles(exportColors, 1);
+   applyGtkStyles(exportColors, 2);
+diff --git kcontrol/style/CMakeLists.txt kcontrol/style/CMakeLists.txt
+index d832b20..7c84cf9 100644
+--- kcontrol/style/CMakeLists.txt
++++ kcontrol/style/CMakeLists.txt
+@@ -18,9 +18,9 @@ kde4_add_plugin(kcm_style ${kcm_style_PART_SRCS})
+ 
+ target_link_libraries(kcm_style ${KDE4_KIO_LIBS} ${X11_LIBRARIES}
+     ${KDE4_PLASMA_LIBS} ${KDE4_KNEWSTUFF3_LIBS})
+-if(NOT WIN32)
++if(NOT WIN32 AND NOT APPLE)
+     target_link_libraries(kcm_style kdecorations)
+-endif(NOT WIN32)
++endif(NOT WIN32 AND NOT APPLE)
+ 
+ install(TARGETS kcm_style  DESTINATION ${PLUGIN_INSTALL_DIR})
+ 
+diff --git libs/CMakeLists.txt libs/CMakeLists.txt
+index c0576fe..be77fa7 100644
+--- libs/CMakeLists.txt
++++ libs/CMakeLists.txt
+@@ -6,9 +6,9 @@ add_subdirectory(plasmaclock)
+ if(${KDE_PLATFORM_PROFILE} STREQUAL "Desktop")
+    add_subdirectory(kdm)
+    add_subdirectory(plasmagenericshell)
+-   if(NOT WIN32)
+-        add_subdirectory(taskmanager)
+-   endif(NOT WIN32)
++   if(NOT WIN32 AND NOT APPLE)
++      add_subdirectory(taskmanager)
++   endif(NOT WIN32 AND NOT APPLE)
+ endif(${KDE_PLATFORM_PROFILE} STREQUAL "Desktop")
+ 
+ if(NOT WIN32)
+diff --git qguiplatformplugin_kde/qguiplatformplugin_kde.cpp qguiplatformplugin_kde/qguiplatformplugin_kde.cpp
+index 4f67cc5..c488967 100644
+--- qguiplatformplugin_kde/qguiplatformplugin_kde.cpp
++++ qguiplatformplugin_kde/qguiplatformplugin_kde.cpp
+@@ -39,6 +39,12 @@
+ 
+ #include <kdebug.h>
+ 
++// RJVB: testing plugin relevance
++#undef QT_NO_DEBUG_OUTPUT
++#undef QT_NO_DEBUG_STREAM
++#undef QT_NO_WARNING_OUTPUT
++#include <qdebug.h>
++
+ /*
+  * Map a Qt filter string into a KDE one.
+  * (from kfiledialog.cpp)
+@@ -344,31 +350,41 @@ private slots:
+         connect(KIconLoader::global(), SIGNAL(iconLoaderSettingsChanged()), this, SLOT(updateToolbarIcons()));
+         connect(KGlobalSettings::self(), SIGNAL(toolbarAppearanceChanged(int)), this, SLOT(updateToolbarStyle()));
+         connect(KGlobalSettings::self(), SIGNAL(kdisplayStyleChanged()), this, SLOT(updateWidgetStyle()));
++        // RJVB: testing plugin relevance
++        qDebug() << "###" << __FUNCTION__ << "called;" << this;
+     }
+ 
+     void updateToolbarStyle()
+     {
+         //from gtksymbol.cpp
+         QWidgetList widgets = QApplication::allWidgets();
++        int sent = 0;
+         for (int i = 0; i < widgets.size(); ++i) {
+             QWidget *widget = widgets.at(i);
+             if (qobject_cast<QToolButton*>(widget)) {
+                 QEvent event(QEvent::StyleChange);
+                 QApplication::sendEvent(widget, &event);
++                sent += 1;
+             }
+         }
++        // RJVB: testing plugin relevance
++        qDebug() << "###" << __FUNCTION__ << "called;" << this << "sent events=" << sent;
+     }
+ 
+     void updateToolbarIcons()
+     {
+         QWidgetList widgets = QApplication::allWidgets();
++        int sent = 0;
+         for (int i = 0; i < widgets.size(); ++i) {
+             QWidget *widget = widgets.at(i);
+             if (qobject_cast<QToolBar*>(widget) || qobject_cast<QMainWindow*>(widget)) {
+                 QEvent event(QEvent::StyleChange);
+                 QApplication::sendEvent(widget, &event);
++                sent += 1;
+             }
+         }
++        // RJVB: testing plugin relevance
++        qDebug() << "###" << __FUNCTION__ << "called;" << this << "sent events=" << sent;
+     }
+ 
+     void updateWidgetStyle()
+@@ -376,6 +392,8 @@ private slots:
+         if (qApp) {
+             if (qApp->style()->objectName() != styleName()) {
+                 qApp->setStyle(styleName());
++                // RJVB: testing plugin relevance
++                qDebug() << "###" << __FUNCTION__ << "called;" << this << "set style" << styleName();
+             }
+         }
+     }
+diff --git CMakeLists.txt CMakeLists.txt
+index 195f99c..a415045 100644
+--- CMakeLists.txt
++++ CMakeLists.txt
+@@ -194,14 +194,14 @@ set_package_properties(QJSON PROPERTIES DESCRIPTION "Library to manage JSON obje
+ 
+ 
+ include(ConfigureChecks.cmake)
+-if(NOT WIN32)
++if(NOT WIN32 AND NOT APPLE)
+   configure_file(config-unix.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-unix.h )
+   configure_file(config-X11.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-X11.h )
+   if(NOT CMAKE_INSTALL_PREFIX STREQUAL "/usr")
+     set(EXPORT_XCURSOR_PATH "XCURSOR_PATH=${CMAKE_INSTALL_PREFIX}/share/icons:$XCURSOR_PATH\":~/.icons:/usr/share/icons:/usr/share/pixmaps:/usr/X11R6/lib/X11/icons\"; export XCURSOR_PATH")
+   endif(NOT CMAKE_INSTALL_PREFIX STREQUAL "/usr")
+   configure_file(startkde.cmake ${CMAKE_CURRENT_BINARY_DIR}/startkde  @ONLY)
+-endif(NOT WIN32)
++endif(NOT WIN32 AND NOT APPLE)
+ configure_file(config-workspace.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-workspace.h )
+ 
+ add_definitions(${QT_DEFINITIONS} ${KDE4_DEFINITIONS} -DHAVE_CONFIG_H=1)
+@@ -220,7 +220,7 @@ if(${KDE_PLATFORM_PROFILE} STREQUAL "Desktop")
+ endif(${KDE_PLATFORM_PROFILE} STREQUAL "Desktop")
+ 
+ # core apps
+-if(NOT WIN32)
++if(NOT WIN32 AND NOT APPLE)
+    macro_optional_add_subdirectory( kcheckpass )
+    macro_optional_add_subdirectory( kwin )
+    macro_optional_add_subdirectory( ksmserver )
+@@ -231,21 +231,21 @@ if(NOT WIN32)
+ 
+    macro_optional_add_subdirectory( powerdevil )
+    macro_optional_add_subdirectory( qguiplatformplugin_kde )
+-   if (NOT CMAKE_SYSTEM_NAME MATCHES Darwin)
+-      macro_optional_add_subdirectory( ksysguard )
+-   endif (NOT CMAKE_SYSTEM_NAME MATCHES Darwin)
+-endif(NOT WIN32)
++   macro_optional_add_subdirectory( ksysguard )
++endif(NOT WIN32 AND NOT APPLE)
+ 
+ if(${KDE_PLATFORM_PROFILE} STREQUAL "Desktop")
+    macro_optional_add_subdirectory(kcontrol)
+-   macro_optional_add_subdirectory(klipper)
+-   macro_optional_add_subdirectory(kmenuedit)
+-   macro_optional_add_subdirectory(krunner)
+-   macro_optional_add_subdirectory(solid-actions-kcm)
+-   macro_optional_add_subdirectory(kstartupconfig)
+-   macro_optional_add_subdirectory(freespacenotifier)
+-   macro_optional_add_subdirectory(kscreensaver)
+-   macro_optional_add_subdirectory(kinfocenter)
++   if(NOT APPLE)
++      macro_optional_add_subdirectory(klipper)
++      macro_optional_add_subdirectory(kmenuedit)
++      macro_optional_add_subdirectory(krunner)
++      macro_optional_add_subdirectory(solid-actions-kcm)
++      macro_optional_add_subdirectory(kstartupconfig)
++      macro_optional_add_subdirectory(freespacenotifier)
++      macro_optional_add_subdirectory(kscreensaver)
++      macro_optional_add_subdirectory(kinfocenter)
++   endif(NOT APPLE)
+ 
+    # data
+    macro_optional_add_subdirectory(doc)
+@@ -254,13 +254,13 @@ if(${KDE_PLATFORM_PROFILE} STREQUAL "Desktop")
+       macro_optional_add_subdirectory(ktouchpadenabler)
+    endif (Q_WS_X11)
+ 
+-   if(NOT WIN32)
++   if(NOT WIN32 AND NOT APPLE)
+       macro_optional_add_subdirectory(kcminit)
+       macro_optional_add_subdirectory(khotkeys)
+       macro_optional_add_subdirectory(kwrited)
+       macro_optional_add_subdirectory(ksystraycmd)
+       macro_optional_add_subdirectory(appmenu)
+-   endif(NOT WIN32)
++   endif(NOT WIN32 AND NOT APPLE)
+ 
+    if(X11_Xau_FOUND AND X11_Xdmcp_FOUND)
+       macro_optional_add_subdirectory( kdm )
+@@ -269,19 +269,21 @@ if(${KDE_PLATFORM_PROFILE} STREQUAL "Desktop")
+    endif(X11_Xau_FOUND AND X11_Xdmcp_FOUND)
+ endif(${KDE_PLATFORM_PROFILE} STREQUAL "Desktop")
+ 
+-if(NOT WIN32)
++if(NOT WIN32 AND NOT APPLE)
+     # data
+     macro_optional_add_subdirectory(cursors)
+-endif(NOT WIN32)
++endif(NOT WIN32 AND NOT APPLE)
+ 
+-macro_optional_add_subdirectory(plasma)
++if(NOT APPLE)
++   macro_optional_add_subdirectory(plasma)
++endif(NOT APPLE)
+ macro_optional_add_subdirectory(statusnotifierwatcher)
+ macro_optional_add_subdirectory(kstyles)
+ 
+ ########### install files ###############
+-if(NOT WIN32)
++if(NOT WIN32 AND NOT APPLE)
+   install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/startkde DESTINATION ${BIN_INSTALL_DIR})
+-endif(NOT WIN32)
++endif(NOT WIN32 AND NOT APPLE)
+ 
+ feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
+ 
+diff --git kcontrol/CMakeLists.txt kcontrol/CMakeLists.txt
+index fc666b1..a7686d5 100644
+--- kcontrol/CMakeLists.txt
++++ kcontrol/CMakeLists.txt
+@@ -18,14 +18,14 @@ if(X11_Xkb_FOUND)
+     add_subdirectory( keyboard )
+ endif(X11_Xkb_FOUND)
+ 
+-if(NOT WIN32)
++if(NOT WIN32 AND NOT APPLE)
+ add_subdirectory( bell )
+ add_subdirectory( input )
+ add_subdirectory( access )
+ add_subdirectory( screensaver )
+ add_subdirectory( dateandtime )
+ add_subdirectory( autostart )
+-endif(NOT WIN32)
++endif(NOT WIN32 AND NOT APPLE)
+ 
+ add_subdirectory( launch )
+ add_subdirectory( colors )
+@@ -43,9 +43,9 @@ add_subdirectory( hardware )
+ add_subdirectory( desktoppaths )
+ 
+ if( FREETYPE_FOUND )
+-    if( WIN32 OR FONTCONFIG_FOUND )
++    if( WIN32 OR APPLE OR FONTCONFIG_FOUND )
+         add_subdirectory( fonts )
+-    endif( WIN32 OR FONTCONFIG_FOUND )
++    endif( WIN32 OR APPLE OR FONTCONFIG_FOUND )
+ endif( FREETYPE_FOUND )
+ if(FONTCONFIG_FOUND AND FREETYPE_FOUND AND NOT WIN32)
+     add_subdirectory( kfontinst )
