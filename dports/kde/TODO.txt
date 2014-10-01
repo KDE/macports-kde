@@ -1,0 +1,126 @@
+These ports need some love:
+
+cantor
+dragon
+kate
+kcalc
+kcolorchooser
+kfloppy
+kgoldrunner
+kig
+kigo
+kmix
+kmplot
+kolourpaint
+kompare
+konsole
+konversation-devel
+kopete
+krdc
+kreversi
+kruler
+kscd
+kstars
+ksystemlog
+ktouch
+kuser
+parley
+rocs
+step
+
+
+--------------------------[ Notes ]----------------------------------------------------
+
+
+kgoldrunner
+- stops with "Get Folders" in title of main window
+- menu bar stays without items
+- "quitting" the application leads to opening a new main window
+- only now a functioning application
+
+
+kcalc
+- drawing issue, perhaps due to theming (status bar overlaps with buttons)
+- no application icon in launchpad and dock (when not started)
+
+
+kate, dragon, kcolorchooser, kuser, kmix, kscd, contactthemeeditor, headerthemeeditor,
+kalarm, kwikdisk, step
+- no application icon in launchpad and dock (when not started)
+
+
+kreversi
+- shows dialog at start with illegible content
+
+
+ktouch
+- shows only empty window
+
+
+parley
+- crashed when trying to create a new collection
+
+
+kig
+- toolbar on the left doesn't display the expected graphic-buttons
+- crashed when changing style while the app is running
+
+
+kigo
+- needs a go engine installed
+
+
+cantor
+- shows 2 empty windows (one with toolbar)
+- menu items all disabled
+- app unresponsive
+
+
+
+kolourpaint, kopete, ksystemlog
+- crashes at startup
+
+
+kmplot, kompare, kwikdisk
+- starts with empty window
+- no menu items
+
+
+rocs
+- seems to start normally
+- but crashes at program end
+
+
+kruler
+- doesn't redraw properly
+
+
+kaddressbook, accountwizzard, kjots, knots, kommander
+- hang during startup
+
+
+blogilo
+- starts with error, since DB driver can't be loaded
+
+
+kalarm, kmail, kontact, korganizer
+- fails to start PIM service
+
+
+karm
+- shows empty message with title that "karm is now ktimetracker"
+
+
+ktimetracker
+- fails to create part
+
+
+kfloppy
+- starts with empty error dialog
+- display issues with overlapping texts in main dialog
+
+
+kstars
+- does not have a program icon in launchpad
+- crashes at startup
+
