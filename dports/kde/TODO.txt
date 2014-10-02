@@ -1,3 +1,15 @@
+Main toolbar rendering:
+
+All applications need quite a while to update the rendering of the main
+toolbar. The symptoms are: (a) sometimes the toolbar shows some colored
+garbage and (b) often the toolbar appears to be enlarged, i.e. stretched
+horizontally, up to a certain moment, then all appears as expected.
+
+---
+
+
+
+
 These ports need some love:
 
 -------------------------------------------------------------------
@@ -46,7 +58,6 @@ i  contactthemeeditor
 i  dragon
 i  headerthemeeditor
 i  kalarm
-i  kate
 i  kcolorchooser
 i  kmix
 i  kscd
@@ -54,7 +65,6 @@ i  kuser
 i  kwikdisk
 i  step
 
-di kcalc
 
 d  kfloppy
 d  kgoldrunner
@@ -63,6 +73,8 @@ rc kig
 
 rn kompare
 
+ri kate
+ri kcalc
 r  kreversi
 r  kruler
 
@@ -70,6 +82,10 @@ r  kruler
 
 
 --------------------------[ Notes ]----------------------------------------------------
+
+kate
+- has illigebly small controls in "Search & Replace" widget in "Macintosh (aqua)" theme
+
 
 kgoldrunner
 - stops with "Get Folders" in title of main window
@@ -79,7 +95,8 @@ kgoldrunner
 
 
 kcalc
-- drawing issue, perhaps due to theming (status bar overlaps with buttons)
+- drawing issues, perhaps due to theming (status bar overlaps with buttons)
+- buttons overlap with themselves
 
 
 kreversi
