@@ -1,52 +1,85 @@
 These ports need some love:
 
-cantor
-dragon
-kate
-kcalc
-kcolorchooser
-kfloppy
-kgoldrunner
-kig
-kigo
-kmix
-kmplot
-kolourpaint
-kompare
-konsole
-konversation-devel
-kopete
-krdc
-kreversi
-kruler
-kscd
-kstars
-ksystemlog
-ktouch
-kuser
-parley
-rocs
-step
+-------------------------------------------------------------------
+Legend:
+
+ +  needs running akonadi and Co. for PIM to work
+ -  missing other apps to show off its functionality
+ n  not functioning as expected
+ h  hang at startup
+ c  crashing at some stage
+ s  crashing at startup
+ i  no application icon in launchpad and dock (when not started)
+ d  shows empty error dialog at start (needs to be closed to proceed)
+ r  rendering problems
+-------------------------------------------------------------------
+
++  akonadiconsole
++  kalarm
++  kmail
++  kontact
++  korganizer
+
+-  blogilo
+-  cantor
+-  kigo
+
+n  ktouch
+
+h  kaddressbook
+h  accountwizard
+h  kjots
+h  knots
+h  kommander
+
+c  parley
+c  rocs
+
+s  karm
+s  ktimetracker
+s  kolourpaint
+s  kopete
+s  kstars
+s  ksystemlog
+
+i  contactthemeeditor
+i  dragon
+i  headerthemeeditor
+i  kalarm
+i  kate
+i  kcolorchooser
+i  kmix
+i  kscd
+i  kuser
+i  kwikdisk
+i  step
+
+di kcalc
+
+d  kfloppy
+d  kgoldrunner
+
+rc kig
+
+rn kompare
+
+r  kreversi
+r  kruler
+
+
 
 
 --------------------------[ Notes ]----------------------------------------------------
 
-
 kgoldrunner
 - stops with "Get Folders" in title of main window
 - menu bar stays without items
-- "quitting" the application leads to opening a new main window
-- only now a functioning application
+- closing the empty error dialog leads to opening the main window
+- only now there's a fully functional application
 
 
 kcalc
 - drawing issue, perhaps due to theming (status bar overlaps with buttons)
-- no application icon in launchpad and dock (when not started)
-
-
-kate, dragon, kcolorchooser, kuser, kmix, kscd, contactthemeeditor, headerthemeeditor,
-kalarm, kwikdisk, step
-- no application icon in launchpad and dock (when not started)
 
 
 kreversi
@@ -71,17 +104,11 @@ kigo
 
 
 cantor
-- shows 2 empty windows (one with toolbar)
-- menu items all disabled
-- app unresponsive
+- shows an empty dialog box at the start, which needs to be close to go on
+- application seems to work, but is empty, as no supported math apps are found
 
 
-
-kolourpaint, kopete, ksystemlog
-- crashes at startup
-
-
-kmplot, kompare, kwikdisk
+kompare
 - starts with empty window
 - no menu items
 
@@ -92,23 +119,16 @@ rocs
 
 
 kruler
-- doesn't redraw properly
-
-
-kaddressbook, accountwizzard, kjots, knots, kommander
-- hang during startup
+- doesn't redraw properly when moving ruler around and hovering mouse over it
 
 
 blogilo
 - starts with error, since DB driver can't be loaded
 
 
-kalarm, kmail, kontact, korganizer
-- fails to start PIM service
-
-
 karm
-- shows empty message with title that "karm is now ktimetracker"
+- shows empty error message (like kgoldrunner)
+- title or error dialog says (expectedly) that "karm is now ktimetracker"
 
 
 ktimetracker
@@ -116,7 +136,6 @@ ktimetracker
 
 
 kfloppy
-- starts with empty error dialog
 - display issues with overlapping texts in main dialog
 
 
