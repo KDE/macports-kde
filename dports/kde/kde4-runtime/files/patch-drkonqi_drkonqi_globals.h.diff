@@ -1,0 +1,14 @@
+--- drkonqi/drkonqi_globals.h.old	2014-10-03 11:49:27.000000000 +0200
++++ drkonqi/drkonqi_globals.h	2014-10-03 11:50:28.000000000 +0200
+@@ -31,9 +31,9 @@
+ };
+ 
+ /* Urls are defined globally here, so that they can change easily */
+-#define KDE_BUGZILLA_URL "https://bugs.kde.org/"
++#define KDE_BUGZILLA_URL "https://bugstest.kde.org/"
+ #define KDE_BUGZILLA_CREATE_ACCOUNT_URL  KDE_BUGZILLA_URL "createaccount.cgi"
+-#define KDE_BUGZILLA_SHORT_URL "bugs.kde.org"
++#define KDE_BUGZILLA_SHORT_URL "bugstest.kde.org"
+ #define TECHBASE_HOWTO_DOC "http://techbase.kde.org/Development/Tutorials/Debugging/How_to_create_useful_crash_reports#Preparing_your_KDE_packages"
+ 
+ /* IDs for bugreport assistant pages -> help anchors */

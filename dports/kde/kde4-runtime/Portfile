@@ -83,6 +83,10 @@ if {[variant_isset xine]} {
     universal_variant no
 }
 
+variant bugstest description "Use bugstest DB at b.k.o. for DrKonqi development" {
+    patchfiles-append       patch-drkonqi_drkonqi_globals.h.diff
+}
+
 post-destroot {
 # Remove this file as it conflicts with hicolor-icon-theme
     file delete ${destroot}${prefix}/share/icons/hicolor/index.theme
