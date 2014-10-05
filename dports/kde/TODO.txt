@@ -1,9 +1,26 @@
+This list is NOT complete. I have done only some basic test, like starting
+the apps and checking that their menus exists, etc.
+
+Please support us getting this tested more throughly!
+
+The issues found won't delay the release of KDE 4.13.3 on MacPorts,
+as some of these might already be fixed in KDE 4.14...
+
+
+---
+
 Main toolbar rendering:
 
-All applications need quite a while to update the rendering of the main
-toolbar. The symptoms are: (a) sometimes the toolbar shows some colored
-garbage and (b) often the toolbar appears to be enlarged, i.e. stretched
-horizontally, up to a certain moment, then all appears as expected.
+At least on my Parallels 9 virtual machine many applications sometimes
+need quite a while to update the rendering of the main toolbar.
+
+The symptoms are:
+
+ (a) sometimes the toolbar shows some colored garbage
+ (b) often the toolbar appears to be enlarged, i.e. stretched
+     horizontally, up to a certain moment, then all appears as expected.
+
+This doesn't seem to happen for René though.
 
 ---
 
@@ -15,7 +32,7 @@ These ports need some love:
 -------------------------------------------------------------------
 Legend:
 
- +  needs running akonadi and Co. for PIM to work
+ +  needs running akonadi and Co. for PIM to work (i.e. not tested)
  -  missing other apps to show off its functionality
  n  not functioning as expected
  h  hang at startup
@@ -33,8 +50,8 @@ Legend:
 +  korganizer
 
 -  blogilo
--  cantor
--  kigo
+-d cantor
+-h kigo
 
 n  ktouch
 
@@ -44,10 +61,11 @@ h  kjots
 h  knots
 h  kommander
 
+cr konqueror
 c  parley
 c  rocs
 
-s  karm
+sd karm
 s  ktimetracker
 s  kolourpaint
 s  kopete
@@ -71,7 +89,7 @@ d  kgoldrunner
 
 rc kig
 
-rn kompare
+rd kompare
 
 ri kate
 ri kcalc
@@ -83,9 +101,17 @@ r  kruler
 
 --------------------------[ Notes ]----------------------------------------------------
 
+konqueror
+- just starting and immediately closing the app already leads to a crash
+- trying to access a website when its running also ltriggers crash
+- app always starts with a far too wide window reaching out of the screen size
+
+
 kate
 - has illigebly small controls in "Search & Replace" widget in "Macintosh (aqua)" theme
-
+- problem with "clean indentation" feature -> https://bugs.kde.org/show_bug.cgi?id=339676
+- also a theme issue -> https://bugs.kde.org/show_bug.cgi?id=333393
+- re app icon -> https://bugs.kde.org/show_bug.cgi?id=333050
 
 kgoldrunner
 - stops with "Get Folders" in title of main window
@@ -95,8 +121,10 @@ kgoldrunner
 
 
 kcalc
-- drawing issues, perhaps due to theming (status bar overlaps with buttons)
+- drawing issues due to theming (status bar overlaps with buttons)
 - buttons overlap with themselves
+- happens only for default "Macintosh (aqua)" theme
+- see b.k.o. ticket https://bugs.kde.org/show_bug.cgi?id=339670
 
 
 kreversi
@@ -104,7 +132,7 @@ kreversi
 
 
 ktouch
-- shows only empty window
+- shows only empty main window, no menu items created
 
 
 parley
@@ -118,16 +146,17 @@ kig
 
 kigo
 - needs a go engine installed
+- installing gnugo port doesn't help, as the kigo hangs
 
 
 cantor
 - shows an empty dialog box at the start, which needs to be close to go on
 - application seems to work, but is empty, as no supported math apps are found
+- at another try even shows an error message in its main window re "no backend found"
 
 
 kompare
-- starts with empty window
-- no menu items
+- starts with empty error dialog and aborts
 
 
 rocs
