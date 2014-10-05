@@ -83,7 +83,7 @@ i  kscd
 i  kuser
 i  kwikdisk
 i  step
-
+i  konsole - I thought I had this fixed but I can't recall what I did or when
 
 d  kfloppy
 d  kgoldrunner
