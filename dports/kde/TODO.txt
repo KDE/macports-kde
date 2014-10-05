@@ -54,6 +54,7 @@ Legend:
 -h kigo
 
 n  ktouch
+n  palapeli
 
 h  kaddressbook
 h  accountwizard
@@ -188,4 +189,11 @@ kfloppy
 kstars
 - does not have a program icon in launchpad
 - crashes at startup
+
+
+palapeli
+- does not show the images of the various puzzles in the collection
+- also no image in the floating previewer
+- is this connected to me running the debug variant?
+- starting palapeli with "DYLD_IMAGE_SUFFIX=_debug" doesn't help
 
