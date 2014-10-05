@@ -1,6 +1,11 @@
 This list is NOT complete. I have done only some basic test, like starting
 the apps and checking that their menus exists, etc.
 
+These findings are valid for the case when using *debug* variants for all ports.
+!!! It has to be noted that all apps have been started via their app icon,
+!!! which might lead to trouble, as many apps need to be started with
+!!! "DYLD_IMAGE_SUFFIX=_debug" set.
+
 Please support us getting this tested more throughly!
 
 The issues found won't delay the release of KDE 4.13.3 on MacPorts,
@@ -41,6 +46,7 @@ Legend:
  i  no application icon in launchpad and dock (when not started)
  d  shows empty error dialog at start (needs to be closed to proceed)
  r  rendering problems
+ e  needs environment var "DYLD_IMAGE_SUFFIX=_debug" set for debug
 -------------------------------------------------------------------
 
 +  akonadiconsole
@@ -62,9 +68,11 @@ h  kjots
 h  knots
 h  kommander
 
-cr konqueror
+e  kompare
+e  rocs
+
+ce konqueror
 c  parley
-c  rocs
 
 sd karm
 s  ktimetracker
@@ -83,14 +91,12 @@ i  kscd
 i  kuser
 i  kwikdisk
 i  step
-i  konsole - I thought I had this fixed but I can't recall what I did or when
+i  konsole
 
 d  kfloppy
 d  kgoldrunner
 
 rc kig
-
-rd kompare
 
 ri kate
 ri kcalc
@@ -103,8 +109,7 @@ r  kruler
 --------------------------[ Notes ]----------------------------------------------------
 
 konqueror
-- just starting and immediately closing the app already leads to a crash
-- trying to access a website when its running also ltriggers crash
+- trying to access a website when its running also triggers crash
 - app always starts with a far too wide window reaching out of the screen size
 
 
@@ -141,13 +146,15 @@ parley
 
 
 kig
-- toolbar on the left doesn't display the expected graphic-buttons
+- toolbars on the left and the right do not display the expected graphic-buttons
+- funny redraws of those graphic-buttons when hovering the mouse over them
 - crashed when changing style while the app is running
 
 
 kigo
 - needs a go engine installed
-- installing gnugo port doesn't help, as the kigo hangs
+- installing port gnugo needed,
+- kigo hangs when trying to access gnugo
 
 
 cantor
@@ -157,12 +164,15 @@ cantor
 
 
 kompare
-- starts with empty error dialog and aborts
+- starts with empty dialog when not setting "DYLD_IMAGE_SUFFIX=_debug"
+- if "DYLD_IMAGE_SUFFIX=_debug" is set, kompare will start just fine
+- starts behind the active window when started from the shell
 
 
 rocs
-- seems to start normally
-- but crashes at program end
+- seems to run normally with "DYLD_IMAGE_SUFFIX=_debug" set
+- left toolbar isn't correctly rendered, just like kig's
+- reports at program end: "LEAK: 1371 Structure"
 
 
 kruler
@@ -187,7 +197,8 @@ kfloppy
 
 
 kstars
-- does not have a program icon in launchpad
+- does not have a program icon in launchpad at all
+- doesn't have an app installed in /Applications/MacPorts/KDE/
 - crashes at startup
 
 
@@ -196,4 +207,8 @@ palapeli
 - also no image in the floating previewer
 - is this connected to me running the debug variant?
 - starting palapeli with "DYLD_IMAGE_SUFFIX=_debug" doesn't help
+
+
+konsole
+- missing dock icon -> khindenburg: I thought I had this fixed but I can't recall what I did or when
 
