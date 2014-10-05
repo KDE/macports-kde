@@ -146,6 +146,7 @@ parley
 
 
 kig
+- starts with a too wide window (wider than screen)
 - toolbars on the left and the right do not display the expected graphic-buttons
 - funny redraws of those graphic-buttons when hovering the mouse over them
 - crashed when changing style while the app is running
