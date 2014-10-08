@@ -6,6 +6,7 @@ PortGroup           kde4   1.1
 
 name                kde4-workspace
 version             4.14.1
+revision            1
 set plasmaversion   4.11.12
 categories          kde kde4
 maintainers         gmail.com:rjvbertin
@@ -24,7 +25,10 @@ checksums           rmd160  e5f4ed10a6791b9a6cea37ec13d8a1141fd9707b \
                     sha256  09d8ae1ac1b704fc919bdedfec47c6561033dca125b0096cb9ed398445fa942f
 
 #Fully removing X11 only function to prevent automoc to include it (RR 120287)
-patchfiles          patches.diff
+patchfiles          patch-CmakeLists-for-OSX.patch \
+                    libs-CmakeLists-deactivate-taskmanager.patch \
+                    patch-KControl-CmakeLists.patch \
+                    krdb-noX11onOSX.patch
 
 depends_build-append port:boost \
                     port:freetype \
@@ -35,6 +39,7 @@ depends_lib-append  port:kdelibs4 \
                     port:kactivities \
                     port:nepomuk-core \
                     port:libqalculate \
+                    port:phonon \
                     port:qjson \
                     port:qimageblitz
 
