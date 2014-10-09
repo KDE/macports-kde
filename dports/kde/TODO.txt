@@ -43,6 +43,7 @@ Legend:
  h  hang at startup
  c  crashing at some stage
  s  crashing at startup
+ t  crashing when changing theme while app is running
  i  no application icon in launchpad and dock (when not started)
  d  shows empty error dialog at start (needs to be closed to proceed)
  r  rendering problems
@@ -80,6 +81,8 @@ s  kolourpaint
 s  kopete
 s  kstars
 s  ksystemlog
+
+t  filelight (Note, this is certainly not the only app crashing when changing the theme!)
 
 i  contactthemeeditor
 i  dragon
@@ -213,3 +216,6 @@ palapeli
 konsole
 - missing dock icon -> khindenburg: I thought I had this fixed but I can't recall what I did or when
 
+
+filelight
+- if the KDE theme is changed while the app is running it crashes
