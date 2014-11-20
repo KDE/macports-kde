@@ -1,0 +1,29 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 126402 2014-10-09 12:32:11Z nicos@macports.org $
+
+PortSystem          1.0
+PortGroup           kde4   1.1
+
+name                libkdeedu
+version             4.14.1
+categories          kde kde4
+maintainers         nicos
+license             GPL-2+ LGPL-2+ BSD
+description         KDE4 edu core libraries
+long_description    Core libraries for KDE4 edu applications to function
+platforms           darwin
+homepage            http://www.kde.org
+
+master_sites        kde:stable/${version}/src/
+use_xz              yes
+
+checksums           rmd160  7d6f7ccdb0e82d77e4bc8d48d407d927076d4c29 \
+                    sha256  ad46020efe601fb9b1dd25d1912c29f9d8b9801793b184fe4594410ea4bb821b
+
+#Binaries do not link to openssl, nor use the ssl backend of kdelibs4
+license_noconflict  openssl
+
+depends_lib-append  port:kdelibs4
+
+livecheck.url       http://kde.mirrors.hoobly.com/stable/
+livecheck.regex     (\\d+(\\.\\d+)+)
