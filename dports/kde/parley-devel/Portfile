@@ -4,11 +4,14 @@
 PortSystem          1.0
 PortGroup           kde4   1.1
 
-name                parley
-version             4.14.1
-revision            1
+fetch.type          git
+git.url             git://anongit.kde.org/parley
+git.branch          8b6b1a1b711c2056ba926d36755ef4bb02f60c09
+
+name                parley-devel
+version             4.14-20141122
 categories          kde kde4
-maintainers         nicos
+maintainers         mk 
 license             GPL-2+ GFDL-1.2
 description         Vocabulary Trainer
 long_description    KDE ${description}
@@ -19,22 +22,18 @@ platforms           darwin
 master_sites        kde:stable/${version}/src/
 use_xz              yes
 
-checksums           rmd160  742898504a80fc0d4deb7f234199b6863393b718 \
-                    sha256  650389bda22797fa30d471a56d70c552bdcf231c1fd82b04ce43f051faf91efc
+livecheck.type      none
+
+conflicts           parley
 
 #Binaries do not link to openssl, nor use the ssl backend of kdelibs4
 license_noconflict  openssl
 
-conflicts           parley-devel
-
-depends_lib-append  port:libkdeedu \
+depends_lib-append  port:libkdeedu-devel \
                     port:libxml2 \
                     port:attica
 
-patch.pre_args      -p1
 if {![variant_isset docs]} {
     patchfiles-append   patch-CMakeLists.txt.diff
 }
 
-livecheck.url       http://kde.mirrors.hoobly.com/stable/
-livecheck.regex     (\\d+(\\.\\d+)+)
