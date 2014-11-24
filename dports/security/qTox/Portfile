@@ -1,0 +1,32 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id:$
+
+PortSystem          1.0
+
+PortGroup           qmake5  1.0
+PortGroup           github 1.0
+
+github.setup        tux3 qtox 1ec67cb
+
+name                qTox
+version             0.0.0-20141124
+categories          security chat
+maintainers         mk
+
+license             GPL-3
+description         Powerful Tox client that follows the Tox design guidelines, formerly called toxgui.
+long_description    ${description}
+homepage            https://github.com/tux3/qTox
+
+platforms           darwin
+
+checksums           rmd160  09bd3c84dd4076f64a88742bf66317af3f883f3c \
+                    sha256  205cd73a560817b3dcce53559c19360c810e37eeef14d25849483cab8b6c7bda
+
+worksrcdir          ${github.author}-${name}-${github.version}
+
+depends_lib-append  port:opencv \
+                    port:openal \
+                    port:toxcore
+
+livecheck.type      none
