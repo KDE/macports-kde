@@ -6,10 +6,10 @@ PortGroup           kde4 1.1
 
 fetch.type          git
 git.url             git://anongit.kde.org/konversation
-git.branch          3afe9fe5b2df1452ff2eb62c67326f989486f878
+git.branch          f965a651fc8e309bd64e354be7490bb272b57fa7
 
 name                konversation-devel
-version             20140922
+version             20140925
 categories          kde kde4
 maintainers         nicos mk openmaintainer
 license             GPL-2+ GFDL-1.2
