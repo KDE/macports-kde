@@ -10,7 +10,7 @@ version             1.2.0+
 revision            20150214
 license             MIT permissive
 categories          graphics
-maintainers         devans openmaintainer
+maintainers         mk openmaintainer
 platforms           darwin
 
 description         Epoxy is a library for handling OpenGL function \
@@ -24,16 +24,17 @@ checksums           rmd160  d58195ba0fd160a49ebe231583e2e579443a69ba \
 depends_build       port:pkgconfig \
                     port:autoconf \
                     port:automake \
-                    port:libtool \
-                    port:xorg-util-macros \
-                    port:python34
+                    port:libtool
 
-depends_lib         port:mesa
+# Why was Python 3.4 used previously?
+#                    port:python34
 
-patchfiles          patch-configure.ac.diff
+conflicts           libepoxy
+
+#patchfiles          patch-configure.ac.diff
 
 configure.cmd       ./autogen.sh
 
-configure.python    ${prefix}/bin/python3.4
+#configure.python    ${prefix}/bin/python3.4
 
 configure.args      --disable-silent-rules
