@@ -1,0 +1,39 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 127920 2014-11-07 13:17:18Z devans@macports.org $
+
+PortSystem          1.0
+PortGroup           github 1.0
+
+github.setup        anholt libepoxy 20062c25
+name                libepoxy-devel
+version             1.2.0+
+revision            20150214
+license             MIT permissive
+categories          graphics
+maintainers         devans openmaintainer
+platforms           darwin
+
+description         Epoxy is a library for handling OpenGL function \
+                    pointer management for you
+
+long_description    ${description}
+
+checksums           rmd160  d58195ba0fd160a49ebe231583e2e579443a69ba \
+                    sha256  0e593fe88de6414fc6ab346514d1b9c0feb9a375d012cd9f3b77f13fc177d812
+
+depends_build       port:pkgconfig \
+                    port:autoconf \
+                    port:automake \
+                    port:libtool \
+                    port:xorg-util-macros \
+                    port:python34
+
+depends_lib         port:mesa
+
+patchfiles          patch-configure.ac.diff
+
+configure.cmd       ./autogen.sh
+
+configure.python    ${prefix}/bin/python3.4
+
+configure.args      --disable-silent-rules
