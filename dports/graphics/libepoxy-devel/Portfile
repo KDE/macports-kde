@@ -24,7 +24,8 @@ checksums           rmd160  d58195ba0fd160a49ebe231583e2e579443a69ba \
 depends_build       port:pkgconfig \
                     port:autoconf \
                     port:automake \
-                    port:libtool
+                    port:libtool \
+                    xorg-util-macros
 
 # Why was Python 3.4 used previously?
 #                    port:python34
