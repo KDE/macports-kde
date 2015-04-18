@@ -25,7 +25,7 @@ depends_build       port:pkgconfig \
                     port:autoconf \
                     port:automake \
                     port:libtool \
-                    xorg-util-macros
+                    port:xorg-util-macros
 
 # Why was Python 3.4 used previously?
 #                    port:python34
