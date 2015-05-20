@@ -5,6 +5,12 @@
 if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
 fi
+
+if [ -d ~/bin/arcanist/ ]; then
+    export PATH=$PATH:~/bin/arcanist/bin/
+    . ~/bin/arcanist/resources/shell/bash-completion
+fi
+
 export CLICOLOR=
 
 set completion-ignore-case on
@@ -14,6 +20,9 @@ export HISTFILESIZE=500000
 PROMPT_COMMAND='history -a'
 export HISTCONTROL="ignoredups"
 export HISTIGNORE="&:ls:[bf]g:exit"
+
+#echo "Exporting PYTHONPATH..."
+#export PYTHONPATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/
 
 # -- shopt options, see shopt -p for all options --
 shopt -s cdspell # Automatic spelling correction for `cd`
