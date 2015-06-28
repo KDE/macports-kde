@@ -1,0 +1,10 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 137900 2015-06-22 20:57:02Z mk@macports.org $
+
+PortSystem          1.0
+set KF5_PROJECT     threadweaver 
+PortGroup           kf5 1.0
+
+checksums           rmd160  52cf72f20f81d2f9761d37f7b6ce79359899aaa7 \
+                    sha256  5ffca756f146825b5daaf1a29cec7947786cf967041c669dccd72c148cfdd9a8
+
