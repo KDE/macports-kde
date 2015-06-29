@@ -58,6 +58,11 @@ configure.cppflags-delete -I${prefix}/include
 # setup all KF5 ports to build in a separate directory from the source:
 cmake.out_of_source     yes
 
+# NOTE: Many kf5 ports violate MacPorts' ports file systems,
+#       but it is a must to to Qt5's QStandardPaths logic,
+#       so we'll quieten the warning.
+destroot.violate_mtree  yes
+
 # TODO:
 #
 # Phonon added as library dependency here as most, if not all KDE
@@ -68,20 +73,17 @@ cmake.out_of_source     yes
 
 depends_lib-append      port:kde-extra-cmake-modules
 
-# This should use ${qt_mkspecs_dir}, see e.g. qt5-mac
-#configure.args-append   -DECM_MKSPECS_INSTALL_DIR=${prefix}/share/qt5/mkspecs/
+# Use directory set by qt5-mac
 configure.args-append   -DECM_MKSPECS_INSTALL_DIR=${qt_mkspecs_dir}
 
-# This is not yet it, as it installs everything below prefix
-# TODO: symbolic link to /Library/Application Support or copying? Concerns more than one project!
-configure.args-append   -DDATA_INSTALL_DIR="/Library/Application Support"
-
-# TODO: stg similar:
-configure.args-append   -DCONFIG_INSTALL_DIR="/Library/Preferences"
+# This is why we need destroo.violate_mtree set to "yes"
+configure.args-append   -DDATA_INSTALL_DIR="/Library/Application Support" \
+                        -DCONFIG_INSTALL_DIR="/Library/Preferences"
 
 # Q: What about the often used XDG dir?
+#    (Currently it gets installed into /etc/xdg just like on Linux.)
 
-# standard configure args; virtually all KDE ports use CMake and Qt4.
+# standard configure args
 configure.args-append   -DBUILD_doc=OFF \
                         -DBUILD_docs=OFF \
                         -DBUILD_SHARED_LIBS=ON \
