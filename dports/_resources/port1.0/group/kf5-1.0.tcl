@@ -71,14 +71,15 @@ destroot.violate_mtree  yes
 # cyclic dependency
 #depends_lib-append      port:phonon
 
+# This is used by all KF5 frameworks
 depends_lib-append      port:kde-extra-cmake-modules
 
 # Use directory set by qt5-mac
 configure.args-append   -DECM_MKSPECS_INSTALL_DIR=${qt_mkspecs_dir}
 
 # This is why we need destroo.violate_mtree set to "yes"
-configure.args-append   -DDATA_INSTALL_DIR="/Library/Application Support" \
-                        -DCONFIG_INSTALL_DIR="/Library/Preferences"
+configure.args-append   -DCONFIG_INSTALL_DIR="/Library/Preferences" \
+                        -DKDE_INSTALL_DATADIR_KF5="/Library/Application Support"
 
 # Q: What about the often used XDG dir?
 #    (Currently it gets installed into /etc/xdg just like on Linux.)
