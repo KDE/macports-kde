@@ -41,7 +41,11 @@ do
             if [ "$PROJECT" == "${!counter}" ]; then
                 echo -n "kf5-$PROJECT: "
                 (
-                    pushd ../../../dports/kde/kf5-${PROJECT} >/dev/null
+                    PORTDIR=../../../dports/kde/kf5-${PROJECT}
+                    if [ ! -d $PORTDIR ]; then
+                        mkdir $PORTDIR
+                    fi
+                    pushd $PORTDIR >/dev/null
                     (
                         echo -n "Faking Portfile... "
                         cat > Portfile <<EOF
@@ -78,12 +82,12 @@ EOF
                     popd >/dev/null
                     pushd kde-build-metadata/tools >/dev/null
                     (
-                        echo "appending dependencies (TBD)."
+                        echo "appending dependencies."
                         ./list_dependencies $PROJECT >deps.log
                         if ( ! grep -q "Error: Couldn't find the following modules:" deps.log ); then
                             DEPS=`egrep "^frameworks/" deps.log | egrep -v "^frameworks/$PROJECT" | sed 's#frameworks/\(.*\)$#port:kf5-\1 #' | awk '{printf "\\\\\n                    %s ", $1}'`
                             if [ -n "$DEPS" ]; then
-                                echo -n "depends_lib-append $DEPS" >> ../../../../../dports/kde/kf5-${PROJECT}/Portfile
+                                echo -n "depends_lib-append $DEPS" >> ../../${PORTDIR}/Portfile
                             fi
                         fi
                     )
