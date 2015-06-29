@@ -61,7 +61,7 @@ EOF
                         SHA256=`grep "Distfile checksum: .* sha256" checksum.log | sed 's/.*sha256 \(.*\)$/\1/'`
                         rm checksum.log
 
-                        echo "creating correct one."
+                        echo -n "creating correct one... "
                         cat > Portfile <<EOF
 # -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
 # \$Id\$
@@ -74,6 +74,18 @@ checksums           rmd160  $RMD160 \\
                     sha256  $SHA256
 
 EOF
+                    )
+                    popd >/dev/null
+                    pushd kde-build-metadata/tools >/dev/null
+                    (
+                        echo "appending dependencies (TBD)."
+                        ./list_dependencies $PROJECT >deps.log
+                        if ( ! grep -q "Error: Couldn't find the following modules:" deps.log ); then
+                            DEPS=`egrep "^frameworks/" deps.log | egrep -v "^frameworks/$PROJECT" | sed 's#frameworks/\(.*\)$#port:kf5-\1 #' | awk '{printf "\\\\\n                    %s ", $1}'`
+                            if [ -n "$DEPS" ]; then
+                                echo -n "depends_lib-append $DEPS" >> ../../../../../dports/kde/kf5-${PROJECT}/Portfile
+                            fi
+                        fi
                     )
                     popd >/dev/null
                 )
