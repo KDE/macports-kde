@@ -1,0 +1,92 @@
+#!/bin/bash
+
+declare -i counter
+declare -i last_project
+declare -i RET
+
+SUCCESS_LOG=succeeded.txt
+
+REBUILD=""
+last_project=$#
+
+if [ $# -gt 1 -a "${!#}" == "rebuild" ]; then
+    REBUILD=y
+    last_project=$#-1
+elif [ $# -eq 1 -a  "$1" == "rebuild" ] || [ $# -eq 0 ]; then
+    echo "Usage: $0 LIST_OF_PROJECT_NAMES [rebuild]"
+    exit -1
+fi
+
+PROJECTS_ALL=projects-all.fw
+rm $PROJECTS_ALL 2>/dev/null
+
+for (( counter=0; counter <= 5; counter=counter+1 )); do
+    egrep -v "^#.*" mp-osx-ci/tier${counter}.fw >> $PROJECTS_ALL
+done
+
+for (( counter=1; counter <= last_project; counter=counter+1 )); do
+    egrep -q "^${!counter}$" $PROJECTS_ALL || echo "${!counter}" >> $PROJECTS_ALL
+done
+
+old_IFS=$IFS  # save the field separator
+IFS=$'\n'     # new field separator, the end of line
+
+RET=0
+
+while read -r LINE
+do
+    PROJECT=`echo "$LINE" | awk {'print $1'}`
+    if [ "$PROJECT" != "#" ]; then
+        for (( counter=1; counter <= last_project; counter=counter+1 )); do
+            if [ "$PROJECT" == "${!counter}" ]; then
+                echo -n "kf5-$PROJECT: "
+                (
+                    pushd ../../../dports/kde/kf5-${PROJECT} >/dev/null
+                    (
+                        echo -n "Faking Portfile... "
+                        cat > Portfile <<EOF
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# \$Id\$
+
+PortSystem          1.0
+set KF5_PROJECT     $PROJECT
+PortGroup           kf5 1.0
+
+checksums           rmd160  abcdef \\
+                    sha256  abcdef
+EOF
+                        sudo port -d checksum > checksum.log 2>/dev/null
+
+                        RMD160=`grep "Distfile checksum: .* rmd160" checksum.log | sed 's/.*rmd160 \(.*\)$/\1/'`
+                        SHA256=`grep "Distfile checksum: .* sha256" checksum.log | sed 's/.*sha256 \(.*\)$/\1/'`
+                        rm checksum.log
+
+                        echo "creating correct one."
+                        cat > Portfile <<EOF
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# \$Id\$
+
+PortSystem          1.0
+set KF5_PROJECT     $PROJECT
+PortGroup           kf5 1.0
+
+checksums           rmd160  $RMD160 \\
+                    sha256  $SHA256
+
+EOF
+                    )
+                    popd >/dev/null
+                )
+                if [ $last_project -eq 1 ]; then
+                    IFS=$old_IFS  # restore default field separator
+
+                    # See allowed exit codes in http://tldp.org/LDP/abs/html/exitcodes.html#FTN.AEN23629
+                    exit $RET
+                fi
+            fi
+        done
+    fi
+done < $PROJECTS_ALL
+
+IFS=$old_IFS  # restore default field separator
+
