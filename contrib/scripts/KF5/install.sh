@@ -95,7 +95,7 @@ EOF
                 )
                 if [ $last_project -eq 1 ]; then
                     IFS=$old_IFS  # restore default field separator
-
+                    rm $PROJECTS_ALL
                     # See allowed exit codes in http://tldp.org/LDP/abs/html/exitcodes.html#FTN.AEN23629
                     exit $RET
                 fi
@@ -106,3 +106,4 @@ done < $PROJECTS_ALL
 
 IFS=$old_IFS  # restore default field separator
 
+rm $PROJECTS_ALL
