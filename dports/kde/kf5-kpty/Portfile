@@ -1,13 +1,13 @@
 # -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
-# $Id: Portfile 137900 2015-06-22 20:57:02Z mk@macports.org $
+# $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kpty 
+set KF5_PROJECT     kpty
 PortGroup           kf5 1.0
-
-depends_lib-append  port:kf5-kcoreaddons \
-                    port:kf5-ki18n
 
 checksums           rmd160  0a780b6adc248ac16140bbc635135a99e4601a01 \
                     sha256  47f1cb9621702a0ec3e633cbca863017c334c1ad1cd040d6b357224189112321
 
+depends_lib-append \
+                    port:kf5-ki18n \
+                    port:kf5-kcoreaddons 

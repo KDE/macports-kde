@@ -1,10 +1,13 @@
 # -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
-# $Id: Portfile 137900 2015-06-22 20:57:02Z mk@macports.org $
+# $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kunitconversion 
+set KF5_PROJECT     kunitconversion
 PortGroup           kf5 1.0
 
 checksums           rmd160  b83956b836c5d6146a54b6dde9b263d08faadbff \
                     sha256  e2b803059875c8bfe71e6b5e097ceba50b9ea0fecb5175f311dd604df8ca526e
 
+depends_lib-append \
+                    port:kf5-ki18n \
+                    port:kf5-kconfig 

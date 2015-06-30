@@ -1,0 +1,12 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id$
+
+PortSystem          1.0
+set KF5_PROJECT     kxmlrpcclient
+PortGroup           kf5 1.0
+
+checksums           rmd160  0204f1c250653939a4e962e21fb55a72f5263d0e \
+                    sha256  90b113e6638594912eb6b82092229b50c6c079ff18f4833a74ac4ecc4cd8d578
+
+depends_lib-append \
+                    port:kf5-kio 

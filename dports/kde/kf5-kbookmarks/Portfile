@@ -1,0 +1,16 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id$
+
+PortSystem          1.0
+set KF5_PROJECT     kbookmarks
+PortGroup           kf5 1.0
+
+checksums           rmd160  6e019ebfdabe162f3f640dec6235fb4eaaebc124 \
+                    sha256  fdae0ca3d9e2617b1d4c318a0fef586ad7147db630fef68cbb2b061c138f1b22
+
+depends_lib-append \
+                    port:kf5-kxmlgui \
+                    port:kf5-kconfigwidgets \
+                    port:kf5-kwidgetsaddons \
+                    port:kf5-kcoreaddons \
+                    port:kf5-kiconthemes 

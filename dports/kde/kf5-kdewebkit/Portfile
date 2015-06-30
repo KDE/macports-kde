@@ -1,0 +1,16 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id$
+
+PortSystem          1.0
+set KF5_PROJECT     kdewebkit
+PortGroup           kf5 1.0
+
+checksums           rmd160  b3ef419215ab47d65b4b2f85cb32348abb773c12 \
+                    sha256  9500eea8d5a677aa29483a93df06d60e7cca2c5fa159380b8b86fae3fdd50a43
+
+depends_lib-append \
+                    port:kf5-kwallet \
+                    port:kf5-kcoreaddons \
+                    port:kf5-kparts \
+                    port:kf5-knotifications \
+                    port:kf5-kio 

@@ -1,0 +1,16 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id$
+
+PortSystem          1.0
+set KF5_PROJECT     kdeclarative
+PortGroup           kf5 1.0
+
+checksums           rmd160  cd67e8da5eb2bbf0e197cef4696293033ee8bea1 \
+                    sha256  d93148c3284d85b31cc79378ba52bbc38aad2a7364a93ecaaf2206b2771c40ea
+
+depends_lib-append \
+                    port:kf5-kpackage \
+                    port:kf5-kconfig \
+                    port:kf5-kio \
+                    port:kf5-kiconthemes \
+                    port:kf5-ki18n 
