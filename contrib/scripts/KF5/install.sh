@@ -60,6 +60,7 @@ checksums           rmd160  abcdef \\
                     sha256  abcdef
 EOF
                         sudo port -d checksum > checksum.log 2>/dev/null
+                        sudo port clean >/dev/null
 
                         RMD160=`grep "Distfile checksum: .* rmd160" checksum.log | sed 's/.*rmd160 \(.*\)$/\1/'`
                         SHA256=`grep "Distfile checksum: .* sha256" checksum.log | sed 's/.*sha256 \(.*\)$/\1/'`
