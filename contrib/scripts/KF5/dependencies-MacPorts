@@ -1,0 +1,5 @@
+kf5-kdoctools: port:docbook-xml
+kf5-kdoctools: port:docbook-xsl
+kf5-kdoctools: port:p5.16-uri
+kf5-kdoctools: port:gettext
+kf5-kcoreaddons: port:shared-mime-info
