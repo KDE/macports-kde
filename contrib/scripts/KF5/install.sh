@@ -82,22 +82,37 @@ EOF
                     )
                     popd >/dev/null
                     pushd kde-build-metadata/tools >/dev/null
-                    echo "appending dependencies."
+                    echo -n "appending dependencies... "
                     ./list_dependencies -d $PROJECT >deps.log
                     if ( ! grep -q "Error: Couldn't find the following modules:" deps.log ); then
                         DEPS=`egrep "frameworks/" deps.log | egrep -v "frameworks/$PROJECT" | sed 's#.*frameworks/\(.*\)$#port:kf5-\1 #' | awk '{printf "\\\\\n                    %s ", $1}'`
                         if [ -n "$DEPS" ]; then
                             echo -n "depends_lib-append $DEPS" >> ../../${PORTDIR}/Portfile
                         fi
+                        PHONON=`egrep "kdesupport/phonon/phonon" deps.log`
+                        if [ -n "$PHONON" ]; then
+                            if [ -z "$DEPS" ]; then
+                                echo -n "depends_lib-append " >> ../../${PORTDIR}/Portfile
+                            fi
+                            echo -e "\\" >> ../../${PORTDIR}/Portfile
+                            echo -n "                    port:phonon-qt5 " >> ../../${PORTDIR}/Portfile
+                        fi
                     fi
                     popd >/dev/null
                     MPDEPS=`grep "kf5-${PROJECT}: " dependencies-MacPorts | sed 's#^.*: \(.*\)$#\1#' | awk '{printf "\\\\\n                    %s ", $1}'`
                     if [ -n "$MPDEPS" ]; then
-                        if [ -z "$DEPS" ]; then
+                        if [ -z "$DEPS" -a -z "$PHONON" ]; then
                             echo -n "depends_lib-append " >> ${PORTDIR}/Portfile
                         fi
                         echo -n "$MPDEPS" >> ${PORTDIR}/Portfile
                     fi
+
+                    echo "installing... "
+                    pushd $PORTDIR >/dev/null
+                    (
+                        sudo port install
+                    )
+                    popd >/dev/null
                 )
                 if [ $last_project -eq 1 ]; then
                     IFS=$old_IFS  # restore default field separator
