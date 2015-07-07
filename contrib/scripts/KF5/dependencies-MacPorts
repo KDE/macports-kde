@@ -5,3 +5,4 @@ kf5-kdoctools: port:gettext
 kf5-kcoreaddons: port:shared-mime-info
 kf5-kwallet: port:gpgme
 kf5-kactivities: port:boost
+kf5-khtml: port:giflib
