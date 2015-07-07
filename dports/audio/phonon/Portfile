@@ -157,11 +157,11 @@ if {${subport} ne "${name}-qt5"} {
 
 cmake.out_of_source         yes
 
-post-patch {
-    set rel_mp_qt_cmake_dir [strsed ${qt_cmake_module_dir} "g@${prefix}/@@"]
-    reinplace "s|@MACPORTS_CMAKE_DIR@|${rel_mp_qt_cmake_dir}|" \
-        ${worksrcpath}/CMakeLists.txt
-}
+#post-patch {
+#    set rel_mp_qt_cmake_dir [strsed ${qt_cmake_module_dir} "g@${prefix}/@@"]
+#    reinplace "s|@MACPORTS_CMAKE_DIR@|${rel_mp_qt_cmake_dir}|" \
+#        ${worksrcpath}/CMakeLists.txt
+#}
 
 # nb: there is no WITH_QZeitgeist option...
 configure.args-append   \
