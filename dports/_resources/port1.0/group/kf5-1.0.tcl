@@ -43,7 +43,7 @@ PortGroup               qt5 1.0
 #
 # TODO: Perhaps introduce KF5_FRAMEWORK to ease separation.
 #
-name                    kf5-${KF5_PROJECT}
+name                    kf5-${kf5.project}
 
 platforms               darwin
 supported_archs         noarch
@@ -141,12 +141,12 @@ if { [ info exists kf5.portingAid ] } {
 version                 5.11.0
 set branch              [join [lrange [split ${version} .] 0 1] .]
 maintainers             mk openmaintainer
-description             ${KF5_PROJECT}
+description             ${kf5.project}
 long_description        ${description}
-homepage                http://projects.kde.org/projects/frameworks/${KF5_PROJECT}
+homepage                http://projects.kde.org/projects/frameworks/${kf5.project}
 master_sites            http://download.kde.org/stable/frameworks/${branch}${kf5.subfolder}
 
-distname                ${KF5_PROJECT}-${version}
+distname                ${kf5.project}-${version}
 use_xz                  yes
 
 # TODO
