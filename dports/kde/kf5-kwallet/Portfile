@@ -17,4 +17,5 @@ depends_lib-append \
                     port:kf5-ki18n \
                     port:kf5-kcoreaddons \
                     port:kf5-knotifications \
-                    port:kf5-kwindowsystem 
+                    port:kf5-kwindowsystem \
+                    port:gpgme 

@@ -3,3 +3,5 @@ kf5-kdoctools: port:docbook-xsl
 kf5-kdoctools: port:p5.16-uri
 kf5-kdoctools: port:gettext
 kf5-kcoreaddons: port:shared-mime-info
+kf5-kwallet: port:gpgme
+kf5-kactivities: port:boost

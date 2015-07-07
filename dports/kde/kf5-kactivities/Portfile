@@ -18,4 +18,5 @@ depends_lib-append \
                     port:kf5-kcmutils \
                     port:kf5-kcoreaddons \
                     port:kf5-kdeclarative \
-                    port:kf5-kwindowsystem 
+                    port:kf5-kwindowsystem \
+                    port:boost 
