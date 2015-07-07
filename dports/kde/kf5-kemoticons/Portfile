@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kemoticons
+set kf5.project     kemoticons
 PortGroup           kf5 1.0
 
 checksums           rmd160  0c41286a0e9a6b347c1f5ce9f588c49b1f4895bc \

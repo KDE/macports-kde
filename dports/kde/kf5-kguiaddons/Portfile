@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kguiaddons
+set kf5.project     kguiaddons
 PortGroup           kf5 1.0
 
 checksums           rmd160  bd188a4efef8824c78a98e88ea18a572eeabf8f7 \

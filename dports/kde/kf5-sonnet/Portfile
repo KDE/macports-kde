@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     sonnet
+set kf5.project     sonnet
 PortGroup           kf5 1.0
 
 checksums           rmd160  b3f529666d3562a5afa5f5833f4d87ef842755e7 \

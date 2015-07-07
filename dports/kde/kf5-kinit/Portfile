@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kinit
+set kf5.project     kinit
 PortGroup           kf5 1.0
 
 checksums           rmd160  d4be338f61976bbebf090ca3f95260ccc62ad275 \

@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kauth
+set kf5.project     kauth
 PortGroup           kf5 1.0
 
 checksums           rmd160  48c2d1800532ed0d286dd69e4bd9252e6ec1e10e \

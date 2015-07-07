@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     knewstuff
+set kf5.project     knewstuff
 PortGroup           kf5 1.0
 
 checksums           rmd160  7f7bff67ee071cd8cac92ef23e757e534434cfe0 \

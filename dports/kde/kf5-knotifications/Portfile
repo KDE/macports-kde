@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     knotifications
+set kf5.project     knotifications
 PortGroup           kf5 1.0
 
 checksums           rmd160  336eb4939f627ec023e4a604b7bf77ae3d394d3e \

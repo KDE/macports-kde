@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kdoctools
+set kf5.project     kdoctools
 PortGroup           kf5 1.0
 
 checksums           rmd160  0c514fb0a1eb5bfbad1716c99c4f3088757971d0 \

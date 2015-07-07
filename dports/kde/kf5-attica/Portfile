@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     attica
+set kf5.project     attica
 PortGroup           kf5 1.0
 
 checksums           rmd160  5a361d65ef12f32f463288bee432b9625dc9b51c \

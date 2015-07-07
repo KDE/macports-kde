@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kdeclarative
+set kf5.project     kdeclarative
 PortGroup           kf5 1.0
 
 checksums           rmd160  cd67e8da5eb2bbf0e197cef4696293033ee8bea1 \

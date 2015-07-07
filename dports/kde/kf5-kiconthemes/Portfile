@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kiconthemes
+set kf5.project     kiconthemes
 PortGroup           kf5 1.0
 
 checksums           rmd160  d9b1b32f67f13f7ae57171d9206044ee9e3b2609 \

@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kwallet
+set kf5.project     kwallet
 PortGroup           kf5 1.0
 
 checksums           rmd160  e5ecfa6bea7a763536a21d7ecd3e862f4fd341a3 \

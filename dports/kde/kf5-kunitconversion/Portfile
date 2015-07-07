@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kunitconversion
+set kf5.project     kunitconversion
 PortGroup           kf5 1.0
 
 checksums           rmd160  b83956b836c5d6146a54b6dde9b263d08faadbff \

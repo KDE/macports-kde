@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     frameworkintegration
+set kf5.project     frameworkintegration
 PortGroup           kf5 1.0
 
 checksums           rmd160  ea5ffe2c8a5d3247104c164a85127f3a0f3c9e63 \

@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kdbusaddons
+set kf5.project     kdbusaddons
 PortGroup           kf5 1.0
 
 checksums           rmd160  1f340c0f9455f2e9c1c41df1d35fd7de9d49a751 \

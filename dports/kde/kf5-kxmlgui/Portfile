@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kxmlgui
+set kf5.project     kxmlgui
 PortGroup           kf5 1.0
 
 checksums           rmd160  6bd9e3ce0a3bfbc0eee2dac200d6354ed9922cc7 \

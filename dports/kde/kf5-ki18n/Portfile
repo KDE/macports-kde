@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     ki18n
+set kf5.project     ki18n
 PortGroup           kf5 1.0
 
 checksums           rmd160  58e643dcaecc70568037d265167bdafdd20b273e \

@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kcmutils
+set kf5.project     kcmutils
 PortGroup           kf5 1.0
 
 checksums           rmd160  8ca9c6a981c7096f3ae42b1bbed8485e5eb895ef \

@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kitemviews
+set kf5.project     kitemviews
 PortGroup           kf5 1.0
 
 checksums           rmd160  11fd65a52cbb547bbb736e943900c03ae846c44a \

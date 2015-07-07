@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kxmlrpcclient
+set kf5.project     kxmlrpcclient
 PortGroup           kf5 1.0
 
 checksums           rmd160  0204f1c250653939a4e962e21fb55a72f5263d0e \

@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     ktexteditor
+set kf5.project     ktexteditor
 PortGroup           kf5 1.0
 
 checksums           rmd160  1e127acc7dacbbad3166bc2c07a60a56f93d8c18 \

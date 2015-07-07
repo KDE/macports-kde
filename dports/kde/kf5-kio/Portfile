@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kio
+set kf5.project     kio
 PortGroup           kf5 1.0
 
 checksums           rmd160  09d735a5c26ce2c7e61b16cb3a1c235bcb0108f7 \

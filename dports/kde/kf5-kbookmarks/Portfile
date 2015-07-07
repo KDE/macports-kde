@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kbookmarks
+set kf5.project     kbookmarks
 PortGroup           kf5 1.0
 
 checksums           rmd160  6e019ebfdabe162f3f640dec6235fb4eaaebc124 \

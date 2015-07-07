@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kwidgetsaddons
+set kf5.project     kwidgetsaddons
 PortGroup           kf5 1.0
 
 checksums           rmd160  66120604fe17ef6abf3b4c3c0e5a0aefaabcde46 \

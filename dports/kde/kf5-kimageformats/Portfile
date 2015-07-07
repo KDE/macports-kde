@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kimageformats
+set kf5.project     kimageformats
 PortGroup           kf5 1.0
 
 checksums           rmd160  ba19bfabb3d09bcd8d5df9bb479dc7adff9bd464 \

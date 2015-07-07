@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kwindowsystem
+set kf5.project     kwindowsystem
 PortGroup           kf5 1.0
 
 checksums           rmd160  0780f40e27582f1a0fc9eff9a7275840bdf7e22a \

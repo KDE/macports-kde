@@ -2,11 +2,12 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kdelibs4support
+set kf5.portingAid  yes
+set kf5.project     kdelibs4support
 PortGroup           kf5 1.0
 
-checksums           rmd160   \
-                    sha256  
+checksums           rmd160  bf8a8372dd1c4bf11a2221c7af85237ce7aebef5 \
+                    sha256  30b6b8e9d3994ac69f38b7a4cbc164bc636a52c6975ecd56c1a376066a93b6ac
 
 depends_lib-append \
                     port:kf5-kxmlgui \

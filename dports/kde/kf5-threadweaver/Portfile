@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     threadweaver
+set kf5.project     threadweaver
 PortGroup           kf5 1.0
 
 checksums           rmd160  52cf72f20f81d2f9761d37f7b6ce79359899aaa7 \

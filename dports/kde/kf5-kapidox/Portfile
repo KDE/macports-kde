@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kapidox
+set kf5.project     kapidox
 PortGroup           kf5 1.0
 
 checksums           rmd160  c9329fac605c37f46b09df63a1e4e46415603f84 \

@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kjobwidgets
+set kf5.project     kjobwidgets
 PortGroup           kf5 1.0
 
 checksums           rmd160  68f4297298f67f5a1f19fbe9c2a8183306f20105 \

@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kplotting
+set kf5.project     kplotting
 PortGroup           kf5 1.0
 
 checksums           rmd160  9ac025d6b9cfa5a8184eecfeaa4c03fba8c37f50 \

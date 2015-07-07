@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     knotifyconfig
+set kf5.project     knotifyconfig
 PortGroup           kf5 1.0
 
 checksums           rmd160  fcd1699955c8724fc7389e92562216c9403f20e2 \

@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     kcodecs
+set kf5.project     kcodecs
 PortGroup           kf5 1.0
 
 checksums           rmd160  3a2f6e5005ead166f36ac34f6a06b1f715c46122 \

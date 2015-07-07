@@ -2,11 +2,12 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     khtml
+set kf5.portingAid  yes
+set kf5.project     khtml
 PortGroup           kf5 1.0
 
-checksums           rmd160   \
-                    sha256  
+checksums           rmd160  c829ad5f873aa6b72b91dc8b3b5841483378b2e2 \
+                    sha256  c13317ca12e50893fd79ff9dc46a15368e71cc93295fc7f28362ecbe4b5ece86
 
 depends_lib-append \
                     port:kf5-kxmlgui \
@@ -30,4 +31,5 @@ depends_lib-append \
                     port:kf5-kcompletion \
                     port:kf5-kparts \
                     port:kf5-kconfigwidgets \
-                    port:phonon-qt5 
+                    port:phonon-qt5 \
+                    port:giflib 

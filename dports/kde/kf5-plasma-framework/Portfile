@@ -2,7 +2,7 @@
 # $Id$
 
 PortSystem          1.0
-set KF5_PROJECT     plasma-framework
+set kf5.project     plasma-framework
 PortGroup           kf5 1.0
 
 checksums           rmd160  ad6714d078040da0efc530be8b4983b4180ae4bc \
