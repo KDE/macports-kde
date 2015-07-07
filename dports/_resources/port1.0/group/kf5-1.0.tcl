@@ -131,6 +131,12 @@ configure.args-append   -DDOCBOOKXSL_DIR=${prefix}/share/xsl/docbook-xsl \
                         -DTIFF_INCLUDE_DIR=${prefix}/include \
                         -DTIFF_LIBRARY=${prefix}/lib/libtiff.dylib
 
+if { [ info exists kf5.portingAid ] } {
+	set kf5.subfolder "/portingAids"
+} else {
+	set kf5.subfolder ""
+}
+
 # KF5 frameworks are released with one version ATM:
 version                 5.11.0
 set branch              [join [lrange [split ${version} .] 0 1] .]
@@ -138,7 +144,7 @@ maintainers             mk openmaintainer
 description             ${KF5_PROJECT}
 long_description        ${description}
 homepage                http://projects.kde.org/projects/frameworks/${KF5_PROJECT}
-master_sites            http://download.kde.org/stable/frameworks/${branch}/
+master_sites            http://download.kde.org/stable/frameworks/${branch}${kf5.subfolder}
 
 distname                ${KF5_PROJECT}-${version}
 use_xz                  yes

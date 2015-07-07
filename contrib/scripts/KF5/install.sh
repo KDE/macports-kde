@@ -53,6 +53,12 @@ do
 # \$Id\$
 
 PortSystem          1.0
+EOF
+                        echo -n "as porting aid? ..."
+                        if ( grep -q "${PROJECT}" ../../../contrib/scripts/KF5/mp-osx-ci/tier4.fw ); then
+                           echo "set kf5.portingAid yes" >> Portfile
+                        fi
+                        cat >> Portfile <<EOF
 set KF5_PROJECT     $PROJECT
 PortGroup           kf5 1.0
 
@@ -72,6 +78,12 @@ EOF
 # \$Id\$
 
 PortSystem          1.0
+EOF
+                        echo -n "as porting aid? ..."
+                        if ( grep -q "${PROJECT}" ../../../contrib/scripts/KF5/mp-osx-ci/tier4.fw ); then
+                           echo "set kf5.portingAid yes" >> Portfile
+                        fi
+                        cat >> Portfile <<EOF
 set KF5_PROJECT     $PROJECT
 PortGroup           kf5 1.0
 
