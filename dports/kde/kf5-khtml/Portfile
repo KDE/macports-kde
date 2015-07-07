@@ -29,4 +29,5 @@ depends_lib-append \
                     port:kf5-kdbusaddons \
                     port:kf5-kcompletion \
                     port:kf5-kparts \
-                    port:kf5-kconfigwidgets 
+                    port:kf5-kconfigwidgets \
+                    port:phonon-qt5 

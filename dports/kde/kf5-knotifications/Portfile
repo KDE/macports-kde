@@ -11,4 +11,5 @@ checksums           rmd160  336eb4939f627ec023e4a604b7bf77ae3d394d3e \
 depends_lib-append \
                     port:kf5-kservice \
                     port:kf5-kiconthemes \
-                    port:kf5-kwindowsystem 
+                    port:kf5-kwindowsystem \
+                    port:phonon-qt5 
