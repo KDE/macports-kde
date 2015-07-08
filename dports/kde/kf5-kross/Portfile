@@ -2,10 +2,9 @@
 # $Id$
 
 PortSystem          1.0
-set kf5.portingAid  yes
 set kf5.project     kross
+set kf5.portingAid  yes
 PortGroup           kf5 1.0
-
 checksums           rmd160  2ae4f3c0c3967b5cda2c9139034a447ec6e0d183 \
                     sha256  cffc117fcc5323e293f4a2dc0c587b101f1054b32f364e92884c9df76f09b129
 

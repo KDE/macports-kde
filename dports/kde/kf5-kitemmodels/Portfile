@@ -3,8 +3,8 @@
 
 PortSystem          1.0
 set kf5.project     kitemmodels
+set kf5.framework   yes
 PortGroup           kf5 1.0
-
 checksums           rmd160  aefc5bc7b223963b4c0eb404f3b4517715b407a7 \
                     sha256  635bfe99800ca4e6941252f1faef91d700d7866fd0c15f813075940d70094f9c
 

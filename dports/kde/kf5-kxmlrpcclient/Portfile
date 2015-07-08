@@ -3,8 +3,8 @@
 
 PortSystem          1.0
 set kf5.project     kxmlrpcclient
+set kf5.framework   yes
 PortGroup           kf5 1.0
-
 checksums           rmd160  0204f1c250653939a4e962e21fb55a72f5263d0e \
                     sha256  90b113e6638594912eb6b82092229b50c6c079ff18f4833a74ac4ecc4cd8d578
 

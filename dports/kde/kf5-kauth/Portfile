@@ -3,8 +3,8 @@
 
 PortSystem          1.0
 set kf5.project     kauth
+set kf5.framework   yes
 PortGroup           kf5 1.0
-
 checksums           rmd160  48c2d1800532ed0d286dd69e4bd9252e6ec1e10e \
                     sha256  d04e217898e303f10589ea87317795c0b66fa5fa76fbe79e56f401978bc9afcb
 

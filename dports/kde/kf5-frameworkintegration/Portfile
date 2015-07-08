@@ -3,8 +3,8 @@
 
 PortSystem          1.0
 set kf5.project     frameworkintegration
+set kf5.framework   yes
 PortGroup           kf5 1.0
-
 checksums           rmd160  ea5ffe2c8a5d3247104c164a85127f3a0f3c9e63 \
                     sha256  cc69702ad4b51008c9b5558dba57760175d0913b940c3780b696e5763f57c285
 

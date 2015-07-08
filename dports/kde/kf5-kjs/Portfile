@@ -2,8 +2,9 @@
 # $Id$
 
 PortSystem          1.0
-set kf5.portingAid  yes
+
 set kf5.project     kjs
+set kf5.portingAid  yes
 PortGroup           kf5 1.0
 
 checksums           rmd160  e0057b324d8a566d57dc7a7ad2086e3f3a02de5b \

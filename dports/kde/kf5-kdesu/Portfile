@@ -3,8 +3,8 @@
 
 PortSystem          1.0
 set kf5.project     kdesu
+set kf5.framework   yes
 PortGroup           kf5 1.0
-
 checksums           rmd160  46bc6f3201874a484101bcd58c667d2fcfc3c51f \
                     sha256  2036107493c51a2bb70eaf77b26318c8276d346d2d78065c0bbbe59c6b40b657
 

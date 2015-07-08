@@ -3,8 +3,8 @@
 
 PortSystem          1.0
 set kf5.project     sonnet
+set kf5.framework   yes
 PortGroup           kf5 1.0
-
 checksums           rmd160  b3f529666d3562a5afa5f5833f4d87ef842755e7 \
                     sha256  e37e44ea944038fee0d57bec1aebd39d20b4247c0b752e2741854e90597611d9
 
