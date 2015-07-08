@@ -1,0 +1,16 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id$
+
+PortSystem          1.0
+
+set kf5.project     kate
+set kf5.virtualPath applications
+set kf5.release     15.04.2
+PortGroup           kf5 1.0
+
+checksums           rmd160  624b16c4f2a005e4fde2e669e988433b3d0b70e8
+
+depends_lib-append \
+                    port:kf5-kactivities \
+                    port:kf5-ktexteditor \
+                    port:kf5-plasma-framework 
