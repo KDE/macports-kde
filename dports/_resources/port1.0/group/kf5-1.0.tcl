@@ -159,22 +159,22 @@ if { ![ info exists kf5.framework ] && ![ info exists kf5.portingAid ] } {
             ui_error "You haven't defined kf5.virtualPath, which is mandatory for any KF5 project."
             return -code error "incomplete port definition"
         } else {
-            set kf5.folder "${kf5.virtualPath}/${kf5.release}/src"
+            set kf5.folder  "${kf5.virtualPath}/${kf5.release}/src"
             distname        ${kf5.project}-${kf5.release}
         }
     }
 } else {
-    distname                ${kf5.project}-${version}
+    distname            ${kf5.project}-${version}
 }
 
 if { [ info exists kf5.portingAid ] } {
-    set kf5.virtualPath "frameworks"
-    set kf5.folder      "frameworks/${branch}/portingAids"
+    set kf5.virtualPath     "frameworks"
+    set kf5.folder          "frameworks/${branch}/portingAids"
 }
 
 if { [ info exists kf5.framework ] } {
-    set kf5.virtualPath "frameworks"
-    set kf5.folder      "frameworks/${branch}"
+    set kf5.virtualPath     "frameworks"
+    set kf5.folder          "frameworks/${branch}"
 }
 
 #ui_warn " -> kf5.virtualPath: '${kf5.virtualPath}'"

@@ -33,6 +33,11 @@ IFS=$'\n'     # new field separator, the end of line
 
 RET=0
 
+if [ ! -f /opt/local/var/macports/sources/rsync.macports.org/release/tarballs/ports/_resources/port1.0/group/kf5-1.0.tcl ]; then
+    echo "Port group kf5-1.0 has vanished, probably due to a selfupdate, restoring..."
+    sudo cp ../../../dports/_resources/port1.0/group/kf5-1.0.tcl /opt/local/var/macports/sources/rsync.macports.org/release/tarballs/ports/_resources/port1.0/group
+fi
+
 while read -r LINE
 do
     PROJECT=`echo "$LINE" | awk {'print $1'}`
