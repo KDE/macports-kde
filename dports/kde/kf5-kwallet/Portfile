@@ -2,9 +2,11 @@
 # $Id$
 
 PortSystem          1.0
+
 set kf5.project     kwallet
 set kf5.framework   yes
 PortGroup           kf5 1.0
+
 checksums           rmd160  e5ecfa6bea7a763536a21d7ecd3e862f4fd341a3 \
                     sha256  bf2489db87ff98644498145cb1c85c40ab79287b96fb4532ddfaaa7d183c2678
 

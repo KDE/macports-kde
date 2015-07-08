@@ -2,9 +2,11 @@
 # $Id$
 
 PortSystem          1.0
+
 set kf5.project     kjobwidgets
 set kf5.framework   yes
 PortGroup           kf5 1.0
+
 checksums           rmd160  68f4297298f67f5a1f19fbe9c2a8183306f20105 \
                     sha256  6a202ae4d1835132d48b974dee2f4aa53b787836be6fce3bef6dfa70a09d51a9
 

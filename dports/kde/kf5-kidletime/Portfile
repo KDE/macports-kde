@@ -2,9 +2,11 @@
 # $Id$
 
 PortSystem          1.0
+
 set kf5.project     kidletime
 set kf5.framework   yes
 PortGroup           kf5 1.0
+
 checksums           rmd160  55945eb90d333c699795171f8765753aea7f7c96 \
                     sha256  ccdc8b3e23282de64f9c0da69d2eaa50fe4428f9c8b5523cd61b0ffa9794be17
 

@@ -2,9 +2,11 @@
 # $Id$
 
 PortSystem          1.0
+
 set kf5.project     kxmlgui
 set kf5.framework   yes
 PortGroup           kf5 1.0
+
 checksums           rmd160  6bd9e3ce0a3bfbc0eee2dac200d6354ed9922cc7 \
                     sha256  dd6f430e80b954573745177a79c5726426241ceae7b33e07ac678da64c21c4a9
 

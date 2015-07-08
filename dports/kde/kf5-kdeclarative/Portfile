@@ -2,9 +2,11 @@
 # $Id$
 
 PortSystem          1.0
+
 set kf5.project     kdeclarative
 set kf5.framework   yes
 PortGroup           kf5 1.0
+
 checksums           rmd160  cd67e8da5eb2bbf0e197cef4696293033ee8bea1 \
                     sha256  d93148c3284d85b31cc79378ba52bbc38aad2a7364a93ecaaf2206b2771c40ea
 

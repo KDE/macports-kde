@@ -2,9 +2,11 @@
 # $Id$
 
 PortSystem          1.0
+
 set kf5.project     kdewebkit
 set kf5.framework   yes
 PortGroup           kf5 1.0
+
 checksums           rmd160  b3ef419215ab47d65b4b2f85cb32348abb773c12 \
                     sha256  9500eea8d5a677aa29483a93df06d60e7cca2c5fa159380b8b86fae3fdd50a43
 

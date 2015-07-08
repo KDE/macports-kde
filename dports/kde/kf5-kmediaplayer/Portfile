@@ -2,9 +2,11 @@
 # $Id$
 
 PortSystem          1.0
+
 set kf5.project     kmediaplayer
 set kf5.portingAid  yes
 PortGroup           kf5 1.0
+
 checksums           rmd160  97d30bab261d7de1543b7d6acdbdbdf4102a01a6 \
                     sha256  4571b51e63befda4ab45b4a0182b3739bab11c56784042c125c2c6c4a8f89b91
 

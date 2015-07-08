@@ -2,9 +2,11 @@
 # $Id$
 
 PortSystem          1.0
+
 set kf5.project     kjsembed
 set kf5.portingAid  yes
 PortGroup           kf5 1.0
+
 checksums           rmd160  8b1f1c8f8e29fbfb78329f2974109080754ec973 \
                     sha256  97fff81d5f262565b067b4967405e332892df9aeed709204d9b628ed52130a6a
 

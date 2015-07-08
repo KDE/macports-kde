@@ -2,9 +2,11 @@
 # $Id$
 
 PortSystem          1.0
+
 set kf5.project     kdesignerplugin
 set kf5.framework   yes
 PortGroup           kf5 1.0
+
 checksums           rmd160  f5c42d7557f4047d0319173e21ffee896e1c7bc3 \
                     sha256  46f25a411858f9c3126344a4530bbcf989687de49ecde358aa4f9df6e91af64c
 

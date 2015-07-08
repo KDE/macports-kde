@@ -2,9 +2,11 @@
 # $Id$
 
 PortSystem          1.0
+
 set kf5.project     plasma-framework
 set kf5.framework   yes
 PortGroup           kf5 1.0
+
 checksums           rmd160  ad6714d078040da0efc530be8b4983b4180ae4bc \
                     sha256  d24328863453de054df7d34b2369315dbf609a8bea7cfb06c6cba482a5cff5ef
 
