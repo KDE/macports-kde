@@ -188,8 +188,6 @@ long_description        ${description}
 homepage                http://projects.kde.org/projects/${kf5.virtualPath}/${kf5.project}
 master_sites            http://download.kde.org/stable/${kf5.folder}
 
-# TODO: only good for frameworks up to now!
-distname                ${kf5.project}-${version}
 use_xz                  yes
 
 # TODO
