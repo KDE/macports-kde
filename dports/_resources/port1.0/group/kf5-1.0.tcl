@@ -36,13 +36,28 @@
 PortGroup               cmake 1.0
 PortGroup               qt5 1.0
 
-# The KF5 project name makes sense only for frameworks!!!
-#    A regular project would need changes regarding
-#        * home_page
-#        * master_sites
+########################################################################
+# Projects including the 'kf5' port group must set
 #
-# TODO: Perhaps introduce KF5_FRAMEWORK to ease separation.
+#  - their project name as 'kf5.project'
 #
+# an specify whether they are
+#
+#  - a framework by defining 'kf5.framework'
+#
+#  - a porting aid by defining 'kf5.portingAid'
+#
+#  - or a regular KF5 project which requires setting
+#    + a virtual path in 'kf5.virtualPath' (e.g. "kde/applications")
+#    + as well as a release in 'kf5.release' (e.g. "15.04.2")
+#
+# otherwise the port will fail to build.
+########################################################################
+
+if { ![ info exists kf5.project ] } {
+    ui_error "You haven't defined kf5.project, which is mandatory for any KF5 project."
+    return -code error "incomplete port definition"
+}
 name                    kf5-${kf5.project}
 
 platforms               darwin
@@ -131,21 +146,49 @@ configure.args-append   -DDOCBOOKXSL_DIR=${prefix}/share/xsl/docbook-xsl \
                         -DTIFF_INCLUDE_DIR=${prefix}/include \
                         -DTIFF_LIBRARY=${prefix}/lib/libtiff.dylib
 
-if { [ info exists kf5.portingAid ] } {
-	set kf5.subfolder "/portingAids"
-} else {
-	set kf5.subfolder ""
-}
-
 # KF5 frameworks are released with one version ATM:
 version                 5.11.0
 set branch              [join [lrange [split ${version} .] 0 1] .]
+
+if { ![ info exists kf5.framework ] && ![ info exists kf5.portingAid ] } {
+    if { ![ info exists kf5.virtualPath ] } {
+        ui_error "You haven't defined kf5.virtualPath, which is mandatory for any KF5 project. (Or is this project perhaps a framework or porting aid?)"
+        return -code error "incomplete port definition"
+    } else {
+        if { ![ info exists kf5.release ] } {
+            ui_error "You haven't defined kf5.virtualPath, which is mandatory for any KF5 project."
+            return -code error "incomplete port definition"
+        } else {
+            set kf5.folder "${kf5.virtualPath}/${kf5.release}/src"
+            distname        ${kf5.project}-${kf5.release}
+        }
+    }
+} else {
+    distname                ${kf5.project}-${version}
+}
+
+if { [ info exists kf5.portingAid ] } {
+    set kf5.virtualPath "frameworks"
+    set kf5.folder      "frameworks/${branch}/portingAids"
+}
+
+if { [ info exists kf5.framework ] } {
+    set kf5.virtualPath "frameworks"
+    set kf5.folder      "frameworks/${branch}"
+}
+
+#ui_warn " -> kf5.virtualPath: '${kf5.virtualPath}'"
+#ui_warn " -> kf5.folder: '${kf5.folder}'"
+#ui_warn " -> kf5.virtualPath: '${kf5.virtualPath}'"
+#ui_warn " -> distname: '${distname}'"
+
 maintainers             mk openmaintainer
 description             ${kf5.project}
 long_description        ${description}
-homepage                http://projects.kde.org/projects/frameworks/${kf5.project}
-master_sites            http://download.kde.org/stable/frameworks/${branch}${kf5.subfolder}
+homepage                http://projects.kde.org/projects/${kf5.virtualPath}/${kf5.project}
+master_sites            http://download.kde.org/stable/${kf5.folder}
 
+# TODO: only good for frameworks up to now!
 distname                ${kf5.project}-${version}
 use_xz                  yes
 

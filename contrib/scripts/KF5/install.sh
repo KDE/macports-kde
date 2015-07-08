@@ -48,20 +48,29 @@ do
                     pushd $PORTDIR >/dev/null
                     (
                         echo -n "Faking Portfile... "
-                        cat > Portfile <<EOF
+                        cat > Portfile-header <<EOF
 # -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
 # \$Id\$
 
 PortSystem          1.0
-EOF
-                        echo -n "as porting aid? ..."
-                        if ( grep -q "${PROJECT}" ../../../contrib/scripts/KF5/mp-osx-ci/tier4.fw ); then
-                           echo "set kf5.portingAid  yes" >> Portfile
-                        fi
-                        cat >> Portfile <<EOF
 set kf5.project     $PROJECT
+EOF
+                        if ( grep -q "${PROJECT}" ../../../contrib/scripts/KF5/mp-osx-ci/tier4.fw ); then
+                           echo -n "as porting aid... "
+                           echo "set kf5.portingAid  yes" >> Portfile-header
+                        elif  ( grep -q "${PROJECT}" ../../../contrib/scripts/KF5/mp-osx-ci/tier[1-3].fw ); then
+                           echo -n "as framework... "
+                           echo "set kf5.framework   yes" >> Portfile-header
+                        else
+                           echo -n "as project depending on KF5... "
+                           echo "#set kf5.virtualPath ?" >> Portfile-header
+                           echo "set kf5.release     15.04.2" >> Portfile-header
+                        fi
+                        cat >> Portfile-header <<EOF
 PortGroup           kf5 1.0
-
+EOF
+                        cp PortFile-header Portfile
+                        cat >> Portfile <<EOF
 checksums           rmd160  abcdef \\
                     sha256  abcdef
 EOF
@@ -73,20 +82,9 @@ EOF
                         rm checksum.log
 
                         echo -n "creating correct one... "
-                        cat > Portfile <<EOF
-# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
-# \$Id\$
 
-PortSystem          1.0
-EOF
-                        echo -n "as porting aid? ..."
-                        if ( grep -q "${PROJECT}" ../../../contrib/scripts/KF5/mp-osx-ci/tier4.fw ); then
-                           echo "set kf5.portingAid  yes" >> Portfile
-                        fi
+                        mv PortFile-header Portfile
                         cat >> Portfile <<EOF
-set kf5.project     $PROJECT
-PortGroup           kf5 1.0
-
 checksums           rmd160  $RMD160 \\
                     sha256  $SHA256
 
