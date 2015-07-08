@@ -48,7 +48,7 @@ PortGroup               qt5 1.0
 #  - a porting aid by defining 'kf5.portingAid'
 #
 #  - or a regular KF5 project which requires setting
-#    + a virtual path in 'kf5.virtualPath' (e.g. "kde/applications")
+#    + a virtual path in 'kf5.virtualPath' (e.g. "applications")
 #    + as well as a release in 'kf5.release' (e.g. "15.04.2")
 #
 # otherwise the port will fail to build.
