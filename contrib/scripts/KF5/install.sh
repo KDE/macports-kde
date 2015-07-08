@@ -58,6 +58,7 @@ do
 # \$Id\$
 
 PortSystem          1.0
+
 set kf5.project     $PROJECT
 EOF
                         if ( grep -q "${PROJECT}" ../../../contrib/scripts/KF5/mp-osx-ci/tier4.fw ); then
@@ -73,6 +74,7 @@ EOF
                         fi
                         cat >> Portfile-header <<EOF
 PortGroup           kf5 1.0
+
 EOF
                         cp PortFile-header Portfile
                         cat >> Portfile <<EOF
