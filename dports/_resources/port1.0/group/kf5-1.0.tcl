@@ -74,7 +74,7 @@ configure.cppflags-delete -I${prefix}/include
 cmake.out_of_source     yes
 
 # NOTE: Many kf5 ports violate MacPorts' ports file systems,
-#       but it is a must to to Qt5's QStandardPaths logic,
+#       but it is a must due to Qt5's QStandardPaths logic,
 #       so we'll quieten the warning.
 destroot.violate_mtree  yes
 
