@@ -7,8 +7,8 @@ set kf5.project     kdewebkit
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  b3ef419215ab47d65b4b2f85cb32348abb773c12 \
-                    sha256  9500eea8d5a677aa29483a93df06d60e7cca2c5fa159380b8b86fae3fdd50a43
+checksums           rmd160  7fa5380c32258446cd705a98e8f12b3cbddbbfd4 \
+                    sha256  5d6aad1c6a70272c2fa5640233a2b2f4b9e62adc31dad461c4e3e8e2e3021dd9
 
 depends_lib-append \
                     port:kf5-kwallet \

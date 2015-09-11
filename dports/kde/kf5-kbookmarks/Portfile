@@ -7,8 +7,8 @@ set kf5.project     kbookmarks
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  6e019ebfdabe162f3f640dec6235fb4eaaebc124 \
-                    sha256  fdae0ca3d9e2617b1d4c318a0fef586ad7147db630fef68cbb2b061c138f1b22
+checksums           rmd160  4b562859852d9b7af2dee8be557bb6a914b257ca \
+                    sha256  8f9acfdc3350cab97c58381067e25bb0df37a3da148612195667d3082fdcba3e
 
 depends_lib-append \
                     port:kf5-kxmlgui \

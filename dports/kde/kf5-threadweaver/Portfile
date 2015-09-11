@@ -7,6 +7,6 @@ set kf5.project     threadweaver
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  52cf72f20f81d2f9761d37f7b6ce79359899aaa7 \
-                    sha256  5ffca756f146825b5daaf1a29cec7947786cf967041c669dccd72c148cfdd9a8
+checksums           rmd160  65ef6b0b412fe3799f53f94e1121cc627049d801 \
+                    sha256  d6d7d1f578f58c4a7d1f644c95f4c1d3f37c14792e8332e94da530aba2ca1b1a
 

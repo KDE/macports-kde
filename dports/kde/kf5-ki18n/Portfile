@@ -7,6 +7,6 @@ set kf5.project     ki18n
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  58e643dcaecc70568037d265167bdafdd20b273e \
-                    sha256  e2f2be1120d403343f0304b0ba5996b4da3592dbd8f486cfec208efaf38740e7
+checksums           rmd160  d88b5dff748aa9927bd5ce11a65fc21475dafa85 \
+                    sha256  b50f3c2938aa27dc15a64a994a4318c198b77577a6c56a467dec6474a38af9c7
 

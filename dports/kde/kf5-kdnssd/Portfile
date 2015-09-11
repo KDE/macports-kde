@@ -7,6 +7,6 @@ set kf5.project     kdnssd
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  3fbb1237a58d5950215613400da7469680716e31 \
-                    sha256  6ed49ed5ec96fb6c71e075e19db96e1dac78976c83b937bd1f569185c0f4cb4b
+checksums           rmd160  aa6dc71b5343e176fdb6762663dc444dd8afd29c \
+                    sha256  d9b8cc9f4cb89350352d18e95c928b8263dffbc705c98006cdc1138c39454ac9
 

@@ -4,7 +4,7 @@
 PortSystem          1.0
 
 set kf5.project     kate
-set kf5.virtualPath applications
+set kf5.virtualPath kde/applications
 set kf5.release     15.04.2
 PortGroup           kf5 1.0
 

@@ -7,6 +7,6 @@ set kf5.project     kplotting
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  9ac025d6b9cfa5a8184eecfeaa4c03fba8c37f50 \
-                    sha256  8b52c26edebe608ed57b11f5d9b216cd36aa305492b825ff50f9803aa3d55cdc
+checksums           rmd160  1f693619bc88b2e26db0cd4b010b81e4a81372f4 \
+                    sha256  18b6ba0d10728149e559eafabae90a38b6df29fd6a8a4a0f20e39045bc539b38
 

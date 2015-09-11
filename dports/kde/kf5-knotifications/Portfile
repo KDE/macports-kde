@@ -7,11 +7,12 @@ set kf5.project     knotifications
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  336eb4939f627ec023e4a604b7bf77ae3d394d3e \
-                    sha256  04db2e0c21907dc5252e44a65233b432fff38dd051d9446515665d9c1f8f129f
+checksums           rmd160  dba91bbcd97038d3b52fc1acf791572094f62668 \
+                    sha256  3b7edf852f855b2074e16a5572b8eb68bd9d4e7e11c41568227240f32604c512
 
 depends_lib-append \
-                    port:kf5-kservice \
-                    port:kf5-kiconthemes \
+                    port:kf5-kconfig \
+                    port:kf5-kcodecs \
+                    port:kf5-kcoreaddons \
                     port:kf5-kwindowsystem \
                     port:phonon-qt5 

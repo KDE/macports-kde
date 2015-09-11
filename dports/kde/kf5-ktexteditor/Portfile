@@ -7,8 +7,8 @@ set kf5.project     ktexteditor
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  1e127acc7dacbbad3166bc2c07a60a56f93d8c18 \
-                    sha256  ea3f4cca398fae7b419c23c16572857fbaa9f602ff7658c087c1faa59bdc711d
+checksums           rmd160  91a4caac459f1ffe17a6284c3fd40403438bc08c \
+                    sha256  4e78c9efcc745266b8bb3140f85ce2376932f15387a6f998c470df71e2c551dd
 
 depends_lib-append \
                     port:kf5-sonnet \

@@ -7,8 +7,8 @@ set kf5.project     plasma-framework
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  ad6714d078040da0efc530be8b4983b4180ae4bc \
-                    sha256  d24328863453de054df7d34b2369315dbf609a8bea7cfb06c6cba482a5cff5ef
+checksums           rmd160  fff852d57bcf411c4aa75e21c008586c61cf9dc7 \
+                    sha256  eb7539da1e99890e0c3693fa633fa68b913bc5eeb0f32ee80ce644f8fb51633a
 
 depends_lib-append \
                     port:kf5-kxmlgui \

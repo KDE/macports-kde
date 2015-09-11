@@ -7,8 +7,8 @@ set kf5.project     frameworkintegration
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  ea5ffe2c8a5d3247104c164a85127f3a0f3c9e63 \
-                    sha256  cc69702ad4b51008c9b5558dba57760175d0913b940c3780b696e5763f57c285
+checksums           rmd160  edb8b90e10a70f8e7d5803bab7ca62841d49e423 \
+                    sha256  4b2232d18e918c5af18fcd7f7ac14d6c39a3999b62d24d1cab2bc43d0c8bff0e
 
 depends_lib-append \
                     port:kf5-kwidgetsaddons \

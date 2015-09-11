@@ -7,8 +7,8 @@ set kf5.project     kxmlgui
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  6bd9e3ce0a3bfbc0eee2dac200d6354ed9922cc7 \
-                    sha256  dd6f430e80b954573745177a79c5726426241ceae7b33e07ac678da64c21c4a9
+checksums           rmd160  fab3d8a0d8e75c75e9c5ff2bd397db5b28f0d87e \
+                    sha256  d8182f5a8e82a97dcffa33df59911648f9da5f6153fd1b9b3c6602afe938281a
 
 depends_lib-append \
                     port:kf5-kwidgetsaddons \

@@ -94,7 +94,10 @@ configure.args-append   -DECM_MKSPECS_INSTALL_DIR=${qt_mkspecs_dir}
 
 # This is why we need destroo.violate_mtree set to "yes"
 configure.args-append   -DCONFIG_INSTALL_DIR="/Library/Preferences" \
-                        -DKDE_INSTALL_DATADIR_KF5="/Library/Application Support"
+                        -DDATA_INSTALL_DIR="/Library/Application Support"
+#
+# Actually this should be used instead of DATA_INSTALL_DIR, but it doesn't work:
+#                       -DKDE_INSTALL_DATADIR_KF5="/Library/Application Support"
 
 # Q: What about the often used XDG dir?
 #    (Currently it gets installed into /etc/xdg just like on Linux.)
@@ -147,7 +150,7 @@ configure.args-append   -DDOCBOOKXSL_DIR=${prefix}/share/xsl/docbook-xsl \
                         -DTIFF_LIBRARY=${prefix}/lib/libtiff.dylib
 
 # KF5 frameworks are released with one version ATM:
-version                 5.11.0
+version                 5.13.0
 set branch              [join [lrange [split ${version} .] 0 1] .]
 
 if { ![ info exists kf5.framework ] && ![ info exists kf5.portingAid ] } {

@@ -7,8 +7,8 @@ set kf5.project     kdeclarative
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  cd67e8da5eb2bbf0e197cef4696293033ee8bea1 \
-                    sha256  d93148c3284d85b31cc79378ba52bbc38aad2a7364a93ecaaf2206b2771c40ea
+checksums           rmd160  4920605938767b06bffc35ad7a74c1806292f180 \
+                    sha256  24c082c504cefcf54b39579e73fae697c4d350847df0ddeb55e1e12b80a6c5b0
 
 depends_lib-append \
                     port:kf5-kpackage \

@@ -7,8 +7,8 @@ set kf5.project     kglobalaccel
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  7c7b41f05ce3e3da97581d0b7a02093d3daa4c70 \
-                    sha256  bedf7dd6e5c0d5328383b66eb08108e783a1d2a0bac64fd500c763685421b4c4
+checksums           rmd160  2b62ba6d3e1048e2265b1805051b69c1d513535b \
+                    sha256  d4fa1be5db09a3210fc86b272f5eca5aee311e1c64ffbae77a69dc919667aeb9
 
 depends_lib-append \
                     port:kf5-kconfig \

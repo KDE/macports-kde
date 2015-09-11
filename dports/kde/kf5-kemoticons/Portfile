@@ -7,8 +7,8 @@ set kf5.project     kemoticons
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  0c41286a0e9a6b347c1f5ce9f588c49b1f4895bc \
-                    sha256  aaf557fac8f12a8766e9e0dac06dffb2f3b7c7838c0c362cf3e5d22305db5723
+checksums           rmd160  24793c9db3d13aed4017d854048464085034a6f7 \
+                    sha256  52c5c06df5b578ddc47bc25d33f61a849f90e1320f32f00e8917a7dbe833b133
 
 depends_lib-append \
                     port:kf5-kservice \

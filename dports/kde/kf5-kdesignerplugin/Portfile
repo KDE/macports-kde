@@ -7,8 +7,8 @@ set kf5.project     kdesignerplugin
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  f5c42d7557f4047d0319173e21ffee896e1c7bc3 \
-                    sha256  46f25a411858f9c3126344a4530bbcf989687de49ecde358aa4f9df6e91af64c
+checksums           rmd160  2a648b64f03ed938f8db6c790c2d3abc4fca563e \
+                    sha256  7e3c683e46852ddbfc0a20334f3a41d733fe220dddad8b01de7e92d150552b46
 
 depends_lib-append \
                     port:kf5-kdewebkit \

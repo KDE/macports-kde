@@ -7,6 +7,6 @@ set kf5.project     kidletime
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  55945eb90d333c699795171f8765753aea7f7c96 \
-                    sha256  ccdc8b3e23282de64f9c0da69d2eaa50fe4428f9c8b5523cd61b0ffa9794be17
+checksums           rmd160  903c1d3738bfc3012d629e3797f8a08e6fbdfc7a \
+                    sha256  623591eb891566c4e00ba338aea61a63eec35fdc71b737961e5e358e1a25d7b4
 

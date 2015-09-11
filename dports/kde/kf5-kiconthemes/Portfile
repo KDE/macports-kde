@@ -7,8 +7,8 @@ set kf5.project     kiconthemes
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  d9b1b32f67f13f7ae57171d9206044ee9e3b2609 \
-                    sha256  00e3b12852923cef9ecfd27918f110e2d16f1aac84d2bce7425c8b779b201f3e
+checksums           rmd160  adb82655c50cdbd8a81a25d91d285ea882ef502b \
+                    sha256  e87ce9185228c5d9f5bbc15400a150353a46d0f3bc7992a1a52edebf03ae58ff
 
 depends_lib-append \
                     port:kf5-ki18n \

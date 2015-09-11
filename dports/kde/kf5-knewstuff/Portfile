@@ -7,8 +7,8 @@ set kf5.project     knewstuff
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  7f7bff67ee071cd8cac92ef23e757e534434cfe0 \
-                    sha256  cc1e747068f080c2fe57a59e794b0cebc7db8c79814b2e6053ab88472e210604
+checksums           rmd160  3effc3d47bf1ffdfd9ff1de10312bfd8f33f55c5 \
+                    sha256  59b3988c9bec087d3d3ac7f698db2fb050836b3a50a3793883c0e09c56ebfe8a
 
 depends_lib-append \
                     port:kf5-kxmlgui \
