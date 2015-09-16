@@ -164,6 +164,7 @@ if { ![ info exists kf5.framework ] && ![ info exists kf5.portingAid ] } {
         } else {
             set kf5.folder  "${kf5.virtualPath}/${kf5.release}/src"
             distname        ${kf5.project}-${kf5.release}
+            version         ${kf5.release}
         }
     }
 } else {
