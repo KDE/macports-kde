@@ -7,8 +7,8 @@ set kf5.project     knotifyconfig
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  d23590ee13c04589028b06750e6d6a7ed933b7f5 \
-                    sha256  7e62c76ab1612daa791aefe37f4708c42f5f626320dbb27e7b16c20d4c07bea6
+checksums           rmd160  36bbe1536378a24a1b66ea3bff7a9341aebf6fb3 \
+                    sha256  4aa31548a2cf5b828de60dadb82b8ac47aa4fb6812d0786d15123a8ec34f472c
 
 depends_lib-append \
                     port:kf5-ki18n \

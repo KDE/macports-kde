@@ -7,6 +7,6 @@ set kf5.project     kimageformats
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  178e1b9c035b8797ce7b2deb815ef49fdc7df8bb \
-                    sha256  9e9a529152200ee7b0b0328091aecec7be33a9affd8765394277f21925551953
+checksums           rmd160  71c84b1989cb7787264f99e040a1762f89018a33 \
+                    sha256  7bdf0592cbc7fef643d857b58359f116835c79ca65aa6f49579d483843e2c660
 

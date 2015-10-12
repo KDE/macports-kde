@@ -7,8 +7,8 @@ set kf5.project     kunitconversion
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  ae5b3f9fe7e3612960cab09119dcc883901006ba \
-                    sha256  b7972e35492f98658aa456a48902330c4c82ad7d08315ef626269b0e5f3cceb1
+checksums           rmd160  447e4a69ae09120548d776748223cb261bc9768c \
+                    sha256  aec7a2d9f3d8e5d4a9b73cb36d68aa9ab26f8adffc98844f3a22c6c18fd177e1
 
 depends_lib-append \
                     port:kf5-ki18n \

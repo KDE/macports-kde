@@ -7,8 +7,8 @@ set kf5.project     kdelibs4support
 set kf5.portingAid  yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  a92693b7e359d48f3e4a002176a3e200c6c338cf \
-                    sha256  430f18cf3c72211913602feafd1e723b60e6653d187041f436dfa722b88a96c2
+checksums           rmd160  72f7209277ef7f8578d0f10ac6c02cce38a4fbd1 \
+                    sha256  1e0bb3afeced27227a7a86626a5902a2d5cd7bddd6531a353003b39c07b32181
 
 depends_lib-append \
                     port:kf5-kxmlgui \

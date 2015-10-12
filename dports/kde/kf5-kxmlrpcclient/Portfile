@@ -7,8 +7,8 @@ set kf5.project     kxmlrpcclient
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  db597c830e6b5f5b4a502bedf3ae6e2fc677fa5e \
-                    sha256  308df80a9569a10480af0d4c7d5fdf7689b947e31da50ebf69d17fecc572eda1
+checksums           rmd160  bdce283158cd52b703500e9006f771d0000a3ef8 \
+                    sha256  63903b1b934f7234cb3bacedcdbb66368e211b9932bc342378fecb3686c5930d
 
 depends_lib-append \
                     port:kf5-kio 

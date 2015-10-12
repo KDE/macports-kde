@@ -7,8 +7,8 @@ set kf5.project     ktextwidgets
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  8b49fa998d9c7155f9c164b2d130374d1ee57d55 \
-                    sha256  1025bf6355948817a57b75c29cedd1cb825a0bf53511c1da0ddea5f04d9268dc
+checksums           rmd160  98a2e99ba7f13afce95cfb8993737a4ad7bc3681 \
+                    sha256  888a1c5ba0601fba08e5d97f9badcaf3cfea84cc8b6b1b913fbb3c45a5cc2de5
 
 depends_lib-append \
                     port:kf5-kservice \

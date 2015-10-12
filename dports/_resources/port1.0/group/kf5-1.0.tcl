@@ -150,7 +150,7 @@ configure.args-append   -DDOCBOOKXSL_DIR=${prefix}/share/xsl/docbook-xsl \
                         -DTIFF_LIBRARY=${prefix}/lib/libtiff.dylib
 
 # KF5 frameworks are released with one version ATM:
-version                 5.13.0
+version                 5.15.0
 set branch              [join [lrange [split ${version} .] 0 1] .]
 
 if { ![ info exists kf5.framework ] && ![ info exists kf5.portingAid ] } {
@@ -194,6 +194,12 @@ master_sites            http://download.kde.org/stable/${kf5.folder}
 
 use_xz                  yes
 
-# TODO
-livecheck.type          none
+# TODO: This is currently broken due to strange numbering scheme omitting the minor for the folder-regex.
+#if { [ info exists kf5.framework ] } {
+#    livecheck.type          regex
+#    livecheck.url           http://download.kde.org/stable/frameworks/
+#    livecheck.regex         "(5\\.\\d+)/"
+#} else {
+    livecheck.type          none
+#}
 

@@ -7,8 +7,8 @@ set kf5.project     kjobwidgets
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  111ecefff0cb4307fb39e4013325785eb2febb49 \
-                    sha256  0410329ed4d99c726fbb05f1701b9837e5bf2da6a554b74bfe45b1c7558b586e
+checksums           rmd160  fe8cd93f5b1c01a4b68baf83a8f4e5c691723924 \
+                    sha256  aa7db4d1440579d784709ecc1f2dda443ef9b22f8f3cdbc0914cd5cd5790238b
 
 depends_lib-append \
                     port:kf5-kcoreaddons \

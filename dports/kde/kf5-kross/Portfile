@@ -7,8 +7,8 @@ set kf5.project     kross
 set kf5.portingAid  yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  fcda1a27f30d24702cc3b0849785b89ed1aa46d4 \
-                    sha256  35108d0d7f5acb48b5b399fee0c61fd1eb62d00a1677d9db2692ff35643d43a0
+checksums           rmd160  81818152225f961622ed6752dbd7f12770581f24 \
+                    sha256  006f0dc6989cdd4a126c6cdcd01ad318163eed781293856baef9d9a132d09bd6
 
 depends_lib-append \
                     port:kf5-ki18n \

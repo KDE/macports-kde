@@ -7,6 +7,6 @@ set kf5.project     kwindowsystem
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  7949d32ff0d2f7dc5899acbb86f284279cd4f027 \
-                    sha256  c75868139adaa11122df2399466f8bc30d04287ce8ae778859fa2aa283dc30a2
+checksums           rmd160  494db63845f868823346e6ab79ad53ab48c87ea4 \
+                    sha256  1db9fcc1a109556cc41896b17427a031bfa7bdaf6bab36b415f348e3d75317f5
 

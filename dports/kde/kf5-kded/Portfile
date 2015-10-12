@@ -7,8 +7,8 @@ set kf5.project     kded
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  493352c5636e51647666b214b8e61071aaf5dfea \
-                    sha256  291e1ab2f4dff391724e00f256ce5feaef2cb212690259bbfff274c19ae8d779
+checksums           rmd160  f93facac2fb00bae9ad24222430d283f2ce6d380 \
+                    sha256  98330b8512dbc06f35b93edd85ac6777c84c960a9492dd38c670d567ba749490
 
 depends_lib-append \
                     port:kf5-kservice \

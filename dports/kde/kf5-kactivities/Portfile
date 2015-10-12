@@ -7,8 +7,8 @@ set kf5.project     kactivities
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  02992f917bafc0ed690b46c6e9a1e8e16b2b59d6 \
-                    sha256  570a3ea95b47e132a6ed965cc0d31eb932dcd9e8d9bdd1920343731e691c2e4c
+checksums           rmd160  af4c219194a155280cb1a24fe9acf5a6d2c25235 \
+                    sha256  d8d2603b212081a7137b0647d4e0177f7f50034426c0dbb392e5978c1c3a2e41
 
 depends_lib-append \
                     port:kf5-kservice \

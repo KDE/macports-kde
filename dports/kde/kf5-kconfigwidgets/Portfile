@@ -7,8 +7,8 @@ set kf5.project     kconfigwidgets
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  389474e38b3e3000c49655a15052e306996555b5 \
-                    sha256  fe9f245df8692ede7feb6f080b1450f3a26281e6318bab1c4cb969321811b6d4
+checksums           rmd160  3053310c30d9342008277e97264932ac917b9ed7 \
+                    sha256  43664b4e2b4175401dba9da379c0cd98d86627e68cb87e7d31e838ff5c3c783e
 
 depends_lib-append \
                     port:kf5-kwidgetsaddons \

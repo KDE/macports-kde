@@ -7,6 +7,6 @@ set kf5.project     kcodecs
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  216009d256a462917779a237826c30f6df4f1706 \
-                    sha256  f5f7ddb4c2e9ab90ed1075816509e3d0bc851586d0df3d02c827563c6757322c
+checksums           rmd160  77e468e22a3c412d9bf0f322a6f1adf8df23cb41 \
+                    sha256  f71c51f064fdfde2b6eeb898aaf1f651c407e91844306359a7c07dbafadae8cf
 

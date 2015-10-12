@@ -7,6 +7,6 @@ set kf5.project     kapidox
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  74864526c4b0d27983f801b36fc1cab2420a3685 \
-                    sha256  f20f43d64414ff78200d265c82e69748f8c123e08bfb98cd063dfa132916e73d
+checksums           rmd160  e520b51932326f8cb39ea109129392d3963344a0 \
+                    sha256  98ed6ce505f4e17264809ab0414d6305b0626280d45aa06df84ee554c891828c
 

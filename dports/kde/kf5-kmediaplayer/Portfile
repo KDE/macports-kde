@@ -7,8 +7,8 @@ set kf5.project     kmediaplayer
 set kf5.portingAid  yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  71b2b7064bd617d8b0ac815d73ffa2ec6d2d813a \
-                    sha256  60fc2fcdadde87254738c91bb656e35b1e1858342456aa99e3410ba6e5fc6aa6
+checksums           rmd160  536e2bf6ef41090ba06b678e9ef97fa5daf4312b \
+                    sha256  b5e7279f0f62ed68b88e50efeccb3a0dc6be8fb28c1acb79adfcc74a274a91e6
 
 depends_lib-append \
                     port:kf5-ki18n \

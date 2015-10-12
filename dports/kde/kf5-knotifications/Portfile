@@ -7,8 +7,8 @@ set kf5.project     knotifications
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  dba91bbcd97038d3b52fc1acf791572094f62668 \
-                    sha256  3b7edf852f855b2074e16a5572b8eb68bd9d4e7e11c41568227240f32604c512
+checksums           rmd160  a870b63ae6c17e706a8a66ba4550767cabd9fd08 \
+                    sha256  958d2c98563e3de0bf49490a931e95100efa06f91647eb1d1523c5a252ef0985
 
 depends_lib-append \
                     port:kf5-kconfig \

@@ -7,8 +7,8 @@ set kf5.project     kpty
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  596dfff91ee39159c46a6ece3e92e4a09de52fb9 \
-                    sha256  60977d4c87279c0a6a2c684012cc9790baaeec11b042968a21aab64cc3fe6730
+checksums           rmd160  2927784d2f74438b9df5982e879b6bed01b533cb \
+                    sha256  603061da7ec31221ce0cc4dfd809ce5df15110f92571fe16b740550ef924d40f
 
 depends_lib-append \
                     port:kf5-ki18n \

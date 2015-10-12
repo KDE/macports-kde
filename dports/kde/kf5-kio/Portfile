@@ -7,8 +7,8 @@ set kf5.project     kio
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  be5c2d8c611904de08f5ba818b682f285d90c0d0 \
-                    sha256  c31fde0c554859f9241a1dbdc854405d7cb358085ac7c703c7bb4105748bdbd4
+checksums           rmd160  4e3d5024517193d859b73db4eed514eeca9358d1 \
+                    sha256  0821731f1c1446a548be18f425de2f0077d31e3c6fc89f7e9c4557c9b232a551
 
 depends_lib-append \
                     port:kf5-kwallet \

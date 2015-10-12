@@ -7,8 +7,8 @@ set kf5.project     kcmutils
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  73851664deb796c77d6c645b2f8cfb7a3c1382ad \
-                    sha256  8ba03c5dc0baedb70ce28a4653ae69dda86a35ab24e29cbf787438390a184c8e
+checksums           rmd160  25c94337fe81acac74b201af4914ed05ca27b257 \
+                    sha256  df584c8a4688b8716d77bdbb77a354ca8f609ea235b4829402e927b4c000d36b
 
 depends_lib-append \
                     port:kf5-kservice \

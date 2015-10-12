@@ -7,8 +7,8 @@ set kf5.project     khtml
 set kf5.portingAid  yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  4db93542d409c282350daf20da2ddf42e1fda772 \
-                    sha256  b594e6a9e9dbfbcd977454b01a0dd7fe37345f1191a248b469106838718bd357
+checksums           rmd160  bb1ea97e6868c43ff3f2c74c4ce6db25fb7207cc \
+                    sha256  e0287004d369a9cb0d5d7da2787e469fcaf17ce213d9d8ec877e43781a0efd05
 
 depends_lib-append \
                     port:kf5-kxmlgui \

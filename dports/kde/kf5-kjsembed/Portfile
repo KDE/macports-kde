@@ -7,8 +7,8 @@ set kf5.project     kjsembed
 set kf5.portingAid  yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  b631521a57bc2f80915b0e8e784bd0494c82e961 \
-                    sha256  28b288a40ea602d4254396f79ea8476319c42610ebc13997e531bb990f59d446
+checksums           rmd160  0c6b47531ea04a1f7d3c59a11a8ad471b759e9d3 \
+                    sha256  4456808a6fbc595bd62235085e4aba2f18665e884220159b3cbe4653cd343525
 
 depends_lib-append \
                     port:kf5-ki18n \

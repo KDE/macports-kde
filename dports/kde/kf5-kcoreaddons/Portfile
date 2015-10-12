@@ -7,8 +7,8 @@ set kf5.project     kcoreaddons
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  d50b4dcf4396f7326293f46703b1ff3fb493f1fa \
-                    sha256  bd42571c44ab2b6cc4514bcc16e8f689945ffab13b04e394fa192e9058a58961
+checksums           rmd160  f0ab1b42a06fd76f68e2f5cd002cf9adcd425fe0 \
+                    sha256  b5dd4db06ed1d7b50047bade34520d433c6f30defd7cbd74929cf5dce95a06ec
 
 depends_lib-append \
                     port:shared-mime-info 

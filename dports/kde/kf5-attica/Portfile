@@ -7,6 +7,6 @@ set kf5.project     attica
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  71588107fa66a8d938b70081f565a3712fb71916 \
-                    sha256  106532a667a63d8b9aa39d8f857d5156f4e939d4f927c0809cf478b41472b83b
+checksums           rmd160  31c8e1deedfcf6465a614690e3c14cfa420edc54 \
+                    sha256  94c928b84a82c44c1331a1b4d585e894524c4a023f90e1906eaf5441d955ad3d
 

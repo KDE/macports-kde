@@ -7,6 +7,6 @@ set kf5.project     solid
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  45482e03b8723fd7d9f4ca6e8416d60a6351496c \
-                    sha256  332a509923e2354c6bbd04e0d4d2c217e89bbb016d9e5b674a4f44cbe2c206e8
+checksums           rmd160  05663588a0004b43197d0409489b89e02d5a9c1c \
+                    sha256  ca715a7f23fe6477fce6cfefc3a63655cd7526406b493ac678fb31ecac5f2804
 

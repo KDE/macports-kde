@@ -7,6 +7,6 @@ set kf5.project     kwidgetsaddons
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  757cc48580ad00aafe36287d7a09a5bfa61bca91 \
-                    sha256  3189446e9482d7d3bdddda9736fc44226a4205997166c298dd61419cf30a43a7
+checksums           rmd160  05cc16185b9d3d7f9b5c2bb439315823299bf0d4 \
+                    sha256  c3e0fed862a3053481a526f923e79cdef890cec93105fe95080e7cd78ad36fd9
 

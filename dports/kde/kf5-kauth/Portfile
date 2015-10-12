@@ -7,8 +7,8 @@ set kf5.project     kauth
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  7f84266c49d65ce16b52a187bde815e284a5002b \
-                    sha256  73d67cbabaa89fe877ed60f5b95a46152bcca96fa8331403e137c7eb5bea33c8
+checksums           rmd160  335bd7b2101131c1778740124b74c4ef7233e6f5 \
+                    sha256  e2a91e1a4c40d5547c8963c74a805810b6bc192e3193245f52e855addc7219da
 
 depends_lib-append \
                     port:kf5-kcoreaddons 

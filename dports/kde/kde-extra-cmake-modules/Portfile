@@ -8,7 +8,7 @@ cmake.out_of_source yes
 
 set ECM             extra-cmake-modules
 name                kde-${ECM}
-version             5.13.0
+version             5.15.0
 set branch          [join [lrange [split ${version} .] 0 1] .]
 supported_archs     noarch
 categories          kde kf5 devel
@@ -26,8 +26,8 @@ master_sites        http://download.kde.org/stable/frameworks/${branch}/
 distname            ${ECM}-${version}
 use_xz              yes
 
-checksums           rmd160  6c9a669a43e90c59b1f7f89521cbd1a31df4f108 \
-                    sha256  ba52848a75347fb70c55f1bcd28c3594c067075c17a46b1f8c2951ebe0d3d5c2
+checksums           rmd160  f2b2c64ba27924761cba2cd4efd0f35f494b8cfa \
+                    sha256  8f3d4adadfa835c627852ca4a84e8c6be3c9ee68865598a71616e4d0176b02bc
 
 variant qt4 description {Use qt4-mac to build the Qt documentation} {
     PortGroup               qt4 1.0

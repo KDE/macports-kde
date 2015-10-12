@@ -7,6 +7,6 @@ set kf5.project     sonnet
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  a5fd6d1d4fc6c19556664c2f4a604a09f2674c23 \
-                    sha256  a7743a3c36b6cd27c008d4a7bf8062e4ac59a4d32e6a2e33139e19ac444c4716
+checksums           rmd160  a47b9611f4b8d9c2917c4cd7cfa2e78638b46cac \
+                    sha256  a0be638acbed60a513e1aa086bc86a8e6876341e4f981617e55f6edfbe2e1aa3
 

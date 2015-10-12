@@ -7,6 +7,6 @@ set kf5.project     kitemviews
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  0a89b1d8753be0a9fe6364e8bfa5624d8ee1aeba \
-                    sha256  fcc9b4c1ae89d686c2633bbddccc72c6407274b753e1ec341f4a4fe89dc85f45
+checksums           rmd160  37e85025ac6e6a3822080a58d52eee82012ad160 \
+                    sha256  d1637a8ccbf1bf349e38682b0615785ab3610807328acc7ed47c73e0e8e92284
 

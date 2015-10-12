@@ -7,8 +7,8 @@ set kf5.project     krunner
 set kf5.portingAid  yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  bb18939424f1a70b95527506237df3f9c9cf757e \
-                    sha256  8aa0b679c7780791a9f2075f1404af4924defec1f34dab6c2135796b2e3d49fa
+checksums           rmd160  87d494df636f9b66f8ddd87649b029ba63b33324 \
+                    sha256  1bd8bae2880c7c085f76f2b573409143bf18d5a1f51ed849d46915a2ca08cb4f
 
 depends_lib-append \
                     port:kf5-kservice \

@@ -7,6 +7,6 @@ set kf5.project     kdbusaddons
 set kf5.framework   yes
 PortGroup           kf5 1.0
 
-checksums           rmd160  194a16e45237a0fc2014393a3db3f7af54f2279b \
-                    sha256  02f9968e3bae65a7de36f3a6a908feff69d95bec0ab7b2ab2b7602860b4521f0
+checksums           rmd160  3118b27ff904931983551dd89f4bfcd97d94ad77 \
+                    sha256  dddd802bd03862eac02423fb24abce8017c372c6ae0d29a69862411789ca62f0
 
