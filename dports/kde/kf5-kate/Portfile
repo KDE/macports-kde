@@ -4,11 +4,11 @@
 PortSystem          1.0
 
 set kf5.project     kate
-set kf5.virtualPath kde/applications
-set kf5.release     15.04.2
+set kf5.virtualPath applications
+set kf5.release     15.08.2
 PortGroup           kf5 1.0
 
-checksums           rmd160  624b16c4f2a005e4fde2e669e988433b3d0b70e8
+checksums           rmd160  1611595204bb1336a2951c857f7c8a88f755805f
 
 depends_lib-append \
                     port:kf5-kactivities \
