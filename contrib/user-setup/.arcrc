@@ -1,10 +1,5 @@
 {
   "config": {
     "default": "https:\/\/phabricator.kde.org"
-  },
-  "hosts": {
-    "https:\/\/phabricator.kde.org\/api\/": {
-      "token": "cli-och6pgnbcxfax5uxxyguq5gylm5e"
-    }
   }
 }
